@@ -23,7 +23,7 @@ const GKK = () => {
       </div>
 
       <section>
-        <img src='/GKK.png' alt='Fazal-e-Insaaniyat Logo' className='mx-auto mt-75 w-50 h-50 z-[-1]'/>
+        <img src='/GKK.png' alt='GKK Logo' className='mx-auto mt-75 w-50 h-50 z-[-1]'/>
 
         <div className='flex items-center justify-center'>
           <h1 className='title text-7xl text-[#76ab85] z-[1] m-25 text-center'>Coming soon...</h1>

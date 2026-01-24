@@ -23,7 +23,7 @@ const Home = () => {
       </div>
 
       <section>
-        <img src='/FI Logo.png' alt='Fazal-e-Insaaniyat Logo' className='mx-auto mt-50 w-100 h-100 z-[-1]'/>
+        <img src='/FI_Logo.png' alt='Fazal-e-Insaaniyat Logo' className='mx-auto mt-50 w-100 h-100 z-[-1]'/>
 
         <div className='flex items-center justify-center'>
           <h1 className='title text-7xl text-[#76ab85] z-[1] text-center'>Coming soon...</h1>
