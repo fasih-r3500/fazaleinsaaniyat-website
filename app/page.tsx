@@ -1,5 +1,6 @@
 import React from 'react'
 import LightRays from '@/components/LightRays';
+import Image from 'next/image';
 
 const Home = () => {
   return (
@@ -23,7 +24,13 @@ const Home = () => {
       </div>
 
       <section>
-        <img src='/FI_Logo.png' alt='Fazal-e-Insaaniyat Logo' className='mx-auto mt-50 w-100 h-100 z-[-1]'/>
+        <Image
+          src='/FI_Logo.png'
+          alt='Fazal-e-Insaaniyat Logo'
+          width={400}
+          height={400}
+          className='mx-auto mt-50 z-[-1]'
+        />
 
         <div className='flex items-center justify-center'>
           <h1 className='title text-7xl text-[#76ab85] z-[1] text-center'>Coming soon...</h1>
