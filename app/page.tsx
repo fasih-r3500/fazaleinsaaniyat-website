@@ -25,7 +25,7 @@ const Home = () => {
 
       <section>
         <Image
-          src='/FI_Logo.png'
+          src='/FI_LOGO.png'
           alt='Fazal-e-Insaaniyat Logo'
           width={400}
           height={400}
