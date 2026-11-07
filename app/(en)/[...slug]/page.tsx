@@ -1,10 +1,7 @@
-import { NotFoundPage } from "@/components/site/NotFoundPage";
-import { notFound } from "@/content/copy";
+import { notFound } from "next/navigation";
 
-export const metadata = {
-  title: notFound.title.en,
-};
-
+// Every real page has its own route. This catch-all only sees an address that
+// does not exist, so it answers with a real 404 instead of a placeholder page.
 export default function Page() {
-  return <NotFoundPage locale="en" />;
+  notFound();
 }
