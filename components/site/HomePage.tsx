@@ -4,6 +4,7 @@ import { madrasahs } from "@/lib/madrasahs";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { Mark } from "./Mark";
 import { T } from "./BilingualText";
+import { HeroTicker } from "./HeroTicker";
 import { SiteMap } from "./SiteMap";
 import { MadrasahSummaryTable } from "./MadrasahTables";
 
@@ -38,6 +39,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
           </div>
         </div>
+        <HeroTicker locale={locale} />
       </section>
 
       <section className="verify" aria-labelledby="verify-heading">
