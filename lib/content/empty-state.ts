@@ -7,17 +7,17 @@ export type EmptyState = {
 };
 
 /**
- * Shown instead of a list when `content/reports` holds no published report.
+ * Shown instead of a list when `content/field-trips` holds no published trip.
  * It states plainly that nothing is published yet and promises nothing.
  */
-export const reportsEmptyState: EmptyState = {
+export const fieldTripsEmptyState: EmptyState = {
   title: {
-    en: "No field reports published yet",
-    ur: null,
+    en: "No field trips published yet",
+    ur: "ابھی کوئی میدانی دورہ شائع نہیں ہوا",
   },
   body: {
-    en: "Reports will appear here once the field team has verified them. Nothing is published in their place.",
-    ur: null,
+    en: "Field trips will appear here once the write-up has been checked. Nothing is published in their place.",
+    ur: "تحریر کی جانچ کے بعد میدانی دورے یہاں آئیں گے۔ ان کی جگہ کوئی اور چیز شائع نہیں کی جاتی۔",
   },
 };
 

@@ -69,10 +69,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
             </div>
             <div className="panel">
               <h3>
-                <T locale={locale} value={aboutPage.reportTitle} />
+                <T locale={locale} value={aboutPage.fieldTripTitle} />
               </h3>
               <p>
-                <T locale={locale} value={aboutPage.reportBody} />
+                <T locale={locale} value={aboutPage.fieldTripBody} />
               </p>
             </div>
           </div>

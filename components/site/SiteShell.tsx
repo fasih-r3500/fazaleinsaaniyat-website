@@ -14,12 +14,18 @@ import {
 import { Mark } from "./Mark";
 import { T } from "./BilingualText";
 
-type NavKey = "madrasahs" | "programmes" | "reports" | "transparency" | "about" | "contact";
+type NavKey =
+  | "madrasahs"
+  | "programmes"
+  | "field-trips"
+  | "transparency"
+  | "about"
+  | "contact";
 
 const navItems: { key: NavKey; label: typeof nav.madrasahs; href: string }[] = [
   { key: "madrasahs", label: nav.madrasahs, href: "madrasahs" },
   { key: "programmes", label: nav.work, href: "programmes" },
-  { key: "reports", label: nav.reports, href: "reports" },
+  { key: "field-trips", label: nav.fieldTrips, href: "field-trips" },
   { key: "transparency", label: nav.transparency, href: "transparency" },
   { key: "about", label: nav.about, href: "about" },
   { key: "contact", label: nav.contact, href: "contact" },
@@ -119,8 +125,8 @@ function Footer({ locale }: { locale: Locale }) {
             </h2>
             <ul>
               <li>
-                <a href={pathForLocale(locale, "reports")}>
-                  <T locale={locale} value={footer.fieldReports} />
+                <a href={pathForLocale(locale, "field-trips")}>
+                  <T locale={locale} value={footer.fieldTrips} />
                 </a>
               </li>
               <li>
