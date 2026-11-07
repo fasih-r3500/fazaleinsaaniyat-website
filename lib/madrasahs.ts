@@ -26,7 +26,7 @@ export const madrasahs: Madrasah[] = madrasahRows;
 
 export const pakistanOutline = pakistan;
 
-// Coordinates are city level positions, not surveyed site points. The record for each
+// Coordinates are the town or city where each madrasah operates. The record for each
 // choice is content/MADRASAH-COORDINATES.md. The outline anchor is Shikarpur.
 export function projectMadrasah(lat: number, lng: number) {
   const [anchorX, anchorY] = pakistan.shikarpur;
