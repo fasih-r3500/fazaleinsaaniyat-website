@@ -16,8 +16,8 @@ export type MadrasahGroup = {
 };
 
 export type MapPoint = {
-  id: string;
-  place: string;
+  // Visitor facing marker name. The madrasah ID stays in the data and is never projected.
+  label: string;
   x: number;
   y: number;
 };
@@ -65,16 +65,19 @@ export function getMapPoints(rows: Madrasah[]): MapPoint[] {
 
     const point = projectMadrasah(row.lat, row.lng);
     const groupSize = counts.get(row.city) ?? 1;
+    // The marker name is the place itself. Where a city holds more than one madrasah the
+    // position is named so each marker keeps its own title without an internal ID.
+    const label =
+      groupSize === 1 ? row.place : `${row.place} (${index + 1} of ${groupSize})`;
 
     if (groupSize === 1) {
-      return { id: row.id, place: row.place, ...point };
+      return { label, ...point };
     }
 
     // Repeated cities fan around the city point so every madrasah keeps its own marker.
     const angle = (2 * Math.PI * index) / groupSize;
     return {
-      id: row.id,
-      place: row.place,
+      label,
       x: point.x + Math.cos(angle) * 4.6,
       y: point.y + Math.sin(angle) * 4.6,
     };

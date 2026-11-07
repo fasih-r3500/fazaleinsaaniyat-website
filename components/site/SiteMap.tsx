@@ -28,13 +28,13 @@ export function SiteMap({
       <path className="map-land" d={pakistanOutline.d} />
       {points.map((point) => (
         <circle
-          key={point.id}
+          key={point.label}
           className="map-site"
           cx={point.x}
           cy={point.y}
           r={3.4}
         >
-          <title>{`${point.id} ${point.place}`}</title>
+          <title>{point.label}</title>
         </circle>
       ))}
     </svg>

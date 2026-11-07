@@ -67,7 +67,7 @@ export const footer = {
 };
 
 export const home = {
-  heroTitle: b("Twenty madrasahs. Water, widows and livelihood support.", null),
+  heroTitle: b("Insaaniyat Zinda Hai!", "انسانیت زندہ ہے"),
   heroLede: b(
     "Fazal-e-Insaaniyat Charity Works pays educated women to teach the Holy Quran from their home. We also build mosques, wells and water pumps, support widows, and help people toward a livelihood.",
     null,
@@ -129,7 +129,7 @@ export const home = {
   ),
   hbmStatLabel: b("madrasahs across Sindh and Punjab", null),
   hbmNote: b(
-    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table names every ID.",
+    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each place and how many madrasahs it holds.",
     null,
   ),
   hbmTableCaption: b("20 madrasahs, grouped by place", null),
@@ -208,10 +208,9 @@ export const madrasahsPage = {
   tableCaption: b("20 madrasahs, grouped by place", null),
   tablePlace: b("Place", "مقام"),
   tableCount: b("No.", null),
-  tableIds: b("IDs", null),
   everyTitle: b("Every madrasah, by place", null),
   everyLead: b(
-    "The list below names all 20 sites and keeps the two Khipro madrasahs as separate rows.",
+    "The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.",
     null,
   ),
   countNote: b("20 madrasahs in 11 places.", null),
