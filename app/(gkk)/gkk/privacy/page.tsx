@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import LightRays from "@/components/LightRays"
 
 const Privacy = () => {
@@ -29,7 +30,7 @@ const Privacy = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">1. Introduction</h2>
           <p className="mb-4">
-            Welcome to Ghar Ka Khana ("GKK", "we", "us", or "our"). This Privacy Policy explains how Fazal-e-Insaaniyat Charity Works collects, uses, discloses, and protects your personal information when you use our mobile application and website.
+            Welcome to Ghar Ka Khana (&quot;GKK&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). This Privacy Policy explains how Fazal-e-Insaaniyat Charity Works collects, uses, discloses, and protects your personal information when you use our mobile application and website.
           </p>
           <p className="mb-4">
             Ghar Ka Khana is a food marketplace that connects home cooks with people seeking home-cooked meals in Pakistan.
@@ -137,7 +138,7 @@ const Privacy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-3">9. Children's Privacy</h2>
+          <h2 className="text-2xl font-semibold mb-3">9. Children&apos;s Privacy</h2>
           <p>
             Our service is available to users of all ages. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can take appropriate action.
           </p>
@@ -146,7 +147,7 @@ const Privacy = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">10. Changes to This Privacy Policy</h2>
           <p className="mb-4">
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
           </p>
           <p>
             We encourage you to review this Privacy Policy periodically for any changes.

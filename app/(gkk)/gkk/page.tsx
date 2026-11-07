@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element, @next/next/no-html-link-for-pages */
 import React from 'react'
 import LightRays from '@/components/LightRays';
-import Image from 'next/image';
 
 const GKK = () => {
     return (
@@ -24,7 +24,7 @@ const GKK = () => {
             </div>
 
             <section>
-                <Image
+                <img
                     src='/GKK.png'
                     alt='GKK Logo'
                     width={200}

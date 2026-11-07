@@ -4,7 +4,7 @@
 
 This repository holds the official website for Fazal-e-Insaaniyat Charity Works. It is the public face of the organisation: one place to explain who we are and what the charity does.
 
-The public site is currently a holding page. The full site is in development, and this README will be updated as it takes shape.
+The public site is being rebuilt in bilingual English and Urdu. The home page, the Home-Based Madrasahs page, the Our work page and the About page are built. Remaining pages in the full route list are follow-up work. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
 
 ## Why it exists
 
@@ -15,7 +15,8 @@ The site is built and maintained by a volunteer for a family-run charity. Nobody
 - Next.js 16 (App Router)
 - React 19
 - TypeScript 5
-- Tailwind CSS 4
+- A self-hosted font set and CSS custom properties for the public site
+- Tailwind CSS 4 for the preserved GKK page
 - Vercel for hosting
 
 ## Getting started
@@ -49,18 +50,18 @@ Check the code with ESLint:
 npm run lint
 ```
 
-As of this writing, the lint command reports existing errors in the GKK pages. They do not affect the production build.
-
 ## Project structure
 
-The codebase is small, and the directories below are close to the whole of it.
+- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes` and `/about`. The `/en/...` paths are aliases with the same content.
+- `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
+- `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
+- `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
+- `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review.
+- `lib/` holds locale, metadata, request path and madrasah projection helpers.
+- `proxy.ts` sets the strict Content Security Policy with a per-request nonce, plus the other security headers.
+- `public/fonts/site/` holds the self-hosted Newsreader, IBM Plex Sans, IBM Plex Mono, Noto Naskh Arabic and Noto Nastaliq Urdu woff2 files.
 
-- `app/` contains the App Router pages. `app/page.tsx` is the home holding page, and `app/layout.tsx` defines the root layout, metadata, and the locally hosted Garet font. `app/globals.css` holds the Tailwind import and theme tokens. `app/gkk/` is a separate GKK (Ghar Ka Khana) holding page with a privacy policy at `app/gkk/privacy/page.tsx`.
-- `components/` currently contains one component, `LightRays.jsx`, the animated background used on the holding pages, plus its stylesheet.
-- `lib/` contains only `utils.ts`, the small `cn` class name helper used by shadcn/ui conventions.
-- `public/` contains the logo images (`FI_LOGO.png` and `GKK.png`), the Garet font files under `public/fonts/`, and a few unused default SVG assets from the original Next.js scaffold.
-
-There is no test suite or CI configuration in the repository at this time.
+The public site has no third-party requests, no analytics, no embeds and no font CDN. The Content Security Policy does not use `unsafe-inline`.
 
 ## Deployment
 
@@ -74,10 +75,7 @@ This is a small project maintained by one volunteer in his own time, so response
 
 ## Status and roadmap
 
-The following work is planned, not in progress:
-
-- The full public site to replace the holding page
-- Bilingual content in English and Urdu
-- A members area
-
-Dates are not set. Progress will be visible in this repository as it happens.
+- The home page, Madrasahs, Our work and About pages are built in English and Urdu.
+- The remaining route list is follow-up work. Unbuilt paths show an honest page that says the page is not part of the current build.
+- Urdu copy that did not already exist in the v2 build is shown as a visible placeholder and listed in `content/ur-pending.md` for a native reviewer.
+- Facts that are not confirmed are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.
