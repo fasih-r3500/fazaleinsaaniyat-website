@@ -4,7 +4,7 @@ function makeNonce() {
   return crypto.randomUUID().replace(/-/g, "");
 }
 
-export function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const nonce = makeNonce();
   const csp = [
     "default-src 'none'",
@@ -20,6 +20,7 @@ export function proxy(request: NextRequest) {
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  // Next reads the CSP nonce from the request header to stamp its own scripts.
   requestHeaders.set("Content-Security-Policy", csp);
 
   const response = NextResponse.next({
