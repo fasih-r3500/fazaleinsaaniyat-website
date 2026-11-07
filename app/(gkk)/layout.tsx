@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "../globals.css";
+
+export const dynamic = "force-dynamic";
 
 const garet = localFont({
   src: [
     {
-      path: "../public/fonts/Garet-Book.ttf",
+      path: "../../public/fonts/Garet-Book.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/Garet-Heavy.ttf",
+      path: "../../public/fonts/Garet-Heavy.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/Garet-Regular.ttf",
+      path: "../../public/fonts/Garet-Regular.ttf",
       weight: "500",
       style: "normal",
     }

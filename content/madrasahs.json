@@ -1,0 +1,22 @@
+[
+  { "id": "M-001", "place": "Bhangoria Town, Azizabad, Karachi", "city": "Karachi", "province": null, "lat": 24.93, "lng": 67.06 },
+  { "id": "M-002", "place": "Nagan Chowrangi, Karachi", "city": "Karachi", "province": null, "lat": 24.93, "lng": 67.06 },
+  { "id": "M-003", "place": "Chakwal, Punjab", "city": "Chakwal", "province": "Punjab", "lat": 32.93, "lng": 72.86 },
+  { "id": "M-004", "place": "Orangi Town, Karachi", "city": "Karachi", "province": null, "lat": 24.93, "lng": 67.06 },
+  { "id": "M-005", "place": "Banaras, Karachi", "city": "Karachi", "province": null, "lat": 24.93, "lng": 67.06 },
+  { "id": "M-006", "place": "Lodhra, Punjab", "city": "Lodhra", "province": "Punjab", "lat": 29.54, "lng": 71.63 },
+  { "id": "M-007", "place": "Rahim Yar Khan, Punjab", "city": "Rahim Yar Khan", "province": "Punjab", "lat": 28.42, "lng": 70.30 },
+  { "id": "M-008", "place": "Shikarpur, Sindh", "city": "Shikarpur", "province": "Sindh", "lat": 27.96, "lng": 68.64 },
+  { "id": "M-009", "place": "Khipro, Sanghar, Sindh", "city": "Khipro", "province": "Sindh", "lat": 25.83, "lng": 69.38 },
+  { "id": "M-010", "place": "Khipro, Sanghar, Sindh", "city": "Khipro", "province": "Sindh", "lat": 25.83, "lng": 69.38 },
+  { "id": "M-011", "place": "Muzaffargarh, Punjab", "city": "Muzaffargarh", "province": "Punjab", "lat": 30.07, "lng": 71.19 },
+  { "id": "M-012", "place": "Ghotki, Sindh", "city": "Ghotki", "province": "Sindh", "lat": 28.00, "lng": 69.32 },
+  { "id": "M-013", "place": "Lahore", "city": "Lahore", "province": null, "lat": 31.55, "lng": 74.34 },
+  { "id": "M-014", "place": "Raiwind, Lahore", "city": "Lahore", "province": null, "lat": 31.55, "lng": 74.34 },
+  { "id": "M-015", "place": "Rahim Yar Khan, Punjab", "city": "Rahim Yar Khan", "province": "Punjab", "lat": 28.42, "lng": 70.30 },
+  { "id": "M-016", "place": "Ghotki, Sindh", "city": "Ghotki", "province": "Sindh", "lat": 28.00, "lng": 69.32 },
+  { "id": "M-017", "place": "Shikarpur, Sindh", "city": "Shikarpur", "province": "Sindh", "lat": 27.96, "lng": 68.64 },
+  { "id": "M-018", "place": "Ghotki, Sindh", "city": "Ghotki", "province": "Sindh", "lat": 28.00, "lng": 69.32 },
+  { "id": "M-019", "place": "Rajan Pur, Punjab", "city": "Rajanpur", "province": "Punjab", "lat": 29.10, "lng": 70.33 },
+  { "id": "M-020", "place": "Khairpur, Sindh", "city": "Khairpur", "province": "Sindh", "lat": 27.53, "lng": 68.76 }
+]
