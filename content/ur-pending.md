@@ -42,7 +42,7 @@ because the facts are unconfirmed, not because the translation is missing.
 - Home-Based Madrasahs
 - FI sets up the madrasah and pays the teacher's salary. The teacher, an educated woman, teaches the Holy Quran from her home. Children are not charged.
 - madrasahs across Sindh and Punjab
-- Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each place and how many madrasahs it holds.
+- Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each city and how many madrasahs it holds.
 - 20 madrasahs, grouped by city
 - See every madrasah
 - What else we do
@@ -84,7 +84,7 @@ because the facts are unconfirmed, not because the translation is missing.
 - Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.
 - 20 madrasahs, grouped by city
 - No.
-- Every madrasah, by place
+- Every madrasah, by city
 - The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.
 - 20 madrasahs in 11 cities.
 
@@ -147,3 +147,4 @@ These strings are already written in Urdu and are shown as written, not as a pla
 Each one still needs a native reviewer to confirm the wording.
 
 - انسانیت زندہ ہے (home page hero headline; English source: Insaaniyat Zinda Hai!)
+- شہر (madrasahs page summary-table column header; English source: City)

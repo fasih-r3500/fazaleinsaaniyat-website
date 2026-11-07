@@ -129,7 +129,7 @@ export const home = {
   ),
   hbmStatLabel: b("madrasahs across Sindh and Punjab", null),
   hbmNote: b(
-    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each place and how many madrasahs it holds.",
+    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each city and how many madrasahs it holds.",
     null,
   ),
   hbmTableCaption: b("20 madrasahs, grouped by city", null),
@@ -206,9 +206,9 @@ export const madrasahsPage = {
   mapAriaTitle: b("Map of Pakistan with 20 madrasah sites, one dot per madrasah", null),
   mapAriaDescription: b("Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.", null),
   tableCaption: b("20 madrasahs, grouped by city", null),
-  tablePlace: b("Place", "مقام"),
+  tablePlace: b("City", "شہر"),
   tableCount: b("No.", null),
-  everyTitle: b("Every madrasah, by place", null),
+  everyTitle: b("Every madrasah, by city", null),
   everyLead: b(
     "The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.",
     null,
