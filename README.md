@@ -50,13 +50,17 @@ Check the code with ESLint:
 npm run lint
 ```
 
+## Adding a report or a figure
+
+Field reports, ledger entries and published figures are plain files in `content/`. Adding one means adding a file, not editing page code. See [docs/CONTENT.md](docs/CONTENT.md) for the fields, the validation rules and the empty state behaviour.
+
 ## Project structure
 
 - `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes` and `/about`.
 - `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
 - `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
 - `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
-- `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review.
+- `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review. Field reports live in `content/reports/` and the ledger and figures in `content/facts/`; `docs/CONTENT.md` explains how to add them.
 - `lib/` holds locale, metadata, request path and madrasah projection helpers.
 - `middleware.ts` sets the strict Content Security Policy with a per-request nonce, plus the other security headers. The CSP is set on both the request and the response because Next.js reads the request CSP nonce when stamping its own injected scripts. The matcher excludes `/gkk` and `/gkk/privacy`, so those routes keep their current security posture; hardening them is a separate follow-up.
 - `public/fonts/site/` holds the self-hosted Newsreader, IBM Plex Sans, IBM Plex Mono, Noto Naskh Arabic and Noto Nastaliq Urdu woff2 files.
