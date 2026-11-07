@@ -67,7 +67,7 @@ export const footer = {
 };
 
 export const home = {
-  heroTitle: b("Twenty madrasahs. Water, widows and livelihood support.", null),
+  heroTitle: b("Insaaniyat Zinda Hai!", "انسانیت زندہ ہے"),
   heroLede: b(
     "Fazal-e-Insaaniyat Charity Works pays educated women to teach the Holy Quran from their home. We also build mosques, wells and water pumps, support widows, and help people toward a livelihood.",
     null,
@@ -129,10 +129,10 @@ export const home = {
   ),
   hbmStatLabel: b("madrasahs across Sindh and Punjab", null),
   hbmNote: b(
-    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table names every ID.",
+    "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each city and how many madrasahs it holds.",
     null,
   ),
-  hbmTableCaption: b("20 madrasahs, grouped by place", null),
+  hbmTableCaption: b("20 madrasahs, grouped by city", null),
   hbmLink: b("See every madrasah", null),
   initiativesTitle: b("What else we do", null),
   initiativesIntro: b(
@@ -205,16 +205,15 @@ export const madrasahsPage = {
   ),
   mapAriaTitle: b("Map of Pakistan with 20 madrasah sites, one dot per madrasah", null),
   mapAriaDescription: b("Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.", null),
-  tableCaption: b("20 madrasahs, grouped by place", null),
-  tablePlace: b("Place", "مقام"),
+  tableCaption: b("20 madrasahs, grouped by city", null),
+  tablePlace: b("City", "شہر"),
   tableCount: b("No.", null),
-  tableIds: b("IDs", null),
-  everyTitle: b("Every madrasah, by place", null),
+  everyTitle: b("Every madrasah, by city", null),
   everyLead: b(
-    "The list below names all 20 sites and keeps the two Khipro madrasahs as separate rows.",
+    "The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.",
     null,
   ),
-  countNote: b("20 madrasahs in 11 places.", null),
+  countNote: b("20 madrasahs in 11 cities.", null),
 };
 
 export const programmesPage = {

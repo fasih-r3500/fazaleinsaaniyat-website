@@ -8,6 +8,9 @@ The list covers headings, body copy, labels, table captions and accessible map l
 that did not already exist in the v2 build for reuse. Existing v2 Urdu copy is reused
 where it matches the English and is not listed.
 
+The final section lists copy that is already written in Urdu and is still waiting on a
+native reviewer. Those strings are shown as written rather than as a placeholder.
+
 The trustee name and role slots are visible English placeholder chips in both trees
 because the facts are unconfirmed, not because the translation is missing.
 
@@ -30,7 +33,6 @@ because the facts are unconfirmed, not because the translation is missing.
 
 ## home
 
-- Twenty madrasahs. Water, widows and livelihood support.
 - Fazal-e-Insaaniyat Charity Works pays educated women to teach the Holy Quran from their home. We also build mosques, wells and water pumps, support widows, and help people toward a livelihood.
 - No verified report yet
 - Reports are published here once the field team has verified them.
@@ -40,8 +42,8 @@ because the facts are unconfirmed, not because the translation is missing.
 - Home-Based Madrasahs
 - FI sets up the madrasah and pays the teacher's salary. The teacher, an educated woman, teaches the Holy Quran from her home. Children are not charged.
 - madrasahs across Sindh and Punjab
-- Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table names every ID.
-- 20 madrasahs, grouped by place
+- Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each city and how many madrasahs it holds.
+- 20 madrasahs, grouped by city
 - See every madrasah
 - What else we do
 - Alongside the Home-Based Madrasahs, FI supports families in other ways. These lines are deliberately plain and carry no counts or dates.
@@ -80,12 +82,11 @@ because the facts are unconfirmed, not because the translation is missing.
 - Each dot marks the town or city where a madrasah operates. Where a city has more than one, the dots fan out so no site is collapsed.
 - Map of Pakistan with 20 madrasah sites, one dot per madrasah
 - Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.
-- 20 madrasahs, grouped by place
+- 20 madrasahs, grouped by city
 - No.
-- IDs
-- Every madrasah, by place
-- The list below names all 20 sites and keeps the two Khipro madrasahs as separate rows.
-- 20 madrasahs in 11 places.
+- Every madrasah, by city
+- The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.
+- 20 madrasahs in 11 cities.
 
 ## programmesPage
 
@@ -139,3 +140,11 @@ because the facts are unconfirmed, not because the translation is missing.
 
 - Page not published yet
 - This page is not part of the current build. The Madrasahs, Our work and About pages are ready.
+
+## Urdu written, awaiting native review
+
+These strings are already written in Urdu and are shown as written, not as a placeholder.
+Each one still needs a native reviewer to confirm the wording.
+
+- انسانیت زندہ ہے (home page hero headline; English source: Insaaniyat Zinda Hai!)
+- شہر (madrasahs page summary-table column header; English source: City)
