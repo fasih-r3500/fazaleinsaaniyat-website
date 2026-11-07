@@ -10,6 +10,7 @@ import type { ContentIssue } from "./errors";
 
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 export const FIELD_TRIP_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+export const MONTH_OR_DATE_PATTERN = /^\d{4}-(0[1-9]|1[0-2])(?:-(\d{2}))?$/;
 export const RECORD_ID_PATTERN = /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/;
 export const CURRENCY_PATTERN = /^[A-Z]{3}$/;
 
@@ -85,27 +86,40 @@ export function readText(
   return trimmed;
 }
 
+/**
+ * Read a list of short text values, for example the people an initiative
+ * serves. An absent or empty list means "not recorded" and returns `[]`.
+ */
 export function readTextList(
   issues: ContentIssue[],
   file: string,
   field: string,
   value: unknown,
-): string[] | null {
-  if (value === undefined || value === null) return null;
+): string[] {
+  if (value === undefined || value === null) return [];
 
   if (!Array.isArray(value)) {
     addIssue(
       issues,
       file,
-      `field "${field}" must be a list; write each item on its own line starting with "- "`,
+      `field "${field}" must be a list; write one item per line, each starting with "- "`,
     );
-    return null;
+    return [];
   }
 
   const items: string[] = [];
+
   value.forEach((item, index) => {
-    const text = readText(issues, file, `${field}[${index}]`, item, true);
-    if (text !== null) items.push(text);
+    const text = typeof item === "string" ? item.trim() : "";
+    if (text === "") {
+      addIssue(
+        issues,
+        file,
+        `field "${field}" item ${index + 1} must be text, found ${describeValue(item)}`,
+      );
+      return;
+    }
+    items.push(text);
   });
 
   return items;
@@ -216,6 +230,34 @@ export function readIsoDate(
       issues,
       file,
       `field "${field}" must be a real date written as YYYY-MM-DD, found "${text}"`,
+    );
+    return null;
+  }
+
+  return text;
+}
+
+/**
+ * Read a date written as YYYY-MM-DD, or a month written as YYYY-MM when the
+ * day is not known. An absent value returns `null`.
+ */
+export function readMonthOrDate(
+  issues: ContentIssue[],
+  file: string,
+  field: string,
+  value: unknown,
+): string | null {
+  const text = readText(issues, file, field, value, false);
+  if (text === null) return null;
+
+  const match = MONTH_OR_DATE_PATTERN.exec(text);
+  const hasDay = match?.[2] !== undefined;
+
+  if (!match || (hasDay && !isRealCalendarDate(text))) {
+    addIssue(
+      issues,
+      file,
+      `field "${field}" must be a real date written as YYYY-MM-DD or a month written as YYYY-MM, found "${text}"`,
     );
     return null;
   }

@@ -3,7 +3,7 @@ import type { Locale } from "./locale";
 
 export type NavKey =
   | "madrasahs"
-  | "programmes"
+  | "initiatives"
   | "field-trips"
   | "transparency"
   | "about"
@@ -11,7 +11,7 @@ export type NavKey =
 
 const navKeys: NavKey[] = [
   "madrasahs",
-  "programmes",
+  "initiatives",
   "field-trips",
   "transparency",
   "about",

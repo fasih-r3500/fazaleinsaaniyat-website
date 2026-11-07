@@ -171,7 +171,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <h2 id="initiatives-heading">
               <T locale={locale} value={home.initiativesTitle} />
             </h2>
-            <a href={pathForLocale(locale, "programmes")}>
+            <a href={pathForLocale(locale, "initiatives")}>
               <T locale={locale} value={common.moreWork} /> <Arrow />
             </a>
           </div>

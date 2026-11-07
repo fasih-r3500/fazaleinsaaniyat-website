@@ -23,7 +23,7 @@ export const site = {
 
 export const nav = {
   madrasahs: b("Madrasahs", null),
-  work: b("Our work", "ہمارا کام"),
+  initiatives: b("Initiatives", "اقدامات"),
   fieldTrips: b("Field Trips", "میدانی دورے"),
   transparency: b("Transparency", "شفافیت"),
   about: b("About", "تعارف"),
@@ -39,7 +39,7 @@ export const common = {
   getHelp: b("Get help", "مدد حاصل کریں"),
   readFieldTrips: b("Read the field trips", "میدانی دورے پڑھیں"),
   seeMadrasahs: b("See every madrasah", null),
-  moreWork: b("More about our work", "ہمارے کام کی مزید تفصیل"),
+  moreWork: b("More about our initiatives", "ہمارے اقدامات کی مزید تفصیل"),
   toBeConfirmed: b("to be confirmed", "تصدیق باقی ہے"),
   toBePublished: b("to be published", "شائع ہونا باقی"),
   pending: b("pending", "زیرِ التوا"),
@@ -62,7 +62,7 @@ export const footer = {
   fieldTrips: b("Field trips", "میدانی دورے"),
   transparency: b("Transparency", "شفافیت"),
   madrasahs: b("Madrasahs", null),
-  programmes: b("Our work", "ہمارا کام"),
+  initiatives: b("Initiatives", "اقدامات"),
   about: b("About", "تعارف"),
   privacy: b("Privacy", "رازداری"),
   safeguarding: b("Safeguarding", "تحفظ"),
@@ -239,63 +239,55 @@ export const madrasahsPage = {
   countNote: b("20 madrasahs in 11 cities.", null),
 };
 
-export const programmesPage = {
-  title: b("Our work", "ہمارا کام"),
+export const initiativesPage = {
+  title: b("Initiatives", "اقدامات"),
   lede: b(
     "Mosques, water, widows, rozgaar, Hunar Ghar, rickshaws and collaboration with other charities.",
-    null,
+    "مساجد، پانی، بیوائیں، روزگار، ہنر گھر، رکشے اور دیگر خیراتی اداروں کے ساتھ تعاون۔",
   ),
-  title2: b("What else we do", null),
-  intro: b(
-    "Alongside the Home-Based Madrasahs, FI supports families in other ways. These lines are deliberately plain and carry no counts or dates.",
-    null,
+  indexHeading: b("Every initiative", "تمام اقدامات"),
+  indexIntro: b(
+    "Each entry below is a filled-in form: what the initiative does, who it serves and what has been recorded. An entry shows only the details it holds, and leaves out what is not known.",
+    "نیچے ہر اندراج ایک مکمل فارم ہے: یہ اقدام کیا کرتا ہے، کس کی خدمت کرتا ہے اور کیا ریکارڈ ہوا ہے۔ اندراج صرف وہی تفصیل دکھاتا ہے جو اس میں موجود ہے، اور جو معلوم نہیں اسے چھوڑ دیتا ہے۔",
   ),
-  items: [
-    {
-      title: b("Mosques", null),
-      body: b("Mosques built.", null),
-    },
-    {
-      title: b("Water", null),
-      body: b("Wells and water pumps built.", null),
-    },
-    {
-      title: b("Widows", null),
-      body: b("Support for widows.", null),
-    },
-    {
-      title: b("Rozgaar", null),
-      body: b("Help toward rozgaar, a livelihood.", null),
-    },
-    {
-      title: b("Hunar Ghar", null),
-      body: b("A talent house where women stitch clothes and earn a living.", null),
-    },
-    {
-      title: b("Rickshaws", null),
-      body: b("Help buying a rickshaw.", null),
-    },
-    {
-      title: b("Collaboration", null),
-      body: b("Work with other charities, including Quran Mehal from Lodhra.", null),
-    },
-  ],
-  collaborationTitle: b("Working with others", null),
-  collaborationBody: b(
-    "FI works with other charities. One named collaboration is Quran Mehal from Lodhra.",
-    null,
+  statusLabels: {
+    active: b("Active", "جاری"),
+    paused: b("Paused", "معطل"),
+    completed: b("Completed", "مکمل"),
+  },
+  about: b("About this initiative", "اس اقدام کے بارے میں"),
+  statsLabel: b("Figures for this initiative", "اس اقدام کے اعداد و شمار"),
+  details: b("Details", "تفصیلات"),
+  location: b("Location", "مقام"),
+  locations: b("Locations", "مقامات"),
+  started: b("Started", "آغاز"),
+  ended: b("Ended", "اختتام"),
+  householdsServed: b("Households served", "خاندان مستفید"),
+  cost: b("Cost", "لاگت"),
+  costCovers: b("What the cost covers", "لاگت کس چیز پر آئی"),
+  peopleServed: b("People served", "مستفید افراد"),
+  partners: b("Partners", "شراکت دار"),
+  photos: b("Photos", "تصاویر"),
+  backToInitiatives: b("All initiatives", "تمام اقدامات"),
+  noNumbers: b(
+    "Where a detail has not been recorded, it is left out rather than estimated.",
+    "جہاں کوئی تفصیل ریکارڈ نہیں ہوئی، وہاں اندازے کے بجائے اسے خالی چھوڑ دیا جاتا ہے۔",
   ),
-  hbmTitle: b("The signature programme", null),
+  hbmTitle: b("The signature programme", "اہم ترین پروگرام"),
   hbmBody: b(
     "The Home-Based Madrasahs are the centre of the work. FI sets up the madrasah and pays the teacher's salary.",
-    null,
+    "گھریلو مدرسے ہمارے کام کا مرکز ہیں۔ فاؤنڈیشن مدرسہ قائم کرتی ہے اور استاد کی تنخواہ ادا کرتی ہے۔",
   ),
-  hbmLink: b("See the madrasahs", null),
-  noNumbers: b(
-    "No counts, years or beneficiary numbers are shown for these lines.",
-    null,
+  hbmLink: b("See the madrasahs", "مدرسے دیکھیں"),
+  hbmStatLabel: b(
+    "madrasahs across Sindh and Punjab",
+    "سندھ اور پنجاب میں مدرسے",
   ),
   ctaNote: b("Two ways to start", null),
+  urduPendingNote: b(
+    "Initiative write-ups are shown in English until the Urdu translation has had a native review.",
+    null,
+  ),
 };
 
 export const aboutPage = {
@@ -810,7 +802,7 @@ export const policyPage = {
 export const notFound = {
   title: b("Page not published yet", null),
   body: b(
-    "This address is not a page on our site. The menu lists every page that is published.",
+    "This page is not part of the current build. The Madrasahs, Initiatives and About pages are ready.",
     null,
   ),
   backHome: b("Back to the home page", "ہوم پیج پر واپس جائیں"),

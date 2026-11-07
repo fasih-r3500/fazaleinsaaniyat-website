@@ -85,32 +85,10 @@ because the facts are unconfirmed, not because the translation is missing.
 - The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.
 - 20 madrasahs in 11 cities.
 
-## programmesPage
+## initiativesPage
 
-- Mosques, water, widows, rozgaar, Hunar Ghar, rickshaws and collaboration with other charities.
-- What else we do
-- Alongside the Home-Based Madrasahs, FI supports families in other ways. These lines are deliberately plain and carry no counts or dates.
-- Mosques
-- Mosques built.
-- Water
-- Wells and water pumps built.
-- Widows
-- Support for widows.
-- Rozgaar
-- Help toward rozgaar, a livelihood.
-- Hunar Ghar
-- A talent house where women stitch clothes and earn a living.
-- Rickshaws
-- Help buying a rickshaw.
-- Collaboration
-- Work with other charities, including Quran Mehal from Lodhra.
-- Working with others
-- FI works with other charities. One named collaboration is Quran Mehal from Lodhra.
-- The signature programme
-- The Home-Based Madrasahs are the centre of the work. FI sets up the madrasah and pays the teacher's salary.
-- See the madrasahs
-- No counts, years or beneficiary numbers are shown for these lines.
 - Two ways to start
+- Initiative write-ups are shown in English until the Urdu translation has had a native review.
 
 ## aboutPage
 
@@ -378,3 +356,40 @@ These strings were written in Urdu for the stills and the redacted block, and st
 - فیس بک پیج (link to the Facebook page; English source: Facebook page)
 - اصل تصویر فیس بک پر نئی ٹیب میں کھلتی ہے (visually-hidden label on each still's link to its original post; English source: Opens the original photo on Facebook in a new tab)
 - Alt text for the committed stills, held in content/social/facebook.json under "alt.ur".
+
+- اقدامات (nav, footer and page title; English source: Initiatives)
+- ہمارے اقدامات کی مزید تفصیل (home page link to the initiatives page; English source: More about our initiatives)
+- مساجد، پانی، بیوائیں، روزگار، ہنر گھر، رکشے اور دیگر خیراتی اداروں کے ساتھ تعاون۔ (initiatives page lede; English source: Mosques, water, widows, rozgaar, Hunar Ghar, rickshaws and collaboration with other charities.)
+- تمام اقدامات (initiatives page section heading and the link back from an initiative; English source: Every initiative / All initiatives)
+- نیچے ہر اندراج ایک مکمل فارم ہے: یہ اقدام کیا کرتا ہے، کس کی خدمت کرتا ہے اور کیا ریکارڈ ہوا ہے۔ اندراج صرف وہی تفصیل دکھاتا ہے جو اس میں موجود ہے، اور جو معلوم نہیں اسے چھوڑ دیتا ہے۔ (initiatives page introduction; English source: Each entry below is a filled-in form...)
+- جاری / معطل / مکمل (initiative status labels: Active / Paused / Completed)
+- تفصیلات (initiative details heading; English source: Details)
+- مقام / مقامات (initiative location labels; English source: Location / Locations)
+- آغاز / اختتام (initiative date labels; English source: Started / Ended)
+- خاندان مستفید (initiative household count label; English source: Households served)
+- لاگت (initiative cost label; English source: Cost)
+- لاگت کس چیز پر آئی (initiative label for what the cost covered; English source: What the cost covers)
+- مستفید افراد (initiative people served panel; English source: People served)
+- شراکت دار (initiative partners panel; English source: Partners)
+- تصاویر (initiative photos heading; English source: Photos)
+- اس اقدام کے بارے میں / اس اقدام کے اعداد و شمار (initiative page hidden headings; English source: About this initiative / Figures for this initiative)
+- جہاں کوئی تفصیل ریکارڈ نہیں ہوئی، وہاں اندازے کے بجائے اسے خالی چھوڑ دیا جاتا ہے۔ (initiatives page note; English source: Where a detail has not been recorded, it is left out rather than estimated.)
+- اہم ترین پروگرام (initiatives page panel heading; English source: The signature programme)
+- گھریلو مدرسے ہمارے کام کا مرکز ہیں۔ فاؤنڈیشن مدرسہ قائم کرتی ہے اور استاد کی تنخواہ ادا کرتی ہے۔ (initiatives page panel body; English source: The Home-Based Madrasahs are the centre of the work. FI sets up the madrasah and pays the teacher's salary.)
+- مدرسے دیکھیں (initiatives page link to the madrasahs page; English source: See the madrasahs)
+- سندھ اور پنجاب میں مدرسے (initiatives page madrasah count label; English source: madrasahs across Sindh and Punjab)
+- ابھی کوئی اقدام شائع نہیں ہوا / ہر اقدام کی تفصیل یہاں آئے گی جب اس کا تحریری خاکہ مکمل ہو جائے گا۔ خالی جگہ بھرنے کے لیے کچھ نہیں بنایا جاتا۔ (initiatives empty state; English source: No initiatives published yet / Each initiative will be described here once its write-up is filled in. Nothing is invented to fill the space.)
+
+## Initiative content
+
+The seven initiative files in `content/initiatives/` are written in English, and both
+language trees show each one as written. These need a native Urdu translation before
+an Urdu version can be added:
+
+- Mosques / Mosques built.
+- Water / Wells and water pumps built.
+- Widows / Support for widows.
+- Rozgaar / Help toward rozgaar, a livelihood.
+- Hunar Ghar / A talent house where women stitch clothes and earn a living.
+- Rickshaws / Help buying a rickshaw.
+- Collaboration / Work with other charities, including Quran Mehal from Lodhra.

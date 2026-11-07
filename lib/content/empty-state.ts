@@ -7,6 +7,21 @@ export type EmptyState = {
 };
 
 /**
+ * Shown instead of a list when `content/initiatives` holds no published
+ * initiative. It states plainly that nothing is published yet.
+ */
+export const initiativesEmptyState: EmptyState = {
+  title: {
+    en: "No initiatives published yet",
+    ur: "ابھی کوئی اقدام شائع نہیں ہوا",
+  },
+  body: {
+    en: "Each initiative will be described here once its write-up is filled in. Nothing is invented to fill the space.",
+    ur: "ہر اقدام کی تفصیل یہاں آئے گی جب اس کا تحریری خاکہ مکمل ہو جائے۔ خالی جگہ بھرنے کے لیے کچھ نہیں بنایا جاتا۔",
+  },
+};
+
+/**
  * Shown instead of a list when `content/field-trips` holds no published trip.
  * It states plainly that nothing is published yet and promises nothing.
  */
