@@ -148,6 +148,11 @@ function Footer({ locale }: { locale: Locale }) {
                   <T locale={locale} value={common.give} />
                 </a>
               </li>
+              <li>
+                <a href={pathForLocale(locale, "get-help")}>
+                  <T locale={locale} value={common.getHelp} />
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -155,6 +160,11 @@ function Footer({ locale }: { locale: Locale }) {
               <T locale={locale} value={footer.policies} />
             </h2>
             <ul>
+              <li>
+                <a href={pathForLocale(locale, "policies")}>
+                  <T locale={locale} value={footer.allPolicies} />
+                </a>
+              </li>
               <li>
                 <a href={pathForLocale(locale, "policies/privacy")}>
                   <T locale={locale} value={footer.privacy} />
@@ -217,6 +227,9 @@ export function SiteShell({
               <T locale={locale} value={site.name} />
             </span>
             <span className="utility-actions">
+              <a href={pathForLocale(locale, "get-help")}>
+                <T locale={locale} value={common.getHelp} />
+              </a>
               <LanguageSwitch locale={locale} path={path} />
               <a className="utility-give" href={pathForLocale(locale, "give")}>
                 <T locale={locale} value={common.give} />

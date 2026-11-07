@@ -27,6 +27,12 @@ fetched in the browser.
 4. Write the report as prose under the second `---` line.
 5. Run `npm run build` to check the file.
 
+Write short paragraphs and leave a blank line between them. A line that starts
+with a hyphen and a space makes a bullet list item. A line that starts with `#`
+becomes a section heading; every report heading renders as a second level
+heading under the report title, so the page never skips a heading level.
+Nothing in the prose is passed through as raw HTML.
+
 The file name without `.md` becomes the report slug. `2026-01-water-pumps.md`
 has the slug `2026-01-water-pumps`, which is the address of the page.
 
@@ -214,9 +220,9 @@ invent a fallback:
 
 | Export | Shown when |
 | --- | --- |
-| `reportsEmptyState` | no report is published |
-| `ledgerEmptyState` | the ledger has no entries |
-| `figuresEmptyState` | no figure is published |
+| `reportsEmptyState` | no report is published, on `/reports` |
+| `ledgerEmptyState` | the ledger has no entries, on `/transparency` |
+| `figuresEmptyState` | no figure is published, on `/transparency` |
 
 Each is `{ title, body }`, where both are `{ en, ur }`. Render that copy instead
 of an empty table or a zero total. Nothing is fabricated to fill the space.
@@ -237,8 +243,9 @@ Fix the file and run the build again. See docs/CONTENT.md.
 ```
 
 The check runs when `next.config.ts` loads, so `npm run build` fails before any
-page renders, and `npm run dev` refuses to start on invalid content. While no
-page renders content yet, `npm run build` is the quick way to check the files.
+page renders, and `npm run dev` refuses to start on invalid content. The
+reports index, the report pages and the transparency ledger all read these
+stores, so `npm run build` is also the quick way to check the files.
 Restart the dev server after editing a content file so the check runs again.
 
 | Message | Fix |

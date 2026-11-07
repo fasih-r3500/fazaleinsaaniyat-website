@@ -4,7 +4,7 @@
 
 This repository holds the official website for Fazal-e-Insaaniyat Charity Works. It is the public face of the organisation: one place to explain who we are and what the charity does.
 
-The public site is being rebuilt in bilingual English and Urdu. The home page, the Home-Based Madrasahs page, the Our work page and the About page are built for both the `/` and `/ur` route trees. The remaining routes are phase 2 follow-up work and are not part of this build: reports, reports/[id], transparency, give, get-help, contact and policies/*. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
+The public site is bilingual in English and Urdu. Every page is built for both the `/` and `/ur` route trees: home, Home-Based Madrasahs, Our work, About, field reports, transparency, give, get help, contact and the policy pages. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
 
 ## Why it exists
 
@@ -56,12 +56,12 @@ Field reports, ledger entries and published figures are plain files in `content/
 
 ## Project structure
 
-- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes` and `/about`.
+- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes`, `/about`, `/reports`, `/reports/[id]`, `/transparency`, `/give`, `/get-help`, `/contact` and `/policies/*`.
 - `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
 - `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
 - `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
 - `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review. Field reports live in `content/reports/` and the ledger and figures in `content/facts/`; `docs/CONTENT.md` explains how to add them.
-- `lib/` holds locale, metadata, request path and madrasah projection helpers.
+- `lib/` holds locale, metadata, request path, date and money formatting, and madrasah projection helpers.
 - `middleware.ts` sets the strict Content Security Policy with a per-request nonce, plus the other security headers. The CSP is set on both the request and the response because Next.js reads the request CSP nonce when stamping its own injected scripts. The matcher excludes `/gkk` and `/gkk/privacy`, so those routes keep their current security posture; hardening them is a separate follow-up.
 - `public/fonts/site/` holds the self-hosted Newsreader, IBM Plex Sans, IBM Plex Mono, Noto Naskh Arabic and Noto Nastaliq Urdu woff2 files.
 
@@ -79,7 +79,8 @@ This is a small project maintained by one volunteer in his own time, so response
 
 ## Status and roadmap
 
-- The home page, Madrasahs, Our work and About pages are built in English and Urdu.
-- The remaining route list (reports, reports/[id], transparency, give, get-help, contact and policies/*) is phase 2 follow-up work. Unbuilt paths show an honest page that says the page is not part of the current build.
+- Every page is built in English and Urdu: home, Madrasahs, Our work, About, reports, transparency, give, get help, contact and the four policy pages.
+- The policy pages are structural placeholders. Each one states plainly that the policy is being written and is not published yet.
+- Where the content layer is empty, the page shows an honest empty state instead of a table or a total: no report is invented, and the ledger and figure stores render their empty state.
+- Unconfirmed facts (bank details, contact channels, trustee names, registration numbers, policy text) are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.
 - Urdu copy that did not already exist in the v2 build is shown as a visible placeholder and listed in `content/ur-pending.md` for a native reviewer.
-- Facts that are not confirmed are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.
