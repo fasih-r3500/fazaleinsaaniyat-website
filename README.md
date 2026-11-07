@@ -4,7 +4,7 @@
 
 This repository holds the official website for Fazal-e-Insaaniyat Charity Works. It is the public face of the organisation: one place to explain who we are and what the charity does.
 
-The public site is being rebuilt in bilingual English and Urdu. The home page, the Home-Based Madrasahs page, the Our work page and the About page are built. Remaining pages in the full route list are follow-up work. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
+The public site is being rebuilt in bilingual English and Urdu. The home page, the Home-Based Madrasahs page, the Our work page and the About page are built for both the `/` and `/ur` route trees. The remaining routes — reports, reports/[id], transparency, give, get-help, contact and policies/* — are phase 2 follow-up work and are not part of this build. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
 
 ## Why it exists
 
@@ -52,7 +52,7 @@ npm run lint
 
 ## Project structure
 
-- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes` and `/about`. The `/en/...` paths are aliases with the same content.
+- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes` and `/about`.
 - `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
 - `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
 - `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
@@ -76,6 +76,6 @@ This is a small project maintained by one volunteer in his own time, so response
 ## Status and roadmap
 
 - The home page, Madrasahs, Our work and About pages are built in English and Urdu.
-- The remaining route list is follow-up work. Unbuilt paths show an honest page that says the page is not part of the current build.
+- The remaining route list (reports, reports/[id], transparency, give, get-help, contact and policies/*) is phase 2 follow-up work. Unbuilt paths show an honest page that says the page is not part of the current build.
 - Urdu copy that did not already exist in the v2 build is shown as a visible placeholder and listed in `content/ur-pending.md` for a native reviewer.
 - Facts that are not confirmed are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.

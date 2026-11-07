@@ -200,7 +200,7 @@ export const madrasahsPage = {
     null,
   ),
   mapNote: b(
-    "Map points are city level locators, not surveyed building positions.",
+    "Map points are city level locators, not surveyed site points. Exact locations are unconfirmed.",
     null,
   ),
   mapAriaTitle: b("Map of Pakistan with 20 madrasah sites, one dot per madrasah", null),
