@@ -132,7 +132,7 @@ export const home = {
     "Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each place and how many madrasahs it holds.",
     null,
   ),
-  hbmTableCaption: b("20 madrasahs, grouped by place", null),
+  hbmTableCaption: b("20 madrasahs, grouped by city", null),
   hbmLink: b("See every madrasah", null),
   initiativesTitle: b("What else we do", null),
   initiativesIntro: b(
@@ -205,7 +205,7 @@ export const madrasahsPage = {
   ),
   mapAriaTitle: b("Map of Pakistan with 20 madrasah sites, one dot per madrasah", null),
   mapAriaDescription: b("Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.", null),
-  tableCaption: b("20 madrasahs, grouped by place", null),
+  tableCaption: b("20 madrasahs, grouped by city", null),
   tablePlace: b("Place", "مقام"),
   tableCount: b("No.", null),
   everyTitle: b("Every madrasah, by place", null),
@@ -213,7 +213,7 @@ export const madrasahsPage = {
     "The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.",
     null,
   ),
-  countNote: b("20 madrasahs in 11 places.", null),
+  countNote: b("20 madrasahs in 11 cities.", null),
 };
 
 export const programmesPage = {

@@ -43,7 +43,7 @@ because the facts are unconfirmed, not because the translation is missing.
 - FI sets up the madrasah and pays the teacher's salary. The teacher, an educated woman, teaches the Holy Quran from her home. Children are not charged.
 - madrasahs across Sindh and Punjab
 - Each dot on the map is one madrasah. Where a city repeats, dots are fanned. The table gives each place and how many madrasahs it holds.
-- 20 madrasahs, grouped by place
+- 20 madrasahs, grouped by city
 - See every madrasah
 - What else we do
 - Alongside the Home-Based Madrasahs, FI supports families in other ways. These lines are deliberately plain and carry no counts or dates.
@@ -82,11 +82,11 @@ because the facts are unconfirmed, not because the translation is missing.
 - Each dot marks the town or city where a madrasah operates. Where a city has more than one, the dots fan out so no site is collapsed.
 - Map of Pakistan with 20 madrasah sites, one dot per madrasah
 - Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.
-- 20 madrasahs, grouped by place
+- 20 madrasahs, grouped by city
 - No.
 - Every madrasah, by place
 - The list below covers all 20 madrasahs, grouped by city. Where a place holds more than one, the count is shown.
-- 20 madrasahs in 11 places.
+- 20 madrasahs in 11 cities.
 
 ## programmesPage
 
