@@ -2091,9 +2091,9 @@ summary {
   }
 }
 
-/* 520px: keep the lockup mark only so the header actions fit */
+/* 520px: keep the header lockup mark only so the header actions fit */
 @media (max-width: 520px) {
-  .lockup-text {
+  .site-header .lockup-text {
     display: none;
   }
 }
