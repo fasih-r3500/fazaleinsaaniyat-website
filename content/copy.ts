@@ -200,7 +200,7 @@ export const madrasahsPage = {
     null,
   ),
   mapNote: b(
-    "Each dot marks the town or city where a madrasah operates.",
+    "Each dot marks the town or city where a madrasah operates. Where a city has more than one, the dots fan out so no site is collapsed.",
     null,
   ),
   mapAriaTitle: b("Map of Pakistan with 20 madrasah sites, one dot per madrasah", null),

@@ -1,15 +1,14 @@
 # Madrasah coordinate record
 
 `content/madrasahs.json` is the only source of map points. It has 20 rows, one per
-madrasah. The task brief asks for a comment wherever a city coordinate is used instead
-of a surveyed site point, so this file records those decisions. JSON cannot carry
-comments, so the record lives here and beside the projection code in
-`lib/madrasahs.ts`.
+madrasah. The task brief asks for a comment wherever a city coordinate is used, so this
+file records those decisions. JSON cannot carry comments, so the record lives here and
+beside the projection code in `lib/madrasahs.ts`.
 
 ## What the coordinates are
 
-All 20 coordinates are city level positions, not surveyed site points. No coordinate in
-this file should be read as the exact location of a building. The map is a country scale
+All 20 coordinates are city level positions. Each dot marks the town or city where a
+madrasah operates. No coordinate implies a street address. The map is a country scale
 locator, and the site table is the text record.
 
 | IDs | Coordinate choice |

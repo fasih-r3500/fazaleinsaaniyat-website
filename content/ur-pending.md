@@ -77,7 +77,7 @@ because the facts are unconfirmed, not because the translation is missing.
 - madrasahs across Sindh and Punjab
 - The 20 sites
 - One dot for each madrasah, grouped by the place it is named after. Where a city repeats, the dots fan out.
-- Each dot marks the town or city where a madrasah operates.
+- Each dot marks the town or city where a madrasah operates. Where a city has more than one, the dots fan out so no site is collapsed.
 - Map of Pakistan with 20 madrasah sites, one dot per madrasah
 - Each dot is one madrasah. Where a city repeats, the dots are fanned so no site is collapsed.
 - 20 madrasahs, grouped by place
