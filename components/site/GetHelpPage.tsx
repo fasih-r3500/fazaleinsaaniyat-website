@@ -1,7 +1,7 @@
 import { aboutPage, getHelpPage } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -81,11 +81,6 @@ export function GetHelpPage({ locale }: { locale: Locale }) {
           </h2>
           <p className="body-copy">
             <T locale={locale} value={getHelpPage.retentionBody} />
-          </p>
-          <p className="status-line">
-            <PlaceholderChip>
-              <T locale={locale} value={getHelpPage.retentionChip} />
-            </PlaceholderChip>
           </p>
         </div>
       </section>

@@ -69,7 +69,7 @@ export function FieldTripPage({
             </a>
             <span aria-hidden="true"> / </span>
             <span>
-              <T locale={locale} value={fieldTripPage.crumb} compact />
+              <T locale={locale} value={fieldTripPage.crumb} />
             </span>
           </nav>
           <p className="mono page-head-meta">

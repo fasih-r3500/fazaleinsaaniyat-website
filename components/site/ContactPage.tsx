@@ -1,9 +1,9 @@
 import type { Bilingual } from "@/content/copy";
-import { common, contactPage, getHelpPage } from "@/content/copy";
-import { contact, contactLinks } from "@/lib/contact";
+import { contactPage, footer, getHelpPage } from "@/content/copy";
+import { contact, contactLinks, socialOrder, socialProfiles } from "@/lib/contact";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -19,6 +19,7 @@ type Channel = {
   href?: string;
   value?: string;
   external?: boolean;
+  latin?: boolean;
 };
 
 const channels: Channel[] = [
@@ -27,6 +28,7 @@ const channels: Channel[] = [
     label: contactPage.phoneLabel,
     href: contactLinks.phone,
     value: contact.phone,
+    latin: true,
   },
   {
     key: "whatsapp",
@@ -34,15 +36,21 @@ const channels: Channel[] = [
     href: contactLinks.whatsapp,
     value: contact.phone,
     external: true,
+    latin: true,
   },
   {
     key: "email",
     label: contactPage.emailLabel,
     href: contactLinks.email,
     value: contact.email,
+    latin: true,
   },
-  { key: "post", label: contactPage.postLabel },
-  { key: "hours", label: contactPage.hoursLabel },
+  {
+    key: "address",
+    label: contactPage.addressLabel,
+    value: contact.address,
+    latin: true,
+  },
 ];
 
 export function ContactPage({ locale }: { locale: Locale }) {
@@ -70,7 +78,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
                   <span>
                     <T locale={locale} value={channel.label} />
                   </span>
-                  <span className="channel-value">
+                  <span className={channel.latin ? "channel-value" : undefined}>
                     {channel.href && channel.value ? (
                       <a
                         href={channel.href}
@@ -82,15 +90,43 @@ export function ContactPage({ locale }: { locale: Locale }) {
                         {channel.value}
                       </a>
                     ) : (
-                      <PlaceholderChip>
-                        <T locale={locale} value={common.toBeConfirmed} />
-                      </PlaceholderChip>
+                      <span dir="ltr">{channel.value}</span>
                     )}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="block rule" aria-labelledby="social-heading">
+        <div className="wrap">
+          <h2 id="social-heading" className="section-title">
+            <T locale={locale} value={contactPage.socialLabel} />
+          </h2>
+          <ul className="facts channel-list">
+            {socialOrder.map((key) => {
+              const profile = socialProfiles[key];
+              return (
+                <li key={key}>
+                  <span>
+                    <T locale={locale} value={footer[key]} />
+                  </span>
+                  <span className="channel-value">
+                    <a
+                      href={profile.url}
+                      dir="ltr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {profile.handle}
+                    </a>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 

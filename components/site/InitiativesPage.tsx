@@ -83,15 +83,6 @@ export function InitiativesPage({ locale }: { locale: Locale }) {
             </ul>
           )}
 
-          {locale === "ur" ? (
-            <p className="section-note">
-              <T locale={locale} value={initiativesPage.urduPendingNote} />
-            </p>
-          ) : null}
-
-          <p className="section-note">
-            <T locale={locale} value={initiativesPage.noNumbers} />
-          </p>
         </div>
       </section>
 

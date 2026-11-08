@@ -8,7 +8,7 @@ import {
 } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -36,15 +36,8 @@ export function PolicyPage({
           <h2 id="status-heading" className="section-title">
             <T locale={locale} value={policyPage.statusTitle} />
           </h2>
-          <p className="status-line">
-            <PlaceholderChip>
-              <T locale={locale} value={policy.status} />
-            </PlaceholderChip>
-            {policy.chip ? (
-              <PlaceholderChip>
-                <T locale={locale} value={policy.chip} />
-              </PlaceholderChip>
-            ) : null}
+          <p className="body-copy">
+            <T locale={locale} value={policy.status} />
           </p>
         </div>
       </section>

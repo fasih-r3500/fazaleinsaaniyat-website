@@ -6,6 +6,7 @@ import {
   plainText,
   site,
 } from "@/content/copy";
+import { contact, socialOrder, socialProfiles } from "@/lib/contact";
 import {
   dirForLocale,
   otherLocale,
@@ -35,11 +36,9 @@ const navItems: { key: NavKey; label: typeof nav.madrasahs; href: string }[] = [
 function NavLinks({
   locale,
   current,
-  compact = false,
 }: {
   locale: Locale;
   current: NavKey | null;
-  compact?: boolean;
 }) {
   return (
     <ul>
@@ -50,7 +49,7 @@ function NavLinks({
             aria-current={current === item.key ? "page" : undefined}
             className={current === item.key ? "on" : undefined}
           >
-            <T locale={locale} value={item.label} compact={compact} />
+            <T locale={locale} value={item.label} />
           </a>
         </li>
       ))}
@@ -102,26 +101,25 @@ function Footer({ locale }: { locale: Locale }) {
               <T locale={locale} value={footer.followHeading} />
             </h2>
             <ul className="footer-social">
-              <li>
-                <a
-                  href="https://www.instagram.com/fazaleinsaaniyat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${plainText(locale, footer.instagram)} (${plainText(locale, common.opensInNewTab)})`}
-                >
-                  <T locale={locale} value={footer.instagram} />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/p/Fazal-e-Insaaniyat-Charity-Works-61575559845175/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${plainText(locale, footer.facebook)} (${plainText(locale, common.opensInNewTab)})`}
-                >
-                  <T locale={locale} value={footer.facebook} />
-                </a>
-              </li>
+              {socialOrder.map((key) => {
+                const profile = socialProfiles[key];
+                const label = footer[key];
+                return (
+                  <li key={key}>
+                    <a
+                      href={profile.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${plainText(locale, label)} ${profile.handle} (${plainText(locale, common.opensInNewTab)})`}
+                    >
+                      <T locale={locale} value={label} />
+                      <span className="footer-handle" dir="ltr">
+                        {profile.handle}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
@@ -129,22 +127,18 @@ function Footer({ locale }: { locale: Locale }) {
               <T locale={locale} value={footer.registrationHeading} />
             </h2>
             <ul>
-              <li>
-                <T locale={locale} value={footer.ukCio} />{" "}
-                <span className="ph">
-                  <T locale={locale} value={common.pending} />
-                </span>
+              <li className="footer-registration">
+                <T locale={locale} value={footer.ukCio} />
               </li>
-              <li>
-                <T locale={locale} value={footer.pakistanNgo} />{" "}
-                <span className="ph">
-                  <T locale={locale} value={common.pending} />
-                </span>
+              <li className="footer-registration">
+                <T locale={locale} value={footer.pakistanNgo} />
               </li>
-              <li>
-                <T locale={locale} value={footer.address} />:{" "}
-                <span className="ph">
-                  <T locale={locale} value={common.toBeConfirmed} />
+              <li className="footer-address-row">
+                <span className="footer-address-label">
+                  <T locale={locale} value={footer.address} />
+                </span>
+                <span className="footer-address" dir="ltr">
+                  {contact.address}
                 </span>
               </li>
             </ul>
@@ -161,7 +155,7 @@ function Footer({ locale }: { locale: Locale }) {
               </li>
               <li>
                 <a href={pathForLocale(locale, "madrasahs")}>
-                  <T locale={locale} value={footer.madrasahs} compact />
+                  <T locale={locale} value={footer.madrasahs} />
                 </a>
               </li>
               <li>
@@ -218,7 +212,7 @@ function Footer({ locale }: { locale: Locale }) {
               </li>
               <li>
                 <a href={pathForLocale(locale, "policies/zakat-sadaqah")}>
-                  <T locale={locale} value={footer.zakat} compact />
+                  <T locale={locale} value={footer.zakat} />
                 </a>
               </li>
             </ul>
@@ -229,7 +223,7 @@ function Footer({ locale }: { locale: Locale }) {
             <T locale={locale} value={footer.copyright} />
           </span>
           <span>
-            <T locale={locale} value={footer.lastUpdated} />:{" "}
+            <T locale={locale} value={footer.lastUpdated} />{" "}
             <T locale={locale} value={footer.lastUpdatedDate} />
           </span>
         </div>
@@ -274,7 +268,7 @@ export function SiteShell({
                 <T locale={locale} value={common.menu} />
               </summary>
               <nav aria-label={locale === "ur" ? common.mainNav.ur ?? common.mainNav.en : common.mainNav.en}>
-                <NavLinks locale={locale} current={current} compact />
+                <NavLinks locale={locale} current={current} />
                 <div className="menu-lang">
                   <LanguageSwitch locale={locale} path={path} />
                 </div>

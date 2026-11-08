@@ -1,7 +1,7 @@
-import { aboutPage, common } from "@/content/copy";
+import { aboutPage } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -13,10 +13,8 @@ function Arrow() {
 
 export function AboutPage({ locale }: { locale: Locale }) {
   const facts = [
-    [aboutPage.founded, aboutPage.foundedValue],
     [aboutPage.basedIn, aboutPage.basedInValue],
     [aboutPage.runBy, aboutPage.runByValue],
-    [aboutPage.trusteesFact, aboutPage.trusteesFactValue],
   ] as const;
 
   return (
@@ -63,9 +61,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <p className="body-copy">
                 <T locale={locale} value={aboutPage.howWeWorkBody2} />
               </p>
-              <p className="body-copy">
-                <T locale={locale} value={aboutPage.howWeWorkBody3} />
-              </p>
             </div>
             <div className="panel">
               <h3>
@@ -102,47 +97,11 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <ul className="policy-list">
                 {aboutPage.policies.map((policy) => (
                   <li key={policy.en}>
-                    <span>
-                      <T locale={locale} value={policy} />
-                    </span>
-                    <span className="ph">
-                      <T locale={locale} value={common.toBePublished} />
-                    </span>
+                    <T locale={locale} value={policy} />
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="block rule" aria-labelledby="trustees-heading">
-        <div className="wrap">
-          <div className="trustees">
-            <h2 id="trustees-heading">
-              <T locale={locale} value={aboutPage.trusteesTitle} />
-            </h2>
-            <p className="mono">
-              <T locale={locale} value={aboutPage.trusteesNote} />
-            </p>
-            <ul>
-              {[1, 2, 3].map((slot) => (
-                <li key={slot}>
-                  <PlaceholderChip>
-                    <span lang="en" dir="ltr">
-                      {aboutPage.trusteeName.en}
-                    </span>
-                  </PlaceholderChip>
-                  <span className="mono">
-                    <PlaceholderChip>
-                      <span lang="en" dir="ltr">
-                        {aboutPage.trusteeRole.en}
-                      </span>
-                    </PlaceholderChip>
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>

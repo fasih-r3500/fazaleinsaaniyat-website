@@ -1,7 +1,7 @@
-import { aboutPage, common, givePage, nav } from "@/content/copy";
+import { aboutPage, givePage, nav } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -12,14 +12,6 @@ function Arrow() {
 }
 
 export function GivePage({ locale }: { locale: Locale }) {
-  const details = [
-    givePage.accountTitleLabel,
-    givePage.bankLabel,
-    givePage.ibanLabel,
-    givePage.branchLabel,
-    givePage.referenceLabel,
-  ];
-
   return (
     <>
       <PageHead locale={locale} title={givePage.title} lede={givePage.lede} />
@@ -34,24 +26,15 @@ export function GivePage({ locale }: { locale: Locale }) {
               <p className="body-copy">
                 <T locale={locale} value={givePage.bankBody} />
               </p>
-              <p className="notice">
+            </div>
+            <div>
+              <h3 className="sub-heading">
+                <T locale={locale} value={givePage.safetyTitle} />
+              </h3>
+              <p className="body-copy">
                 <T locale={locale} value={givePage.safetyBody} />
               </p>
             </div>
-            <ul className="facts">
-              {details.map((label) => (
-                <li key={label.en}>
-                  <span>
-                    <T locale={locale} value={label} />
-                  </span>
-                  <span>
-                    <PlaceholderChip>
-                      <T locale={locale} value={common.toBeConfirmed} />
-                    </PlaceholderChip>
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -95,11 +78,6 @@ export function GivePage({ locale }: { locale: Locale }) {
           </h2>
           <p className="body-copy">
             <T locale={locale} value={givePage.receiptsBody} />
-          </p>
-          <p className="status-line">
-            <PlaceholderChip>
-              <T locale={locale} value={givePage.receiptsChip} />
-            </PlaceholderChip>
           </p>
           <p className="section-note">
             <T locale={locale} value={givePage.receiptsNote} />

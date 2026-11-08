@@ -1,14 +1,15 @@
 /**
- * The contact channels the charity has confirmed and publishes.
+ * The contact channels and social profiles the charity publishes.
  *
- * The links are built from these two values so the number a visitor reads and
- * the number a visitor dials cannot drift apart. The phone is stored in the
- * form we show on the page; the `tel:` link drops the spaces, and the WhatsApp
- * link uses the same mobile number in international digits without a plus sign.
+ * The phone number and email are the source for both the value a visitor reads
+ * and the link a visitor follows, so the two cannot drift apart. The address is
+ * written once here and rendered in Latin script in both language trees. The
+ * three social profiles sit in one object, so a handle change is one edit.
  */
 export const contact = {
   phone: "+92 312 111 4885",
   email: "info@fazaleinsaaniyat.org",
+  address: "F-13/14, Alpine Homes, Block 5, Clifton, Karachi",
 } as const;
 
 const phoneDigits = contact.phone.replace(/\D/g, "");
@@ -18,3 +19,25 @@ export const contactLinks = {
   whatsapp: `https://wa.me/${phoneDigits}`,
   email: `mailto:${contact.email}`,
 } as const;
+
+export type SocialNetwork = "instagram" | "facebook" | "tiktok";
+
+export const socialProfiles = {
+  instagram: {
+    name: "Instagram",
+    handle: "@fazaleinsaaniyat",
+    url: "https://www.instagram.com/fazaleinsaaniyat/",
+  },
+  facebook: {
+    name: "Facebook",
+    handle: "/Fazal-e-Insaaniyat-Charity-Works",
+    url: "https://www.facebook.com/p/Fazal-e-Insaaniyat-Charity-Works-61575559845175/",
+  },
+  tiktok: {
+    name: "TikTok",
+    handle: "@fazaleinsaaniyat",
+    url: "https://www.tiktok.com/@fazaleinsaaniyat",
+  },
+} as const;
+
+export const socialOrder: SocialNetwork[] = ["instagram", "facebook", "tiktok"];

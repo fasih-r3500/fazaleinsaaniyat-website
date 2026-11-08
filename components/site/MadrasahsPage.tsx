@@ -68,9 +68,6 @@ export function MadrasahsPage({ locale }: { locale: Locale }) {
           </div>
           <div className="hbm-table-wide">
             <MadrasahSummaryTable locale={locale} />
-            <p className="table-note">
-              <T locale={locale} value={madrasahsPage.countNote} />
-            </p>
           </div>
         </div>
       </section>
