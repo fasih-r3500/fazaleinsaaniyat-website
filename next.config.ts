@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 import { assertContentValid } from "./lib/content";
 
-// Field trips and the ledger are plain files in content/. Validate them when the
-// config loads so a malformed file stops `next build` (and `next dev`) with a
-// message naming the file and field, instead of rendering a broken page.
+// Field trips, initiatives and the ledger are plain files in content/. Validate
+// them when the config loads so a malformed file stops `next build` (and
+// `next dev`) with a message naming the file and field, instead of rendering a
+// broken page.
 assertContentValid();
 
 const nextConfig: NextConfig = {
@@ -36,6 +37,18 @@ const nextConfig: NextConfig = {
         destination: "/ur/field-trips/:slug*",
         permanent: true,
       },
+      // The section used to be called Our work and lived at /programmes. Keep
+      // old links working with a permanent redirect in both language trees.
+      {
+        source: "/programmes",
+        destination: "/initiatives",
+        permanent: true,
+      },
+      {
+        source: "/ur/programmes",
+        destination: "/ur/initiatives",
+        permanent: true,
+      },
     ];
   },
   // Content is read from the filesystem, which the bundler cannot trace on its
@@ -43,6 +56,7 @@ const nextConfig: NextConfig = {
   // read them on the host as well as at build time.
   outputFileTracingIncludes: {
     "/*": [
+      "./content/initiatives/**/*.md",
       "./content/field-trips/**/*.md",
       "./content/facts/**/*.json",
       "./content/social/**/*.json",

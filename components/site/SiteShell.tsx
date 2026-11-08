@@ -17,7 +17,7 @@ import { T } from "./BilingualText";
 
 type NavKey =
   | "madrasahs"
-  | "programmes"
+  | "initiatives"
   | "field-trips"
   | "transparency"
   | "about"
@@ -25,7 +25,7 @@ type NavKey =
 
 const navItems: { key: NavKey; label: typeof nav.madrasahs; href: string }[] = [
   { key: "madrasahs", label: nav.madrasahs, href: "madrasahs" },
-  { key: "programmes", label: nav.work, href: "programmes" },
+  { key: "initiatives", label: nav.initiatives, href: "initiatives" },
   { key: "field-trips", label: nav.fieldTrips, href: "field-trips" },
   { key: "transparency", label: nav.transparency, href: "transparency" },
   { key: "about", label: nav.about, href: "about" },
@@ -165,8 +165,8 @@ function Footer({ locale }: { locale: Locale }) {
                 </a>
               </li>
               <li>
-                <a href={pathForLocale(locale, "programmes")}>
-                  <T locale={locale} value={footer.programmes} />
+                <a href={pathForLocale(locale, "initiatives")}>
+                  <T locale={locale} value={footer.initiatives} />
                 </a>
               </li>
               <li>

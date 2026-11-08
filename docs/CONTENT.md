@@ -1,23 +1,162 @@
 # Content
 
-Field trips, ledger entries and published figures are plain files in this
-repository. Adding a record means adding a file. No page component changes, and
+Field trips, initiatives, ledger entries and published figures are plain files in
+this repository. Adding a record means adding a file. No page component changes, and
 there is no database, no external CMS, no account to sign in to and no network
 call at runtime.
 
 | What | Where | Format |
 | --- | --- | --- |
 | Field trips | `content/field-trips/*.md` | Markdown with YAML front matter, one file per trip |
+| Initiatives | `content/initiatives/*.md` | Markdown with YAML front matter, one file per initiative |
 | Money in, money out, project costs | `content/facts/ledger.json` | JSON |
 | Figures the charity publishes | `content/facts/figures.json` | JSON |
 | Social snapshot for the home mosaic | `content/social/posts.json` | JSON, written by `scripts/social-snapshot.mjs` |
 | Stills from the charity's Facebook page | `content/social/facebook.json` | JSON, with WebP files in `public/media/social/` |
 
 `lib/content` is the only code that reads these files. It finds each file,
-checks it, sorts records newest first and returns typed records. Page code
+checks it, sorts the records and returns typed records. Page code
 imports from `@/lib/content`. The module reads from disk, so it belongs in
 server components and build time code, never in a client component. Nothing is
 fetched in the browser.
+
+## Adding an initiative
+
+An initiative is one Markdown file in `content/initiatives`. The page lists every
+initiative automatically and gives each one its own page, so a volunteer adds an
+initiative by adding a file. No page code changes.
+
+1. Copy `content/initiatives/_template.md`.
+2. Save the copy in the same folder under a new file name. Use lowercase
+   letters, numbers and single hyphens, for example `water-pumps.md`.
+3. Fill in the fields between the two `---` lines. Only `title`, `summary`,
+   `status` and `category` are needed. Remove the leading `#` from any optional
+   field you can answer, and leave the rest out.
+4. Write the body as prose under the second `---` line, or leave the body empty
+   when the summary says everything there is to say.
+5. Run `npm run build` to check the file.
+
+The file name without `.md` becomes the initiative slug. `water-pumps.md` has the
+slug `water-pumps`, and its page is at `/initiatives/water-pumps` and
+`/ur/initiatives/water-pumps`.
+
+Files whose names start with `_` or `.` are ignored by the loader, so the template
+can never be published by accident.
+
+A filled-in example with every field in use:
+
+```yaml
+---
+title: Water pumps and wells
+summary: Wells and hand pumps built in villages around Shikarpur.
+status: active
+category: Water
+locations:
+  - Shikarpur, Sindh
+  - Khipro, Sanghar
+startDate: 2024-03
+endDate: 2025-06
+peopleServed:
+  - Families without water at home
+householdsServed: 25
+costPkr: 45000
+costCovers: Hand pumps, concrete aprons and installation.
+partners:
+  - Quran Mehal from Lodhra
+photos:
+  - src: public/photos/water-pump.jpg
+    alt: A hand pump in a village courtyard
+stats:
+  - label: Wells built
+    value: 4
+  - label: Where
+    value: Shikarpur and Khipro
+---
+
+## What was done
+
+The wells were built with the village committees, and each one has a hand pump
+beside it.
+
+- One well per village
+- A hand pump beside each well
+```
+
+Every value above is a placeholder that shows the shape of the field. It is not a
+published fact.
+
+### Initiative front matter fields
+
+| Field | Required | Meaning |
+| --- | --- | --- |
+| `title` | yes | The name of the initiative. |
+| `summary` | yes | One plain sentence saying what the initiative does. It appears on the card and under the page title. |
+| `status` | yes | `active`, `paused` or `completed`. |
+| `category` | yes | A short label, for example `Water` or `Livelihood`. It appears on the card as a tag. |
+| `order` | no | A whole number, lower first, that sets the listing position. Leave it out to sort without one. |
+| `locations` | no | A list of places. One line per place. |
+| `startDate` | no | When the work started, as `YYYY-MM-DD` or `YYYY-MM`. |
+| `endDate` | no | When it ended, in the same form. Needs a `startDate`. |
+| `peopleServed` | no | A list of the people or groups served, in your own words. |
+| `householdsServed` | no | A whole number of households. |
+| `costPkr` | no | The cost in whole rupees, without commas or a decimal point. |
+| `costCovers` | no | What the recorded cost paid for. Needs a `costPkr`. |
+| `partners` | no | A list of charities or groups the work is done with. |
+| `photos` | no | A list of photos, each with a `src` path under `public/` and an `alt` description. |
+| `stats` | no | A list of `label` and `value` pairs, shown as tiles. The value may be a number or a short phrase. |
+| `draft` | no | `true` keeps the initiative out of the listing while it is being checked. Default is `false`. |
+
+Optional fields are optional on purpose. Leave one out when the detail is not
+known: the page then shows nothing for it, which is honest. Do not write `0`,
+`TBC` or a guess to fill the space.
+
+Text with a colon or a hash in it must be quoted, as in the field trip section.
+
+### What the page shows
+
+| Front matter | On the page |
+| --- | --- |
+| `title`, `summary`, `status`, `category` | The page header and the index card. |
+| `stats` | A row of tiles under the header. A one number value and a short phrase value share the same tile, so mixed values stay readable. |
+| the prose below the block | The body, with headings, paragraphs and lists. |
+| `locations`, `startDate`, `endDate`, `householdsServed`, `costPkr`, `costCovers` | A details list. `costPkr` is shown as money, for example `PKR 45,000`. |
+| `peopleServed`, `partners` | Two panels beside the details list. |
+| `photos` | A photo section, one photo per entry, with the alt text as the description. |
+
+`startDate` and `endDate` are shown in the page's own language. `2024-03` reads as
+`March 2024` on the English page and `مارچ 2024` on the Urdu page; `2024-03-14` reads
+as `14 March 2024` and `14 مارچ 2024`. The stored value is never changed, only the
+display.
+
+The index lists each initiative as a card with its summary, status, category and
+locations. Initiatives are sorted with active work first, then paused, then
+completed. Within a status, an entry with an `order` comes first and lower first,
+then an entry with a start date comes first and newest first, and the title breaks
+any remaining tie.
+
+### The body
+
+Everything after the second `---` line is the prose. Leave a blank line between
+paragraphs. A line starting with `## ` is a heading; a line starting with a
+hyphen and a space starts a bullet list. Numbers can be bold with `**` and
+italic with `*`. A link is written as `[text](https://example.org)`.
+
+HTML is not supported: it is shown as plain text. Put figures in `stats` or in
+the fields above rather than only in the prose.
+
+### Drafts
+
+Add `draft: true` to keep an initiative out of the index and off its page while
+it is still being checked. The file is still validated, so it cannot go stale,
+and `getDraftInitiatives()` returns it for an internal preview. Remove the line,
+or set `draft: false`, to publish it.
+
+### Language
+
+Initiative files are written in English for now, and both language trees show the
+text as written. The Urdu tree shows a note that the write-up is awaiting a
+native Urdu review. When an Urdu version exists, it is a content change: add the
+Urdu file and translate the entry.
 
 ## Adding a field trip
 
@@ -378,6 +517,7 @@ has to invent a fallback:
 | Export | Shown when |
 | --- | --- |
 | `fieldTripsEmptyState` | no trip is published, on `/field-trips` |
+| `initiativesEmptyState` | no initiative is published |
 | `ledgerEmptyState` | the ledger has no entries, on `/transparency` |
 | `figuresEmptyState` | no figure is published, on `/transparency` |
 
@@ -422,6 +562,16 @@ Restart the dev server after editing a content file so the check runs again.
 | `field trip files must end in .md` | Rename the file. Other extensions are rejected rather than ignored. |
 | `field "stats[0].value" must be text or a number` | Write a number without quotes, or put the text in quotes. |
 | `field "photos[0].path"` errors | Each photo needs a `path` that exists under `public/`. |
+| `initiatives must be Markdown files directly inside content/initiatives, not folders` | Initiatives are one level deep, one file per initiative. |
+| `initiative files must end in .md` | Rename the file. Other extensions are rejected rather than ignored. |
+| `field "status" must be "active" or "paused" or "completed"` | Use one of the three words, in lowercase, without quotes. |
+| `field "endDate" needs a start date` | Add `startDate`, or remove `endDate`. |
+| `field "endDate" is ..., which is before "startDate" ...` | Check the dates: the end cannot come before the start. |
+| `field "costCovers" says what the cost paid for, so "costPkr" is needed too` | Add the cost, or remove `costCovers`. |
+| `field "locations" must be a list` | Write one item per line, each starting with `- `. |
+| `field "photos item 1 src" points at ... but that file does not exist` | Check the path, from the repository root. |
+| `field "photos item 1 alt" ...` | Every photo needs alt text, so it can be described to a screen reader. |
+| `field "stats item 1 value" must be text or a number` | A stat value is a number or a short phrase. |
 
 ## Editorial rules
 
@@ -429,6 +579,8 @@ Restart the dev server after editing a content file so the check runs again.
   the optional field out and say in the prose that it is pending.
 - No em dashes anywhere on this site. Use commas, colons or full stops.
 - Write prose in the trip's language and set `language` to match.
+- An initiative shows only what its file records. Do not add a stat, a partner,
+  a date or a cost to make a page look fuller.
 - Only publish a figure after the field team has verified it. The figure store
   is a record of what has been verified, not a scratchpad.
 
@@ -442,6 +594,9 @@ Everything comes from `@/lib/content`:
 | `getDraftFieldTrips()` | Draft field trips, for an internal preview only. |
 | `getLatestFieldTrip()` | The newest published field trip, or `null`. |
 | `getFieldTripBySlug(slug)` | One published field trip, or `null`. |
+| `getPublishedInitiatives()` | Published initiatives, in listing order. Drafts excluded. |
+| `getDraftInitiatives()` | Draft initiatives, for an internal preview only. |
+| `getInitiativeBySlug(slug)` | One published initiative, or `null`. |
 | `getLedger()` | Ledger entries, newest first. |
 | `getLedgerTotals()` | One total per currency, empty when the ledger is empty. |
 | `getFigures()` | Published figures, newest first. |
@@ -454,8 +609,13 @@ Everything comes from `@/lib/content`:
 Record shapes are documented in `lib/content/types.ts`. A field trip carries
 `slug`, `title`, `date`, `place`, `language`, `organiser`, `peopleMet`,
 `partners`, `householdsServed`, `cost`, `dataFile`, `photos`, `stats`, `draft`,
-`body` and `sourcePath`. Amounts are in minor units, so format them in one
-shared helper rather than in each page.
+`body` and `sourcePath`. An initiative carries `slug`, `title`, `summary`,
+`status`, `category`, `order`, `locations`, `startDate`, `endDate`,
+`peopleServed`, `householdsServed`, `cost`, `costCovers`, `partners`, `photos`,
+`stats`, `draft`, `body` and `sourcePath`. A stat is `{ label, value, numeric }`,
+where `numeric` is true when the value reads as a plain number. Amounts are in
+minor units, so format them with `formatMoney` from `lib/format.ts` rather than
+in each page.
 
 `next.config.ts` lists the content files in `outputFileTracingIncludes`, so the
 host receives them along with the built server output. Keep that entry if a

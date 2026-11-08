@@ -3,6 +3,7 @@
  *
  * Every record lives as a plain file in this repository:
  *
+ * - `content/initiatives/*.md` one Markdown file with front matter per initiative
  * - `content/field-trips/*.md` one Markdown file with front matter per field trip
  * - `content/facts/ledger.json` money in, money out and project costs
  * - `content/facts/figures.json` the figures the charity publishes
@@ -22,6 +23,7 @@
 import { ContentError, dedupeIssues, type ContentIssue } from "./errors";
 import { loadFigures, loadLedger } from "./facts";
 import { loadFieldTrips } from "./field-trips";
+import { loadInitiatives } from "./initiatives";
 import { loadSocialPosts } from "./social";
 import { loadFacebookMedia } from "./social-media";
 
@@ -43,6 +45,19 @@ export {
   loadFieldTrips,
   sortFieldTrips,
 } from "./field-trips";
+
+export {
+  getDraftInitiatives,
+  getInitiativeBySlug,
+  getPublishedInitiatives,
+  INITIATIVE_CONTENT_LANGUAGE,
+  INITIATIVE_EXTENSION,
+  INITIATIVE_FIELDS,
+  INITIATIVE_STATUSES,
+  INITIATIVES_DIRECTORY,
+  loadInitiatives,
+  sortInitiatives,
+} from "./initiatives";
 
 export {
   FACTS_DIRECTORY,
@@ -82,6 +97,7 @@ export type { PhotoMedia, SlotMedia, SocialManifest } from "./social-media";
 export {
   fieldTripsEmptyState,
   figuresEmptyState,
+  initiativesEmptyState,
   ledgerEmptyState,
 } from "./empty-state";
 
@@ -96,7 +112,7 @@ export function validateContent(
 ): ContentIssue[] {
   const issues: ContentIssue[] = [];
 
-  for (const load of [loadFieldTrips, loadLedger, loadFigures, loadSocialPosts, loadFacebookMedia]) {
+  for (const load of [loadInitiatives, loadFieldTrips, loadLedger, loadFigures, loadSocialPosts, loadFacebookMedia]) {
     try {
       load(projectRoot);
     } catch (error) {

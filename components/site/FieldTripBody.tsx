@@ -28,17 +28,18 @@ export function FieldTripBody({
   return (
     <>
       {blocks.map((block, index) => {
-        if (block.kind === "heading") {
+        if (block.type === "heading") {
           return <h2 key={index}>{block.text}</h2>;
         }
 
-        if (block.kind === "list") {
-          return (
-            <ul key={index}>
-              {block.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{item}</li>
-              ))}
-            </ul>
+        if (block.type === "list") {
+          const items = block.items.map((item, itemIndex) => (
+            <li key={itemIndex}>{item}</li>
+          ));
+          return block.ordered ? (
+            <ol key={index}>{items}</ol>
+          ) : (
+            <ul key={index}>{items}</ul>
           );
         }
 

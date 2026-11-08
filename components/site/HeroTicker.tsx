@@ -3,23 +3,22 @@ import {
   common,
   home,
   nav,
-  programmesPage,
   site,
   type Bilingual,
 } from "@/content/copy";
+import { getPublishedInitiatives } from "@/lib/content";
 import { dirForLocale, type Locale } from "@/lib/locale";
 
 // Only phrases that already exist in content/copy.ts, so the strip claims
 // nothing new. Urdu pages show the phrases that have approved Urdu copy and
 // skip the ones still waiting on native review.
-const phraseCandidates: Bilingual[] = [
+const copyPhrases: Bilingual[] = [
   site.name,
   site.description,
   home.hbmTitle,
-  ...programmesPage.items.map((item) => item.title),
   common.give,
   common.getHelp,
-  nav.work,
+  nav.initiatives,
   nav.fieldTrips,
   nav.about,
   home.heroTitle,
@@ -29,7 +28,13 @@ const phraseCandidates: Bilingual[] = [
 ];
 
 export function HeroTicker({ locale }: { locale: Locale }) {
-  const phrases = phraseCandidates
+  // Initiative titles come from content/initiatives files and are written in
+  // English for now, so they are shown as written in both language trees.
+  const initiativePhrases: Bilingual[] = getPublishedInitiatives().map(
+    (initiative) => ({ en: initiative.title, ur: null }),
+  );
+
+  const phrases = [...copyPhrases, ...initiativePhrases]
     .map((phrase) => (locale === "ur" ? phrase.ur : phrase.en))
     .filter((phrase): phrase is string => Boolean(phrase));
 

@@ -79,6 +79,74 @@ export type FieldTrip = {
   sourcePath: string;
 };
 
+export type InitiativeStatus = "active" | "paused" | "completed";
+
+/**
+ * One tile on an initiative page: a short label and the value it stands for.
+ * The value is text so an initiative can show a number, a phrase or a date
+ * without the content model changing. `numeric` is true when the value reads as
+ * a plain number, which the page renders in the tabular figure style.
+ */
+export type InitiativeStat = {
+  label: string;
+  value: string;
+  numeric: boolean;
+};
+
+export type InitiativePhoto = {
+  /** Repository relative path, for example public/photos/water-pump.jpg */
+  path: string;
+  /** Public URL derived from the path, for example /photos/water-pump.jpg */
+  url: string;
+  /** Text alternative, required so every photo is described. */
+  alt: string;
+};
+
+/**
+ * One initiative. An initiative is one Markdown file in `content/initiatives`
+ * with front matter, and the file name without `.md` becomes the slug.
+ *
+ * Only `title`, `summary`, `status` and `category` are required. Every other
+ * field is null or an empty list when the file does not record it, and a page
+ * renders nothing in place of an absent fact.
+ */
+export type Initiative = {
+  slug: string;
+  title: string;
+  /** One plain sentence describing the initiative. */
+  summary: string;
+  status: InitiativeStatus;
+  /** Short grouping label, for example "Water" or "Livelihood". */
+  category: string;
+  /** Optional editorial position, lower first. `null` when not recorded. */
+  order: number | null;
+  /** Places the initiative works in. Empty when not recorded. */
+  locations: string[];
+  /** Start date as YYYY-MM-DD or YYYY-MM, or null when not recorded. */
+  startDate: string | null;
+  /** End date in the same form, or null when the initiative has not ended. */
+  endDate: string | null;
+  /** The people or groups served, in the file's own words. */
+  peopleServed: string[];
+  /** Optional. `null` means the file does not record a household count. */
+  householdsServed: number | null;
+  /** Optional. `null` means the file does not record a cost. */
+  cost: Money | null;
+  /** What the recorded cost paid for, or null when not recorded. */
+  costCovers: string | null;
+  /** Charities or groups the work is done with. */
+  partners: string[];
+  photos: InitiativePhoto[];
+  /** Free label and value pairs shown as tiles. Order follows the file. */
+  stats: InitiativeStat[];
+  /** Draft initiatives are validated but never listed as published. */
+  draft: boolean;
+  /** The Markdown prose after the front matter block. Empty when there is none. */
+  body: string;
+  /** Repository relative path of the source file. */
+  sourcePath: string;
+};
+
 export type LedgerKind = "income" | "expenditure";
 
 /**

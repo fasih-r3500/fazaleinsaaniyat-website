@@ -1,6 +1,7 @@
 import { home, common, madrasahsPage } from "@/content/copy";
 import { plainText } from "@/content/copy";
 import { loadSocialPosts } from "@/lib/content";
+import { getPublishedInitiatives, INITIATIVE_CONTENT_LANGUAGE } from "@/lib/content";
 import { madrasahs } from "@/lib/madrasahs";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { Mark } from "./Mark";
@@ -20,6 +21,10 @@ function Arrow() {
 }
 
 export function HomePage({ locale }: { locale: Locale }) {
+  const initiatives = getPublishedInitiatives();
+  const contentLang = INITIATIVE_CONTENT_LANGUAGE;
+  const contentDir = contentLang === "ur" ? "rtl" : "ltr";
+
   return (
     <>
       <section className="hero">
@@ -171,7 +176,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <h2 id="initiatives-heading">
               <T locale={locale} value={home.initiativesTitle} />
             </h2>
-            <a href={pathForLocale(locale, "programmes")}>
+            <a href={pathForLocale(locale, "initiatives")}>
               <T locale={locale} value={common.moreWork} /> <Arrow />
             </a>
           </div>
@@ -179,16 +184,16 @@ export function HomePage({ locale }: { locale: Locale }) {
             <T locale={locale} value={home.initiativesIntro} />
           </p>
           <ul className="initiative-grid">
-            {home.initiatives.map((item, index) => (
-              <li key={item.title.en}>
+            {initiatives.map((initiative, index) => (
+              <li key={initiative.slug}>
                 <span className="mono k">{String(index + 1).padStart(2, "0")}</span>
-                <h3>
-                  <T locale={locale} value={item.title} />
+                <h3 lang={contentLang} dir={contentDir}>
+                  {initiative.title}
                 </h3>
-                <p>
-                  <T locale={locale} value={item.body} />
+                <p lang={contentLang} dir={contentDir}>
+                  {initiative.summary}
                 </p>
-                <InitiativePhoto title={item.title.en} locale={locale} />
+                <InitiativePhoto title={initiative.title} locale={locale} />
               </li>
             ))}
           </ul>

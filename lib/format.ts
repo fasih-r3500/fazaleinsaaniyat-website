@@ -20,6 +20,21 @@ const MONTHS = [
   "December",
 ];
 
+const URDU_MONTHS = [
+  "جنوری",
+  "فروری",
+  "مارچ",
+  "اپریل",
+  "مئی",
+  "جون",
+  "جولائی",
+  "اگست",
+  "ستمبر",
+  "اکتوبر",
+  "نومبر",
+  "دسمبر",
+];
+
 /** Format a `YYYY-MM-DD` date as `5 January 2026`. */
 export function formatDate(isoDate: string): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate);
@@ -33,6 +48,42 @@ export function formatDate(isoDate: string): string {
   if (!monthName) return isoDate;
 
   return `${day} ${monthName} ${year}`;
+}
+
+/**
+ * Format an initiative start or end date written as `YYYY-MM-DD` or `YYYY-MM`
+ * for the given page language. English renders `14 March 2024` / `March 2024`;
+ * Urdu renders the month names in Urdu script. Returns `null` when the value is
+ * not a recognised month or date, so the caller can omit the fact.
+ */
+export function formatMonthOrDate(
+  value: string,
+  locale: "en" | "ur",
+): string | null {
+  const match = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(value);
+  if (!match) return null;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = match[3] === undefined ? null : Number(match[3]);
+
+  if (month < 1 || month > 12) return null;
+  if (day !== null) {
+    const date = new Date(Date.UTC(year, month - 1, day));
+    if (
+      date.getUTCFullYear() !== year ||
+      date.getUTCMonth() !== month - 1 ||
+      date.getUTCDate() !== day
+    ) {
+      return null;
+    }
+  }
+
+  const monthName = (locale === "ur" ? URDU_MONTHS : MONTHS)[month - 1];
+  if (!monthName) return null;
+
+  const dayText = day === null ? "" : `${day} `;
+  return `${dayText}${monthName} ${year}`;
 }
 
 /**
