@@ -11,6 +11,7 @@ call at runtime.
 | Money in, money out, project costs | `content/facts/ledger.json` | JSON |
 | Figures the charity publishes | `content/facts/figures.json` | JSON |
 | Social snapshot for the home mosaic | `content/social/posts.json` | JSON, written by `scripts/social-snapshot.mjs` |
+| Stills from the charity's Facebook page | `content/social/facebook.json` | JSON, with WebP files in `public/media/social/` |
 
 `lib/content` is the only code that reads these files. It finds each file,
 checks it, sorts records newest first and returns typed records. Page code
@@ -331,6 +332,40 @@ and links to the original post.
 
 A missing or empty manifest means the social strip is not rendered at all. The
 page does not show an empty shell.
+## Facebook stills
+
+The charity has no camera originals, so the stills on the site come from its own
+public Facebook page. `content/social/facebook.json` records one entry per still
+and the committed WebP derivative that goes with it. A page then asks for a slot
+and gets back either a photograph or a redacted block, never a guess.
+
+| Field | Required | Meaning |
+| --- | --- | --- |
+| `id` | yes | Lowercase name for the still, for example `mosque-wall`. |
+| `slot` | yes | Where the still may appear: `mosques`, `water`, `hunar-ghar` or `field`. |
+| `photoId` | yes | The numeric Facebook photo id it was downloaded from. |
+| `sourceUrl` | yes | The full `https://www.facebook.com/` permalink of that photo. |
+| `sourceWidth`, `sourceHeight` | yes | The pixels of the file as downloaded. |
+| `sourceBytes` | yes | The size of the file as downloaded. |
+| `src` | yes, unless the still is unconfirmed | Public path of the WebP derivative under `/media/social/`. |
+| `width`, `height` | yes, with `src` | The pixels of the derivative. Never larger than the source. |
+| `bytes` | yes, with `src` | The size of the derivative, checked against the file on disk. |
+| `provenance` | yes | `public-page` when the file is confirmed, `unconfirmed` when it is not. |
+| `note` | required when unconfirmed | One sentence saying why the still is not shown. |
+| `alt` | yes | `en` and `ur` text describing only what is visible. No caption, no claim. |
+
+Rules that the loader enforces:
+
+- A derivative is never wider or taller than the source, so nothing is upscaled.
+- `bytes` must match the committed file. A stale record stops the build.
+- `provenance: "unconfirmed"` forces `src` to be null and requires a `note`. An
+  unconfirmed still renders as a redacted block, in the way a spoiler is hidden,
+  with one neutral line of text and no invented subject.
+- Delete an entry rather than point it at a placeholder image.
+
+Downloaded renditions are only as good as the page offers. The page exposes no
+camera originals and no EXIF, so no still here can be treated as documentary
+evidence of a date or a place beyond what the charity itself published.
 
 ## Empty stores
 
@@ -410,6 +445,9 @@ Everything comes from `@/lib/content`:
 | `getFigures()` | Published figures, newest first. |
 | `loadSocialPosts()` | Social posts, newest first. An empty manifest returns `[]`. |
 | `assertContentValid()` | Throws on any invalid content file. |
+| `mediaForSlot(slot)` | A committed still, a redacted block, or `null` when the slot is empty. |
+| `fieldPhotos()` | The confirmed stills that belong in the field gallery. |
+| `loadFacebookMedia()` | The whole stills manifest, for fact checking and source links. |
 
 Record shapes are documented in `lib/content/types.ts`. A field trip carries
 `slug`, `title`, `date`, `place`, `language`, `organiser`, `peopleMet`,

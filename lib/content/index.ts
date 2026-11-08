@@ -7,6 +7,7 @@
  * - `content/facts/ledger.json` money in, money out and project costs
  * - `content/facts/figures.json` the figures the charity publishes
  * - `content/social/posts.json` the build-time social snapshot manifest
+ * - `content/social/facebook.json` stills taken from the charity's Facebook page
  *
  * Import from `@/lib/content` only. The module reads files from disk, so use it
  * in server components, `generateStaticParams`, `generateMetadata` or page
@@ -22,6 +23,7 @@ import { ContentError, dedupeIssues, type ContentIssue } from "./errors";
 import { loadFigures, loadLedger } from "./facts";
 import { loadFieldTrips } from "./field-trips";
 import { loadSocialPosts } from "./social";
+import { loadFacebookMedia } from "./social-media";
 
 export type * from "./types";
 
@@ -66,6 +68,18 @@ export {
 } from "./social";
 
 export {
+  FACEBOOK_MEDIA_FILE,
+  SOCIAL_IMAGE_DIRECTORY,
+  SOCIAL_PROVENANCE,
+  SOCIAL_SLOTS,
+  fieldPhotos,
+  loadFacebookMedia,
+  mediaForSlot,
+} from "./social-media";
+
+export type { PhotoMedia, SlotMedia, SocialManifest } from "./social-media";
+
+export {
   fieldTripsEmptyState,
   figuresEmptyState,
   ledgerEmptyState,
@@ -82,7 +96,7 @@ export function validateContent(
 ): ContentIssue[] {
   const issues: ContentIssue[] = [];
 
-  for (const load of [loadFieldTrips, loadLedger, loadFigures, loadSocialPosts]) {
+  for (const load of [loadFieldTrips, loadLedger, loadFigures, loadSocialPosts, loadFacebookMedia]) {
     try {
       load(projectRoot);
     } catch (error) {

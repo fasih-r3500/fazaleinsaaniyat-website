@@ -44,6 +44,7 @@ export const common = {
   toBePublished: b("to be published", "شائع ہونا باقی"),
   pending: b("pending", "زیرِ التوا"),
   opensInNewTab: b("opens in a new tab", "نئی ونڈو میں کھلتا ہے"),
+  photoNotPublished: b("Photo not published yet", "تصویر ابھی شائع نہیں ہوئی"),
 };
 
 export const footer = {
@@ -391,6 +392,12 @@ export const fieldTripsPage = {
     "An empty field means we do not know. It does not mean zero.",
     "خالی جگہ کا مطلب ہے کہ ہمیں معلوم نہیں۔ اس کا مطلب صفر نہیں۔",
   ),
+  fieldTitle: b("From the field", "میدان سے"),
+  fieldIntro: b(
+    "Photographs that the charity published on its own Facebook page. Each one is described as it looks and carries no claim beyond that.",
+    "وہ تصاویر جو خیراتی ادارے نے اپنے فیس بک پیج پر شائع کیں۔ ہر تصویر کے ساتھ صرف وہی لکھا ہے جو اس میں نظر آتا ہے۔",
+  ),
+  fieldSource: b("Facebook page", "فیس بک پیج"),
 };
 
 export const fieldTripPage = {
