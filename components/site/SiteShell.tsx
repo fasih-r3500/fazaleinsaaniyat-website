@@ -62,7 +62,11 @@ function Lockup({ locale }: { locale: Locale }) {
   return (
     <a className="lockup" href={pathForLocale(locale, "")} aria-label={locale === "ur" ? site.name.ur ?? site.name.en : site.name.en}>
       <Mark className="mk" />
-      <span lang={locale === "ur" ? "ur" : "en"} dir={dir}>
+      <span
+        className="lockup-text"
+        lang={locale === "ur" ? "ur" : "en"}
+        dir={dir}
+      >
         <b>{locale === "ur" ? site.shortName.ur : site.shortName.en}</b>
         <i>{locale === "ur" ? site.charityWorks.ur : site.charityWorks.en}</i>
       </span>
@@ -227,34 +231,27 @@ export function SiteShell({
         <a className="skip-link" href="#main">
           <T locale={locale} value={common.skip} />
         </a>
-        <div className="utility">
-          <div className="wrap">
-            <span className="utility-legal">
-              <T locale={locale} value={site.name} />
-            </span>
-            <span className="utility-actions">
-              <a href={pathForLocale(locale, "get-help")}>
-                <T locale={locale} value={common.getHelp} />
-              </a>
-              <LanguageSwitch locale={locale} path={path} />
-              <a className="utility-give" href={pathForLocale(locale, "give")}>
-                <T locale={locale} value={common.give} />
-              </a>
-            </span>
-          </div>
-        </div>
         <header className="site-header">
           <div className="wrap">
             <Lockup locale={locale} />
             <nav className="primary-nav" aria-label={locale === "ur" ? common.mainNav.ur ?? common.mainNav.en : common.mainNav.en}>
               <NavLinks locale={locale} current={current} />
             </nav>
+            <div className="header-actions">
+              <LanguageSwitch locale={locale} path={path} />
+              <a className="btn btn-solid header-give" href={pathForLocale(locale, "give")}>
+                <T locale={locale} value={common.give} />
+              </a>
+            </div>
             <details className="mobile-menu">
               <summary>
                 <T locale={locale} value={common.menu} />
               </summary>
               <nav aria-label={locale === "ur" ? common.mainNav.ur ?? common.mainNav.en : common.mainNav.en}>
                 <NavLinks locale={locale} current={current} compact />
+                <div className="menu-lang">
+                  <LanguageSwitch locale={locale} path={path} />
+                </div>
               </nav>
             </details>
           </div>
