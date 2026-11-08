@@ -101,13 +101,6 @@ export function InitiativePhoto({
   locale: Locale;
   posts: SocialPost[];
 }) {
-  const slot = INITIATIVE_SLOTS[slug];
-  const media = slot === undefined ? null : mediaForSlot(slot);
-
-  if (media?.kind === "photo") {
-    return <Shot media={media} locale={locale} />;
-  }
-
   if (slug === "hunar-ghar") {
     const post = posts.find((entry) => entry.url === HUNAR_GHAR_POST);
     if (post !== undefined) {
@@ -115,5 +108,10 @@ export function InitiativePhoto({
     }
   }
 
-  return <RedactedPhoto locale={locale} />;
+  const slot = INITIATIVE_SLOTS[slug];
+  if (slot === undefined) {
+    return <RedactedPhoto locale={locale} />;
+  }
+
+  return <SlotPhoto slot={slot} locale={locale} />;
 }
