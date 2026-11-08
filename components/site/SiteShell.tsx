@@ -114,7 +114,7 @@ function Footer({ locale }: { locale: Locale }) {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/fazaleinsaaniyat"
+                  href="https://www.facebook.com/p/Fazal-e-Insaaniyat-Charity-Works-61575559845175/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${plainText(locale, footer.facebook)} (${plainText(locale, common.opensInNewTab)})`}

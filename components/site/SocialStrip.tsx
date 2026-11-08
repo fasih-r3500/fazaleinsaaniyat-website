@@ -1,4 +1,4 @@
-import { common, home, plainText } from "@/content/copy";
+import { common, footer, home, plainText } from "@/content/copy";
 import type { SocialPost } from "@/lib/content";
 import type { Locale } from "@/lib/locale";
 import { T } from "./BilingualText";
@@ -84,7 +84,7 @@ export function SocialStrip({
                   decoding="async"
                 />
                 <span className="social-tile__badge" aria-hidden="true">
-                  {post.platform === "instagram" ? "Instagram" : "Facebook"}
+                  {plainText(locale, footer.instagram)}
                 </span>
               </a>
             </li>
