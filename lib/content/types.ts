@@ -126,3 +126,32 @@ export type PublishedFigure = {
   /** Optional slug of a field trip that documents this figure. */
   fieldTripSlug: string | null;
 };
+
+export type SocialPlatform = "instagram";
+
+export type SocialMediaType = "image" | "video";
+
+/**
+ * One post in the build-time social snapshot. The entry lives in
+ * `content/social/posts.json` and points at a local WebP poster, never at the
+ * signed Instagram CDN URL, which expires within days.
+ */
+export type SocialPost = {
+  platform: SocialPlatform;
+  /** The original post URL. Every mosaic tile links to it. */
+  url: string;
+  /** The post's own timestamp, in UTC ISO 8601 form. */
+  takenAt: string;
+  /** The kind of post Instagram records, not the file committed here. */
+  mediaType: SocialMediaType;
+  /** Repository relative path, for example public/media/social/ABC123.webp */
+  posterPath: string;
+  /** Public URL derived from posterPath, for example /media/social/ABC123.webp */
+  posterUrl: string;
+  /** What the poster actually shows. */
+  alt: string;
+  /** Account that owns the post, without the @ symbol. */
+  owner: string;
+  /** Co-author named on the post, without the @ symbol, or null. */
+  collaborator: string | null;
+};

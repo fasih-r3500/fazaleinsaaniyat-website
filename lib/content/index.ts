@@ -6,6 +6,7 @@
  * - `content/field-trips/*.md` one Markdown file with front matter per field trip
  * - `content/facts/ledger.json` money in, money out and project costs
  * - `content/facts/figures.json` the figures the charity publishes
+ * - `content/social/posts.json` the build-time social snapshot manifest
  *
  * Import from `@/lib/content` only. The module reads files from disk, so use it
  * in server components, `generateStaticParams`, `generateMetadata` or page
@@ -20,6 +21,7 @@
 import { ContentError, dedupeIssues, type ContentIssue } from "./errors";
 import { loadFigures, loadLedger } from "./facts";
 import { loadFieldTrips } from "./field-trips";
+import { loadSocialPosts } from "./social";
 
 export type * from "./types";
 
@@ -56,6 +58,14 @@ export {
 } from "./facts";
 
 export {
+  loadSocialPosts,
+  SOCIAL_DIRECTORY,
+  SOCIAL_MEDIA_TYPES,
+  SOCIAL_PLATFORMS,
+  SOCIAL_POSTS_FILE,
+} from "./social";
+
+export {
   fieldTripsEmptyState,
   figuresEmptyState,
   ledgerEmptyState,
@@ -72,7 +82,7 @@ export function validateContent(
 ): ContentIssue[] {
   const issues: ContentIssue[] = [];
 
-  for (const load of [loadFieldTrips, loadLedger, loadFigures]) {
+  for (const load of [loadFieldTrips, loadLedger, loadFigures, loadSocialPosts]) {
     try {
       load(projectRoot);
     } catch (error) {

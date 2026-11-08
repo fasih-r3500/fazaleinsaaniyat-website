@@ -9,6 +9,7 @@ export async function middleware(request: NextRequest) {
   const csp = [
     "default-src 'none'",
     "img-src 'self' data:",
+    "media-src 'self'",
     "style-src 'self'",
     `script-src 'self' 'nonce-${nonce}'`,
     "font-src 'self'",

@@ -1029,6 +1029,69 @@ summary {
   line-height: 1.55;
 }
 
+/* Social strip */
+.social-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.social-tile {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--mist);
+  border: 1px solid var(--rule);
+}
+
+.social-tile--wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+.social-tile a {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.social-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 420ms ease;
+}
+
+.social-tile a:hover img,
+.social-tile a:focus-visible img {
+  transform: scale(1.025);
+}
+
+.social-tile a:focus-visible {
+  outline-offset: -3px;
+}
+
+.social-tile__badge {
+  position: absolute;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  z-index: 1;
+  background: rgba(11, 27, 19, 0.78);
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 6px 7px;
+  pointer-events: none;
+}
+
 /* Quote */
 .quote {
   background: var(--mist);
@@ -1139,6 +1202,27 @@ summary {
   padding-block: 4px;
   color: #c9d8cd;
   font-size: 14px;
+}
+
+.footer-social-heading {
+  margin-top: 22px;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.footer-social li {
+  padding-block: 0;
+}
+
+.footer-social a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .footer-note {
@@ -1851,6 +1935,15 @@ summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .social-mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .social-tile--wide {
+    aspect-ratio: 8 / 5;
+  }
+
   .footer-cols {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2049,6 +2142,17 @@ summary {
 
   .initiative-grid h3 {
     font-size: 18px;
+  }
+
+  .social-mosaic {
+    gap: 10px;
+  }
+
+  .social-tile__badge {
+    inset-block-end: 8px;
+    inset-inline-start: 8px;
+    font-size: 9px;
+    padding: 5px 6px;
   }
 
   .quote {

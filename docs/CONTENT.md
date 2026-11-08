@@ -10,6 +10,7 @@ call at runtime.
 | Field trips | `content/field-trips/*.md` | Markdown with YAML front matter, one file per trip |
 | Money in, money out, project costs | `content/facts/ledger.json` | JSON |
 | Figures the charity publishes | `content/facts/figures.json` | JSON |
+| Social snapshot for the home mosaic | `content/social/posts.json` | JSON, written by `scripts/social-snapshot.mjs` |
 
 `lib/content` is the only code that reads these files. It finds each file,
 checks it, sorts records newest first and returns typed records. Page code
@@ -297,9 +298,43 @@ Shape example only, every value below is a placeholder and is not published:
 Write `"ur": null` when the Urdu wording has not had a native review. The site
 treats a null Urdu value as pending, following the existing site convention.
 
+## Social snapshot
+
+`content/social/posts.json` is the build-time snapshot behind the home page
+social strip. It holds one entry per post and never holds a signed Instagram CDN
+URL, because those expire within days. Each entry points at a committed WebP
+poster under `public/media/social/`.
+
+Regenerate it with:
+
+```bash
+npm run social:snapshot
+```
+
+The post list and the hand-written alt text live in that script. It fetches each
+single post page, extracts the media JSON, downloads one still, converts it to a
+720px wide WebP and writes the manifest sorted by the post's own timestamp,
+newest first. It writes no manifest when any entry fails, so the last good manifest
+stays in place. Video is not downloaded: a video post shows its poster
+and links to the original post.
+
+| Field | Required | Meaning |
+| --- | --- | --- |
+| `platform` | yes | `instagram`. |
+| `url` | yes | The original post or reel URL. Every tile links to it. |
+| `takenAt` | yes | The post's own timestamp, as `YYYY-MM-DDTHH:MM:SSZ`. |
+| `mediaType` | yes | `image` or `video`, as Instagram records the post. |
+| `poster` | yes | Repository path to the WebP poster, under `public/media/social/`. |
+| `alt` | yes | What the poster shows. Written by hand, with no invented claim. |
+| `owner` | yes | The account that owns the post, without the `@`. |
+| `collaborator` | yes | A named co-author without the `@`, or `null`. |
+
+A missing or empty manifest means the social strip is not rendered at all. The
+page does not show an empty shell.
+
 ## Empty stores
 
-Zero field trips, zero ledger entries and zero figures are all valid. The
+Zero field trips, zero ledger entries, zero figures and an empty social manifest are all valid. The
 loader returns empty lists, and `lib/content` exports ready made copy so no page
 has to invent a fallback:
 
@@ -373,6 +408,7 @@ Everything comes from `@/lib/content`:
 | `getLedger()` | Ledger entries, newest first. |
 | `getLedgerTotals()` | One total per currency, empty when the ledger is empty. |
 | `getFigures()` | Published figures, newest first. |
+| `loadSocialPosts()` | Social posts, newest first. An empty manifest returns `[]`. |
 | `assertContentValid()` | Throws on any invalid content file. |
 
 Record shapes are documented in `lib/content/types.ts`. A field trip carries

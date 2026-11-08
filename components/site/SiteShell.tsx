@@ -3,6 +3,7 @@ import {
   footer,
   common,
   nav,
+  plainText,
   site,
 } from "@/content/copy";
 import {
@@ -97,6 +98,31 @@ function Footer({ locale }: { locale: Locale }) {
         <div className="footer-cols">
           <div className="footer-brand">
             <Lockup locale={locale} />
+            <h2 className="footer-heading footer-social-heading">
+              <T locale={locale} value={footer.followHeading} />
+            </h2>
+            <ul className="footer-social">
+              <li>
+                <a
+                  href="https://www.instagram.com/fazaleinsaaniyat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${plainText(locale, footer.instagram)} (${plainText(locale, common.opensInNewTab)})`}
+                >
+                  <T locale={locale} value={footer.instagram} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/fazaleinsaaniyat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${plainText(locale, footer.facebook)} (${plainText(locale, common.opensInNewTab)})`}
+                >
+                  <T locale={locale} value={footer.facebook} />
+                </a>
+              </li>
+            </ul>
           </div>
           <div>
             <h2 className="footer-heading">
