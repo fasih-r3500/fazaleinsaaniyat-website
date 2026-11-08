@@ -20,6 +20,14 @@ export const contactLinks = {
   email: `mailto:${contact.email}`,
 } as const;
 
+/**
+ * A WhatsApp link that opens a chat with the charity and carries a short
+ * prefilled message, so a giver does not have to compose one.
+ */
+export function whatsappLink(message: string): string {
+  return `${contactLinks.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
 export type SocialNetwork = "instagram" | "facebook" | "tiktok";
 
 export const socialProfiles = {

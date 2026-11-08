@@ -1,4 +1,4 @@
-import { aboutPage, getHelpPage } from "@/content/copy";
+import { getHelpPage, policyPages } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
@@ -141,7 +141,7 @@ export function GetHelpPage({ locale }: { locale: Locale }) {
               className="btn btn-ghost-light"
               href={pathForLocale(locale, "policies/privacy")}
             >
-              <T locale={locale} value={aboutPage.policies[0]} />
+              <T locale={locale} value={policyPages.privacy.title} />
             </a>
           </div>
         </div>

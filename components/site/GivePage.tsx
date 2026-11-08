@@ -1,4 +1,5 @@
-import { aboutPage, givePage, nav } from "@/content/copy";
+import { common, givePage, nav, plainText, policyPages } from "@/content/copy";
+import { whatsappLink } from "@/lib/contact";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
@@ -65,7 +66,7 @@ export function GivePage({ locale }: { locale: Locale }) {
           </p>
           <p className="table-note">
             <a href={pathForLocale(locale, "policies/zakat-sadaqah")}>
-              <T locale={locale} value={aboutPage.policies[3]} /> <Arrow />
+              <T locale={locale} value={policyPages["zakat-sadaqah"].title} /> <Arrow />
             </a>
           </p>
         </div>
@@ -79,6 +80,17 @@ export function GivePage({ locale }: { locale: Locale }) {
           <p className="body-copy">
             <T locale={locale} value={givePage.receiptsBody} />
           </p>
+          <div className="actions">
+            <a
+              className="btn btn-solid"
+              href={whatsappLink(plainText(locale, givePage.receiptsMessage))}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${plainText(locale, givePage.receiptsWhatsApp)} (${plainText(locale, common.opensInNewTab)})`}
+            >
+              <T locale={locale} value={givePage.receiptsWhatsApp} /> <Arrow />
+            </a>
+          </div>
           <p className="section-note">
             <T locale={locale} value={givePage.receiptsNote} />
           </p>

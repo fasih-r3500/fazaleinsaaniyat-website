@@ -68,6 +68,7 @@ export const footer = {
   initiatives: b("Initiatives", "اقدامات"),
   about: b("About", "تعارف"),
   privacy: b("Privacy", "رازداری"),
+  terms: b("Terms of use", "استعمال کی شرائط"),
   safeguarding: b("Safeguarding", "تحفظ"),
   complaints: b("Complaints", "شکایات"),
   zakat: b("Zakat and Sadaqah", "زکوٰۃ و صدقہ"),
@@ -76,7 +77,7 @@ export const footer = {
   facebook: b("Facebook", "Facebook"),
   tiktok: b("TikTok", "TikTok"),
   lastUpdated: b("Last updated", "آخری تازہ کاری"),
-  lastUpdatedDate: b("7 November 2026", "7 نومبر 2026"),
+  lastUpdatedDate: b("8 November 2026", "8 نومبر 2026"),
   copyright: b("© 2026 Fazal-e-Insaaniyat Charity Works", "© 2026 فضلِ انسانیت چیریٹی ورکس"),
 };
 
@@ -287,7 +288,8 @@ export const aboutPage = {
   governanceLink: b("Transparency", "شفافیت"),
   policyTitle: b("Policies", "پالیسیاں"),
   policies: [
-    b("Privacy statement", "رازداری کا بیان"),
+    b("Privacy policy", "رازداری کی پالیسی"),
+    b("Terms of use", "استعمال کی شرائط"),
     b("Safeguarding policy", "تحفظ کی پالیسی"),
     b("Complaints procedure", "شکایات کا طریقہ"),
     b("Zakat and Sadaqah policy", "زکوٰۃ و صدقہ کی پالیسی"),
@@ -414,8 +416,8 @@ export const transparencyPage = {
   ),
   askTitle: b("If something does not add up", "اگر کوئی حساب نہ ملے"),
   askBody: b(
-    "Ask us. Our contact details are on the contact page, and the complaints procedure is being written.",
-    "ہم سے پوچھیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں، اور شکایات کا طریقہ لکھا جا رہا ہے۔",
+    "Ask us. Our contact details are on the contact page, and the complaints page explains what happens when something has gone wrong.",
+    "ہم سے پوچھیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں، اور شکایات کا صفحہ بتاتا ہے کہ کوئی بات غلط ہونے پر کیا ہوتا ہے۔",
   ),
   askContact: b("Contact us", "ہم سے رابطہ کریں"),
   tableDate: b("Date", "تاریخ"),
@@ -476,17 +478,22 @@ export const givePage = {
     },
   ],
   fundsNote: b(
-    "The zakat and sadaqah policy is being written. Please ask us before giving zakat.",
-    "زکوٰۃ و صدقہ کی پالیسی لکھی جا رہی ہے۔ زکوٰۃ دینے سے پہلے ہم سے پوچھیں۔",
+    "Please ask us before you give zakat. The zakat and sadaqah policy sets out how that money is handled.",
+    "زکوٰۃ دینے سے پہلے ہم سے پوچھیں۔ زکوٰۃ و صدقہ کی پالیسی بتاتی ہے کہ اُس رقم کے ساتھ کیا کیا جاتا ہے۔",
   ),
   receiptsTitle: b("Receipts", "رسیدیں"),
   receiptsBody: b(
-    "We aim to send a receipt for every gift. Receipts are not being issued yet, so please ask us when you give.",
-    "ہماری کوشش ہے کہ ہر عطیے کی رسید ہو۔ رسیدیں ابھی جاری نہیں ہو رہیں، اِس لیے عطیہ دیتے وقت ہم سے پوچھ لیں۔",
+    "A receipt is issued for every gift, and today it comes through WhatsApp. Ask us and we will send it on the same number.",
+    "ہر عطیے کی رسید جاری کی جاتی ہے، اور آج کل وہ واٹس ایپ پر آتی ہے۔ ہم سے کہیں، ہم اُسی نمبر پر بھیج دیں گے۔",
+  ),
+  receiptsWhatsApp: b("Ask for a receipt on WhatsApp", "واٹس ایپ پر رسید مانگیں"),
+  receiptsMessage: b(
+    "Assalam o Alaikum. I have given a gift to Fazal-e-Insaaniyat Charity Works. Please send me a receipt.",
+    "السلام علیکم۔ میں نے فضلِ انسانیت چیریٹی ورکس کو عطیہ دیا ہے۔ براہ کرم مجھے رسید بھیجیں۔",
   ),
   receiptsNote: b(
-    "Keep your bank confirmation. It shows the date and the amount.",
-    "بینک کی تصدیق سنبھال کر رکھیں۔ اُس پر تاریخ اور رقم درج ہے۔",
+    "Keep your bank confirmation as well. It shows the date and the amount.",
+    "بینک کی تصدیق بھی سنبھال کر رکھیں۔ اُس پر تاریخ اور رقم درج ہے۔",
   ),
   ledgerLink: b("See the ledger", "کھاتہ دیکھیں"),
   fieldTripsLink: b("Read the field trips", "میدانی دورے پڑھیں"),
@@ -551,8 +558,8 @@ export const getHelpPage = {
   ),
   retentionTitle: b("How long we keep it", "ہم اُسے کتنا عرصہ رکھتے ہیں"),
   retentionBody: b(
-    "We keep the note only as long as we need it to help. The exact period is set out in our privacy policy, which is being written.",
-    "ہم نوٹ اُتنی دیر رکھتے ہیں جتنی مدد کے لیے ضروری ہو۔ درست مدت ہماری رازداری کی پالیسی میں ہے، جو لکھی جا رہی ہے۔",
+    "We keep the note only as long as we need it to help, and we delete it once that help has finished. Our privacy policy explains how we handle it.",
+    "ہم نوٹ اُتنی دیر رکھتے ہیں جتنی مدد کے لیے ضروری ہو، اور مدد ختم ہونے کے بعد اُسے مٹا دیتے ہیں۔ ہماری رازداری کی پالیسی بتاتی ہے کہ ہم اُسے کیسے سنبھالتے ہیں۔",
   ),
   notAskedTitle: b("What we do not ask for", "ہم کیا نہیں مانگتے"),
   notAskedItems: [
@@ -618,8 +625,8 @@ export const contactPage = {
   ),
   complaintsTitle: b("If something has gone wrong", "اگر کوئی بات غلط ہو گئی ہو"),
   complaintsBody: b(
-    "We want to hear it. The complaints procedure is being written. Until it is published, tell us through any channel on this page.",
-    "ہم اُسے سننا چاہتے ہیں۔ شکایات کا طریقہ لکھا جا رہا ہے۔ جب تک وہ شائع نہ ہو، اِس صفحے کے کسی بھی ذریعے سے ہمیں بتائیں۔",
+    "We want to hear it. Tell us through any channel on this page, and the complaints procedure explains what happens next.",
+    "ہم اُسے سننا چاہتے ہیں۔ اِس صفحے کے کسی بھی ذریعے سے ہمیں بتائیں، اور شکایات کا طریقہ بتاتا ہے کہ آگے کیا ہوتا ہے۔",
   ),
   complaintsLink: b("The complaints policy", "شکایات کی پالیسی"),
   collabTitle: b("Working with us", "ہمارے ساتھ کام کرنا"),
@@ -632,17 +639,21 @@ export const contactPage = {
 export const policiesIndex = {
   title: footer.policies,
   lede: b(
-    "The policies we are writing. None of them is published as a final policy yet.",
-    "وہ پالیسیاں جو ہم لکھ رہے ہیں۔ اِن میں سے کوئی بھی ابھی حتمی پالیسی کے طور پر شائع نہیں ہوئی۔",
+    "The rules we hold ourselves to, in plain words. The privacy policy and the terms of use are set out in full; the other pages say what we do today.",
+    "وہ اصول جن پر ہم خود کو پرکھتے ہیں، سادہ الفاظ میں۔ رازداری کی پالیسی اور استعمال کی شرائط پوری طرح لکھی ہوئی ہیں؛ باقی صفحے بتاتے ہیں کہ آج ہم کیا کرتے ہیں۔",
   ),
   intro: b(
-    "Each page says what the policy will cover and what we do now.",
-    "ہر صفحہ بتاتا ہے کہ پالیسی کس چیز کا احاطہ کرے گی اور اب ہم کیا کرتے ہیں۔",
+    "Each page says what it covers and what we do now.",
+    "ہر صفحہ بتاتا ہے کہ وہ کس چیز کا احاطہ کرتا ہے اور اب ہم کیا کرتے ہیں۔",
   ),
-  status: b("being written", "لکھی جا رہی ہے"),
 };
 
-export type PolicySlug = "privacy" | "safeguarding" | "complaints" | "zakat-sadaqah";
+export type PolicySlug =
+  | "privacy"
+  | "terms"
+  | "safeguarding"
+  | "complaints"
+  | "zakat-sadaqah";
 
 export const policyPages: Record<
   PolicySlug,
@@ -658,8 +669,8 @@ export const policyPages: Record<
   privacy: {
     title: aboutPage.policies[0],
     lede: b(
-      "Our privacy policy is being written and is not published yet.",
-      "ہماری رازداری کی پالیسی لکھی جا رہی ہے اور ابھی شائع نہیں ہوئی۔",
+      "What this website does with your information, in plain words. It is shorter than you might expect: the site asks you for nothing.",
+      "یہ ویب سائٹ آپ کی معلومات کے ساتھ کیا کرتی ہے، سادہ الفاظ میں۔ توقع سے کم: یہ ویب سائٹ آپ سے کچھ نہیں مانگتی۔",
     ),
     covers: [
       b(
@@ -697,13 +708,53 @@ export const policyPages: Record<
       "If you want to know what we hold about you, or you want it removed, tell us. Our contact details are listed on the contact page.",
       "اگر آپ جاننا چاہیں کہ آپ کے بارے میں ہمارے پاس کیا ہے، یا اُسے مٹوانا چاہیں، تو ہمیں بتائیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں۔",
     ),
-    status: b("Being written, not published", "لکھی جا رہی ہے، شائع نہیں ہوئی"),
+    status: b("Set out in full", "پوری طرح لکھی ہوئی"),
   },
-  safeguarding: {
+  terms: {
     title: aboutPage.policies[1],
     lede: b(
-      "Our safeguarding policy is being written and is not published yet.",
-      "ہماری تحفظ کی پالیسی لکھی جا رہی ہے اور ابھی شائع نہیں ہوئی۔",
+      "How this website may be used, and what we do and do not promise about it. A two minute read.",
+      "یہ ویب سائٹ کیسے استعمال کی جا سکتی ہے، اور ہم اِس کے بارے میں کیا وعدہ کرتے ہیں اور کیا نہیں۔ دو منٹ کی بات۔",
+    ),
+    covers: [
+      b(
+        "What this site is for, and what it does not do.",
+        "یہ ویب سائٹ کس لیے ہے، اور کیا نہیں کرتی۔",
+      ),
+      b(
+        "Giving, and why no payment is taken on the site.",
+        "عطیہ، اور ویب سائٹ پر کوئی ادائیگی کیوں نہیں لی جاتی۔",
+      ),
+      b(
+        "Our words and photographs, and links to other organisations.",
+        "ہمارے الفاظ اور تصاویر، اور دوسری تنظیموں کے لنک۔",
+      ),
+      b(
+        "How to raise a concern about the site.",
+        "ویب سائٹ کے بارے میں تشویش کیسے بتائیں۔",
+      ),
+    ],
+    now: [
+      b(
+        "The site does not process payments, and bank details are not published on it.",
+        "ویب سائٹ ادائیگی کا عمل نہیں چلاتی، اور اُس پر بینک کی تفصیلات شائع نہیں ہیں۔",
+      ),
+      b(
+        "A link to another organisation is not an endorsement.",
+        "کسی دوسری تنظیم کا لنک اُس کی حمایت کا مطلب نہیں۔",
+      ),
+    ],
+    help: b(
+      "If a page is wrong or out of date, tell us through a channel on the contact page and we will look at it.",
+      "اگر کوئی صفحہ غلط یا پرانا ہو تو رابطہ صفحے کے کسی ذریعے سے ہمیں بتائیں، ہم اُسے دیکھیں گے۔",
+    ),
+    status: b("Set out in full", "پوری طرح لکھی ہوئی"),
+  },
+  safeguarding: {
+    title: aboutPage.policies[2],
+    lede: b(
+      "How we protect children at our madrasahs and adults who ask us for help, and what to do if you are worried.",
+      "ہم اپنے مدرسوں کے بچوں اور مدد مانگنے والے بڑوں کی حفاظت کیسے کرتے ہیں، اور اگر آپ کو فکر ہو تو کیا کریں۔",
     ),
     covers: [
       b(
@@ -734,13 +785,13 @@ export const policyPages: Record<
       "If you are worried about a child or an adult at risk, tell us through a channel on the contact page. If someone is in immediate danger, contact the emergency services where you live first.",
       "اگر آپ کو کسی بچے یا کسی خطرے میں گھرے شخص کی فکر ہو تو رابطہ صفحے کے کسی ذریعے سے ہمیں بتائیں۔ اگر کوئی فوری خطرے میں ہو تو پہلے اپنے علاقے کے ایمرجنسی نمبر پر رابطہ کریں۔",
     ),
-    status: b("Being written, not published", "لکھی جا رہی ہے، شائع نہیں ہوئی"),
+    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
   complaints: {
-    title: aboutPage.policies[2],
+    title: aboutPage.policies[3],
     lede: b(
-      "Our complaints procedure is being written and is not published yet.",
-      "شکایات کا طریقہ لکھا جا رہا ہے اور ابھی شائع نہیں ہوا۔",
+      "How to raise a complaint about our work, who reads it, and what we do with it.",
+      "ہمارے کام کے بارے میں شکایت کیسے کی جائے، اُسے کون پڑھتا ہے، اور ہم اُس کا کیا کرتے ہیں۔",
     ),
     covers: [
       b(
@@ -772,13 +823,13 @@ export const policyPages: Record<
       "If something has gone wrong, tell us now through a channel on the contact page.",
       "اگر کوئی بات غلط ہو گئی ہو تو رابطہ صفحے کے کسی ذریعے سے ابھی ہمیں بتائیں۔",
     ),
-    status: b("Being written, not published", "لکھی جا رہی ہے، شائع نہیں ہوئی"),
+    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
   "zakat-sadaqah": {
-    title: aboutPage.policies[3],
+    title: aboutPage.policies[4],
     lede: b(
-      "Our zakat and sadaqah policy is being written and is not published yet.",
-      "زکوٰۃ و صدقہ کی پالیسی لکھی جا رہی ہے اور ابھی شائع نہیں ہوئی۔",
+      "How zakat and sadaqah are received and recorded, and what we ask you to do before you give.",
+      "زکوٰۃ اور صدقہ کیسے وصول اور درج ہوتے ہیں، اور عطیہ دینے سے پہلے ہم آپ سے کیا کہتے ہیں۔",
     ),
     covers: [
       b(
@@ -797,8 +848,8 @@ export const policyPages: Record<
     ],
     now: [
       b(
-        "The way a gift is marked and kept is still being agreed.",
-        "عطیے کو نشان زد کرنے اور رکھنے کا طریقہ ابھی طے ہو رہا ہے۔",
+        "A gift can be marked for zakat, for sadaqah, or for wherever the need is greatest.",
+        "عطیہ زکوٰۃ کے لیے، صدقے کے لیے، یا وہاں کے لیے مختص کیا جا سکتا ہے جہاں سب سے زیادہ ضرورت ہو۔",
       ),
       b(
         "The ledger on the transparency page records what was received and spent.",
@@ -809,19 +860,18 @@ export const policyPages: Record<
       "Please ask us before you give zakat. Our contact details are listed on the contact page.",
       "زکوٰۃ دینے سے پہلے ہم سے پوچھیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں۔",
     ),
-    status: b("Being written, not published", "لکھی جا رہی ہے، شائع نہیں ہوئی"),
+    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
 };
 
 export const policyPage = {
-  statusTitle: b("Status", "حالت"),
-  coversTitle: b("What this policy will cover", "یہ پالیسی کس چیز کا احاطہ کرے گی"),
-  nowTitle: b("What is true today", "آج کیا درست ہے"),
-  meanwhileTitle: b("What to do meanwhile", "اِس دوران کیا کریں"),
+  coversTitle: b("What this page covers", "یہ صفحہ کس چیز کا احاطہ کرتا ہے"),
+  nowTitle: b("What we do now", "اب ہم کیا کرتے ہیں"),
+  meanwhileTitle: b("Where to go next", "آگے کہاں جائیں"),
 };
 
 export const notFound = {
-  title: b("Page not published yet", "یہ صفحہ ابھی شائع نہیں ہوا"),
+  title: b("Page not found", "یہ صفحہ موجود نہیں"),
   body: b(
     "This address is not a page on our site. The menu lists every page that is published.",
     "یہ پتہ ہماری ویب سائٹ کا کوئی صفحہ نہیں۔ مینو میں ہر شائع شدہ صفحہ درج ہے۔",
