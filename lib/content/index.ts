@@ -3,7 +3,7 @@
  *
  * Every record lives as a plain file in this repository:
  *
- * - `content/reports/*.md` one Markdown file with front matter per field report
+ * - `content/field-trips/*.md` one Markdown file with front matter per field trip
  * - `content/facts/ledger.json` money in, money out and project costs
  * - `content/facts/figures.json` the figures the charity publishes
  *
@@ -14,12 +14,12 @@
  *
  * Invalid content throws a ContentError whose message names every file and field
  * at fault. `next.config.ts` runs `assertContentValid` when the config loads, so
- * a malformed report stops `next build` before anything renders.
+ * a malformed field trip stops `next build` before anything renders.
  */
 
 import { ContentError, dedupeIssues, type ContentIssue } from "./errors";
 import { loadFigures, loadLedger } from "./facts";
-import { loadReports } from "./reports";
+import { loadFieldTrips } from "./field-trips";
 
 export type * from "./types";
 
@@ -27,18 +27,18 @@ export type { ContentIssue } from "./errors";
 export { ContentError, formatContentError } from "./errors";
 
 export {
-  getDraftReports,
-  getLatestReport,
-  getPublishedReports,
-  getReportBySlug,
-  knownReportSlugs,
-  loadReports,
-  REPORT_EXTENSION,
-  REPORT_FIELDS,
-  REPORT_LANGUAGES,
-  REPORTS_DIRECTORY,
-  sortReports,
-} from "./reports";
+  FIELD_TRIP_EXTENSION,
+  FIELD_TRIP_FIELDS,
+  FIELD_TRIP_LANGUAGES,
+  FIELD_TRIPS_DIRECTORY,
+  getDraftFieldTrips,
+  getFieldTripBySlug,
+  getLatestFieldTrip,
+  getPublishedFieldTrips,
+  knownFieldTripSlugs,
+  loadFieldTrips,
+  sortFieldTrips,
+} from "./field-trips";
 
 export {
   FACTS_DIRECTORY,
@@ -56,9 +56,9 @@ export {
 } from "./facts";
 
 export {
+  fieldTripsEmptyState,
   figuresEmptyState,
   ledgerEmptyState,
-  reportsEmptyState,
 } from "./empty-state";
 
 export type { EmptyState } from "./empty-state";
@@ -72,7 +72,7 @@ export function validateContent(
 ): ContentIssue[] {
   const issues: ContentIssue[] = [];
 
-  for (const load of [loadReports, loadLedger, loadFigures]) {
+  for (const load of [loadFieldTrips, loadLedger, loadFigures]) {
     try {
       load(projectRoot);
     } catch (error) {

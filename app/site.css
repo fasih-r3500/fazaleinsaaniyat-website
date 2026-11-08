@@ -726,29 +726,29 @@ summary {
   text-underline-offset: 4px;
 }
 
-/* Report slot */
-.report-grid {
+/* Latest field trip slot */
+.latest-grid {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: var(--gut);
   align-items: start;
 }
 
-.report-empty {
+.empty-state {
   min-height: 100%;
   padding: 24px;
   background: var(--white);
   border: 1px solid var(--rule);
 }
 
-.report-empty-title {
+.empty-state-title {
   color: var(--forest);
   font-family: var(--serif);
   font-size: 24px;
   line-height: 1.2;
 }
 
-.report-empty a {
+.empty-state a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1333,29 +1333,60 @@ summary {
   line-height: 1.5;
 }
 
-/* Reports */
+/* Field trips */
 .page-head-meta {
   margin-bottom: 10px;
   color: #9db3a4;
 }
 
-.report-list {
+.empty-state p {
+  max-width: 62ch;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Field trips */
+.trip-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 22px var(--gut);
 }
 
-.report-list > li {
-  border-top: 1px solid var(--ink);
-  padding-top: 14px;
+.trip-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
 }
 
-.report-list > li > .mono {
+.trip-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--mist);
+  overflow: hidden;
+}
+
+.trip-card-media img,
+.trip-photo-media img {
+  object-fit: cover;
+}
+
+.trip-card-body {
   display: block;
-  margin-bottom: 6px;
+  padding: 18px 20px 20px;
 }
 
-.report-list h3 {
+.trip-card .mono {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.trip-card h3 {
   color: var(--forest);
   font-family: var(--serif);
   font-size: 24px;
@@ -1363,31 +1394,112 @@ summary {
   line-height: 1.15;
 }
 
-.report-list h3 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.report-list h3 a:hover {
+.trip-card:hover h3,
+.trip-card:focus-visible h3 {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.report-list > li > .facts {
-  margin-top: 10px;
-}
-
-.report-list > li > .facts li {
-  font-size: 13px;
-  padding-block: 7px;
-}
-
-.report-empty p {
-  max-width: 62ch;
-  margin-top: 10px;
+.trip-card-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-top: 8px;
   color: var(--muted);
   font-size: 14.5px;
-  line-height: 1.6;
+  line-height: 1.55;
+}
+
+.trip-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 16px var(--gut);
+  margin-bottom: 34px;
+}
+
+.trip-stat {
+  border-top: 2px solid var(--forest);
+  padding-top: 12px;
+}
+
+.trip-stat b {
+  display: block;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.trip-stat span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.trip-details .facts {
+  margin-top: 12px;
+}
+
+.trip-people {
+  margin-top: 18px;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+
+.trip-people ul li {
+  border-top: 1px solid var(--rule);
+  padding-block: 8px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.trip-people ul li:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.trip-photos {
+  margin-top: 40px;
+}
+
+.trip-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--gut);
+  margin-top: 14px;
+}
+
+.trip-photo {
+  margin: 0;
+}
+
+.trip-photo-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--mist);
+  overflow: hidden;
+}
+
+.trip-photo figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.trip-back {
+  margin-top: 34px;
+}
+
+.trip-back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .prose {
@@ -1616,6 +1728,18 @@ summary {
   text-align: start;
 }
 
+[dir="rtl"] .trip-card-summary,
+[dir="rtl"] .trip-stat span,
+[dir="rtl"] .trip-people ul li {
+  font-size: 16px;
+  line-height: 2;
+}
+
+[dir="rtl"] .trip-stat b {
+  font-family: var(--nastaliq);
+  line-height: 1.5;
+}
+
 [dir="rtl"] .quote blockquote {
   font-family: var(--nastaliq);
   font-size: 32px;
@@ -1660,10 +1784,6 @@ summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .report-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .initiative-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1675,7 +1795,7 @@ summary {
   .statement,
   .split,
   .concept-grid,
-  .report-grid,
+  .latest-grid,
   .hbm {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1830,11 +1950,11 @@ summary {
     margin-top: 8px;
   }
 
-  .report-grid {
+  .latest-grid {
     gap: 16px;
   }
 
-  .report-empty,
+  .empty-state,
   .panel {
     padding: 18px;
   }

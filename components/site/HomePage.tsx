@@ -55,8 +55,8 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p>
               <T locale={locale} value={home.verificationEmptyBody} />
             </p>
-            <a href={pathForLocale(locale, "reports")}>
-              <T locale={locale} value={common.readTheReports} /> <Arrow />
+            <a href={pathForLocale(locale, "field-trips")}>
+              <T locale={locale} value={common.readFieldTrips} /> <Arrow />
             </a>
           </div>
         </div>
@@ -91,24 +91,24 @@ export function HomePage({ locale }: { locale: Locale }) {
         <div className="wrap">
           <div className="section-head">
             <h2 id="latest-heading">
-              <T locale={locale} value={home.latestReportTitle} />
+              <T locale={locale} value={home.latestTripTitle} />
             </h2>
           </div>
-          <div className="report-grid">
-            <div className="report-empty">
-              <p className="report-empty-title">
-                <T locale={locale} value={home.latestReportEmpty} />
+          <div className="latest-grid">
+            <div className="empty-state">
+              <p className="empty-state-title">
+                <T locale={locale} value={home.latestTripEmpty} />
               </p>
-              <a href={pathForLocale(locale, "reports")}>
-                <T locale={locale} value={common.readTheReports} /> <Arrow />
+              <a href={pathForLocale(locale, "field-trips")}>
+                <T locale={locale} value={common.readFieldTrips} /> <Arrow />
               </a>
             </div>
             <div className="panel">
               <h3>
-                <T locale={locale} value={home.howWeReportTitle} />
+                <T locale={locale} value={home.howWeWriteTripsTitle} />
               </h3>
               <p>
-                <T locale={locale} value={home.howWeReportBody} />
+                <T locale={locale} value={home.howWeWriteTripsBody} />
               </p>
             </div>
           </div>

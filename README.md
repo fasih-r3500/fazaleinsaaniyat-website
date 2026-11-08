@@ -4,7 +4,7 @@
 
 This repository holds the official website for Fazal-e-Insaaniyat Charity Works. It is the public face of the organisation: one place to explain who we are and what the charity does.
 
-The public site is bilingual in English and Urdu. Every page is built for both the `/` and `/ur` route trees: home, Home-Based Madrasahs, Our work, About, field reports, transparency, give, get help, contact and the policy pages. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
+The public site is bilingual in English and Urdu. Every page is built for both the `/` and `/ur` route trees: home, Home-Based Madrasahs, Our work, About, field trips, transparency, give, get help, contact and the policy pages. The Ghar Ka Khana (GKK) holding page and its privacy policy are preserved at `/gkk` and `/gkk/privacy`.
 
 ## Why it exists
 
@@ -50,17 +50,17 @@ Check the code with ESLint:
 npm run lint
 ```
 
-## Adding a report or a figure
+## Adding a field trip or a figure
 
-Field reports, ledger entries and published figures are plain files in `content/`. Adding one means adding a file, not editing page code. See [docs/CONTENT.md](docs/CONTENT.md) for the fields, the validation rules and the empty state behaviour.
+Field trips, ledger entries and published figures are plain files in `content/`. Adding one means adding a file, not editing page code. See [docs/CONTENT.md](docs/CONTENT.md) for the fields, the validation rules and the empty state behaviour.
 
 ## Project structure
 
-- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes`, `/about`, `/reports`, `/reports/[id]`, `/transparency`, `/give`, `/get-help`, `/contact` and `/policies/*`.
+- `app/(en)/` is the English route tree. English pages are served at `/`, `/madrasahs`, `/programmes`, `/about`, `/field-trips`, `/field-trips/[slug]`, `/transparency`, `/give`, `/get-help`, `/contact` and `/policies/*`.
 - `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
 - `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
 - `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
-- `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review. Field reports live in `content/reports/` and the ledger and figures in `content/facts/`; `docs/CONTENT.md` explains how to add them.
+- `content/` holds the 20-row madrasah data, the Pakistan outline, bilingual copy and the Urdu pending list. `content/ur-pending.md` records the strings that still need a native Urdu review. Field trips live in `content/field-trips/` and the ledger and figures in `content/facts/`; `docs/CONTENT.md` explains how to add them.
 - `lib/` holds locale, metadata, request path, date and money formatting, and madrasah projection helpers.
 - `middleware.ts` sets the strict Content Security Policy with a per-request nonce, plus the other security headers. The CSP is set on both the request and the response because Next.js reads the request CSP nonce when stamping its own injected scripts. The matcher excludes `/gkk` and `/gkk/privacy`, so those routes keep their current security posture; hardening them is a separate follow-up.
 - `public/fonts/site/` holds the self-hosted Newsreader, IBM Plex Sans, IBM Plex Mono, Noto Naskh Arabic and Noto Nastaliq Urdu woff2 files.
@@ -79,8 +79,8 @@ This is a small project maintained by one volunteer in his own time, so response
 
 ## Status and roadmap
 
-- Every page is built in English and Urdu: home, Madrasahs, Our work, About, reports, transparency, give, get help, contact and the four policy pages.
+- Every page is built in English and Urdu: home, Madrasahs, Our work, About, field trips, transparency, give, get help, contact and the four policy pages.
 - The policy pages are structural placeholders. Each one states plainly that the policy is being written and is not published yet.
-- Where the content layer is empty, the page shows an honest empty state instead of a table or a total: no report is invented, and the ledger and figure stores render their empty state.
+- Where the content layer is empty, the page shows an honest empty state instead of a table or a total: no field trip is invented, and the ledger and figure stores render their empty state.
 - Unconfirmed facts (bank details, contact channels, trustee names, registration numbers, policy text) are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.
 - Urdu copy that did not already exist in the v2 build is shown as a visible placeholder and listed in `content/ur-pending.md` for a native reviewer.

@@ -34,10 +34,7 @@ because the facts are unconfirmed, not because the translation is missing.
 ## home
 
 - Fazal-e-Insaaniyat Charity Works pays educated women to teach the Holy Quran from their home. We also build mosques, wells and water pumps, support widows, and help people toward a livelihood.
-- No verified report yet
-- Reports are published here once the field team has verified them.
 - Where to start
-- Reports will appear here as they are published.
 - Signature programme
 - Home-Based Madrasahs
 - FI sets up the madrasah and pays the teacher's salary. The teacher, an educated woman, teaches the Holy Quran from her home. Children are not charged.
@@ -128,7 +125,6 @@ because the facts are unconfirmed, not because the translation is missing.
 - Trustees
 - In place, names to be confirmed
 - Our signature programme is the Home-Based Madrasah: FI pays an educated woman to teach the Holy Quran from her home, and children are not charged.
-- The work is reported as it is done, so donors can see the place and the activity.
 - The charity has trustees in place. Names and roles are published only with consent.
 - Zakat and Sadaqah policy
 - Trustees
@@ -141,14 +137,12 @@ because the facts are unconfirmed, not because the translation is missing.
 - Page not published yet
 - This address is not a page on our site. The menu lists every page that is published.
 
-## Reports, transparency, give, get help, contact and policies
+## Transparency, give, get help, contact and policies
 
-These strings arrived with the reports, transparency, give, get help, contact and policy pages. They have no Urdu yet. Each one is shown in the Urdu tree as the English source beside an amber UR placeholder chip.
+These strings arrived with the transparency, give, get help, contact and policy pages. They have no Urdu yet. Each one is shown in the Urdu tree as the English source beside an amber UR placeholder chip.
 
 ### Loader empty states
 
-- No field reports published yet
-- Reports will appear here once the field team has verified them. Nothing is published in their place.
 - No ledger entries published yet
 - Money in, money out and project costs will be listed here once the records are verified.
 - No figures published yet
@@ -157,41 +151,6 @@ These strings arrived with the reports, transparency, give, get help, contact an
 ### footer
 
 - All policies
-
-### reportsPage
-
-- What was done, where it was done, and what it cost. Each report is written after the work has been checked.
-- Published reports
-- Newest first. Each report opens onto its own page, with the place, the date and any figures we hold.
-- How we report
-- A report names the place, the work and the date. Where we know how many households were reached, or what the work cost, that is shown with the report. Where we do not know, the field stays empty. We do not fill it with a guess.
-- Every report is checked against the records before it is published. If a detail is not confirmed, we say nothing about it rather than write something that might be wrong.
-- What a report holds
-- The place the work was done
-- The date it was published
-- What was delivered, in plain words
-- Households reached, when we know
-- The cost, when we know
-- The data file, when one is attached
-- An empty field means we do not know. It does not mean zero.
-
-### reportPage
-
-- Report
-- The facts
-- Place
-- Published
-- Households reached
-- Cost
-- Not recorded
-- Data file
-- The file this report was written from.
-- Download the data
-- All reports
-- The written report is not attached yet.
-- This report is written in English.
-- This report is written in Urdu.
-- A field report from Fazal-e-Insaaniyat Charity Works.
 
 ### transparencyPage
 
@@ -366,3 +325,39 @@ Each one still needs a native reviewer to confirm the wording.
 
 - انسانیت زندہ ہے (home page hero headline; English source: Insaaniyat Zinda Hai!)
 - شہر (madrasahs page summary-table column header; English source: City)
+
+### Field trips
+
+These strings were written in Urdu for the field trips section and still need a native reviewer.
+
+- میدانی دورے (nav and page title; English source: Field Trips)
+- میدانی دورے پڑھیں (English source: Read the field trips)
+- میدانی دورہ (English source: Field trip)
+- تازہ ترین میدانی دورہ (English source: Latest field trip)
+- ابھی کوئی میدانی دورہ نہیں (English source: No field trips yet)
+- تحریر کی جانچ کے بعد میدانی دورے یہاں شائع ہوتے ہیں۔ (English source: Field trips are published here once the write-up has been checked.)
+- میدانی دورے شائع ہوتے ہی یہاں آئیں گے۔ (English source: Field trips will appear here as they are published.)
+- ہم میدانی دورہ کیسے لکھتے ہیں (English source: How we write a field trip)
+- دن کے دورے، ملاقاتیں اور تقریبات، انہی لوگوں کی تحریر میں جو وہاں گئے۔ ہر دورہ اپنے صفحے پر کھلتا ہے، جہاں مقام، تاریخ اور وہی اعداد و شمار ہوتے ہیں جو واقعی ہمارے پاس ہیں۔ (English source: the field trips page lede)
+- شائع شدہ میدانی دورے (English source: Published field trips)
+- نئے پہلے۔ ہر کارڈ پر تاریخ، مقام، مختصر خلاصہ اور، اگر ہو تو، سرورق کی تصویر ہوتی ہے۔ (English source: Newest first. Each card shows the date, the place, a short summary and a cover photo when there is one.)
+- میدانی دورے کے صفحے پر کیا ہو سکتا ہے (English source: What a field trip page can hold)
+- خالی جگہ کا مطلب ہے کہ ہمیں معلوم نہیں۔ اس کا مطلب صفر نہیں۔ (English source: An empty field means we do not know. It does not mean zero.)
+- ابھی کوئی میدانی دورہ شائع نہیں ہوا (empty state title; English source: No field trips published yet)
+- تحریر کی جانچ کے بعد میدانی دورے یہاں آئیں گے۔ ان کی جگہ کوئی اور چیز شائع نہیں کی جاتی۔ (empty state body; English source: Field trips will appear here once the write-up has been checked. Nothing is published in their place.)
+- دورے کی تفصیلات (English source: Trip details)
+- کون گیا (English source: Who went)
+- جن سے ملاقات ہوئی (English source: People and groups met)
+- شراکت دار (English source: Partners)
+- گھرانے (English source: Households reached)
+- خرچ (English source: Cost)
+- دورے کے اعداد و شمار (English source: Figures from the trip)
+- تصاویر (English source: Photos)
+- ڈیٹا فائل (English source: Data file)
+- وہ فائل جس سے یہ تحریر تیار کی گئی۔ (English source: The file this write-up was made from.)
+- ڈیٹا ڈاؤن لوڈ کریں (English source: Download the data)
+- تمام میدانی دورے (English source: All field trips)
+- تحریر ابھی منسلک نہیں ہے۔ (English source: The write-up is not attached yet.)
+- یہ میدانی دورہ انگریزی میں لکھا گیا ہے۔ (English source: This field trip is written in English.)
+- یہ میدانی دورہ اردو میں لکھا گیا ہے۔ (English source: This field trip is written in Urdu.)
+- فضلِ انسانیت چیریٹی ورکس کا ایک میدانی دورہ۔ (English source: A field trip write-up from Fazal-e-Insaaniyat Charity Works.)

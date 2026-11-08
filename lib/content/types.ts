@@ -11,44 +11,71 @@ export type LocalizedText = {
   ur: string | null;
 };
 
-export type ReportLanguage = "en" | "ur";
+export type FieldTripLanguage = "en" | "ur";
 
 export type Money = {
   /** Amount in minor units. For PKR, 1 rupee is 100 minor units. */
   amountMinor: number;
-  /** ISO 4217 currency code. Report costs are recorded in PKR. */
+  /** ISO 4217 currency code. Field trip costs are recorded in PKR. */
   currency: "PKR";
 };
 
-export type ReportDataFile = {
-  /** Repository relative path, for example public/data/reports/2026-01.csv */
+export type FieldTripDataFile = {
+  /** Repository relative path, for example public/data/field-trips/2026-01.csv */
   path: string;
-  /** Public URL derived from the path, for example /data/reports/2026-01.csv */
+  /** Public URL derived from the path, for example /data/field-trips/2026-01.csv */
   url: string;
 };
 
+export type FieldTripPhoto = {
+  /** Repository relative path, for example public/photos/field-trips/visit.jpg */
+  path: string;
+  /** Public URL derived from the path, for example /photos/field-trips/visit.jpg */
+  url: string;
+  /** Optional caption, also used as the image alt text. */
+  caption: string | null;
+};
+
+export type FieldTripStat = {
+  /** Short label, for example "Meals served". */
+  label: string;
+  /** The figure as text, so a trip can record "about 40" as easily as "40". */
+  value: string;
+};
+
 /**
- * One field report. A report is one Markdown file in `content/reports` with
- * front matter, and the file name without `.md` becomes the slug.
+ * One field trip write-up. A field trip is one Markdown file in
+ * `content/field-trips` with front matter, and the file name without `.md`
+ * becomes the slug.
  */
-export type Report = {
+export type FieldTrip = {
   slug: string;
   title: string;
   /** Publication date in YYYY-MM-DD form. */
   date: string;
   place: string;
-  language: ReportLanguage;
-  /** Optional. `null` means the report does not record a household count. */
+  language: FieldTripLanguage;
+  /** Optional. `null` means the write-up does not name who went or organised it. */
+  organiser: string | null;
+  /** Optional list of people or groups met. Empty when not recorded. */
+  peopleMet: string[];
+  /** Optional list of partners. Empty when not recorded. */
+  partners: string[];
+  /** Optional. `null` means the write-up does not record a household count. */
   householdsServed: number | null;
-  /** Optional. `null` means the report does not record a cost. */
+  /** Optional. `null` means the write-up does not record a cost. */
   cost: Money | null;
   /** Optional. `null` means no underlying data file is attached. */
-  dataFile: ReportDataFile | null;
-  /** Draft reports are validated but never listed as published. */
+  dataFile: FieldTripDataFile | null;
+  /** Optional photos, in the order written. Empty when none are attached. */
+  photos: FieldTripPhoto[];
+  /** Optional label and value pairs for figures this trip actually holds. */
+  stats: FieldTripStat[];
+  /** Draft field trips are validated but never listed as published. */
   draft: boolean;
   /** The Markdown prose after the front matter block. */
   body: string;
-  /** Repository relative path of the source file, for example content/reports/x.md */
+  /** Repository relative path of the source file, for example content/field-trips/x.md */
   sourcePath: string;
 };
 
@@ -72,8 +99,8 @@ export type LedgerEntry = {
   currency: string;
   /** Optional programme or project name. */
   project: string | null;
-  /** Optional slug of a report that documents this entry. */
-  reportSlug: string | null;
+  /** Optional slug of a field trip that documents this entry. */
+  fieldTripSlug: string | null;
   /** Optional repository relative path to a supporting file. */
   receiptPath: string | null;
 };
@@ -96,6 +123,6 @@ export type PublishedFigure = {
   unit: string;
   /** Date the figure is true as of, in YYYY-MM-DD form. */
   asOf: string;
-  /** Optional slug of a report that documents this figure. */
-  reportSlug: string | null;
+  /** Optional slug of a field trip that documents this figure. */
+  fieldTripSlug: string | null;
 };

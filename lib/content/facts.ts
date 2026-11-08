@@ -1,5 +1,5 @@
 import { ContentError, type ContentIssue } from "./errors";
-import { knownReportSlugs } from "./reports";
+import { knownFieldTripSlugs } from "./field-trips";
 import type {
   LedgerEntry,
   LedgerKind,
@@ -41,11 +41,11 @@ const LEDGER_FIELDS = [
   "amountMinor",
   "currency",
   "project",
-  "reportSlug",
+  "fieldTripSlug",
   "receipt",
 ] as const;
 
-const FIGURE_FIELDS = ["id", "label", "value", "unit", "asOf", "reportSlug"] as const;
+const FIGURE_FIELDS = ["id", "label", "value", "unit", "asOf", "fieldTripSlug"] as const;
 
 const LABEL_FIELDS = ["en", "ur"] as const;
 
@@ -121,7 +121,7 @@ export function loadLedger(projectRoot: string = process.cwd()): LedgerEntry[] {
   const issues: ContentIssue[] = [];
   const file = readJsonFile(projectRoot, LEDGER_FILE, issues);
   const list = readRootList(file, LEDGER_FILE, "entries", issues);
-  const knownSlugs = knownReportSlugs(projectRoot);
+  const knownSlugs = knownFieldTripSlugs(projectRoot);
   const entries: LedgerEntry[] = [];
   const seenIds = new Map<string, number>();
 
@@ -191,11 +191,11 @@ export function loadLedger(projectRoot: string = process.cwd()): LedgerEntry[] {
       raw.project,
       false,
     );
-    const reportSlug = readText(
+    const fieldTripSlug = readText(
       issues,
       LEDGER_FILE,
-      `${prefix}reportSlug`,
-      raw.reportSlug,
+      `${prefix}fieldTripSlug`,
+      raw.fieldTripSlug,
       false,
     );
     const receiptValue = readText(
@@ -216,11 +216,11 @@ export function loadLedger(projectRoot: string = process.cwd()): LedgerEntry[] {
         )
       : null;
 
-    if (reportSlug && knownSlugs && !knownSlugs.has(reportSlug)) {
+    if (fieldTripSlug && knownSlugs && !knownSlugs.has(fieldTripSlug)) {
       addIssue(
         issues,
         LEDGER_FILE,
-        `${prefix}reportSlug points at "${reportSlug}" but no report with that file name exists in content/reports`,
+        `${prefix}fieldTripSlug points at "${fieldTripSlug}" but no field trip with that file name exists in content/field-trips`,
       );
     }
 
@@ -259,7 +259,7 @@ export function loadLedger(projectRoot: string = process.cwd()): LedgerEntry[] {
       amountMinor,
       currency,
       project,
-      reportSlug,
+      fieldTripSlug,
       receiptPath,
     });
   });
@@ -279,7 +279,7 @@ export function loadFigures(projectRoot: string = process.cwd()): PublishedFigur
   const issues: ContentIssue[] = [];
   const file = readJsonFile(projectRoot, FIGURES_FILE, issues);
   const list = readRootList(file, FIGURES_FILE, "figures", issues);
-  const knownSlugs = knownReportSlugs(projectRoot);
+  const knownSlugs = knownFieldTripSlugs(projectRoot);
   const figures: PublishedFigure[] = [];
   const seenIds = new Map<string, number>();
 
@@ -321,19 +321,19 @@ export function loadFigures(projectRoot: string = process.cwd()): PublishedFigur
       raw.asOf,
       true,
     );
-    const reportSlug = readText(
+    const fieldTripSlug = readText(
       issues,
       FIGURES_FILE,
-      `${prefix}reportSlug`,
-      raw.reportSlug,
+      `${prefix}fieldTripSlug`,
+      raw.fieldTripSlug,
       false,
     );
 
-    if (reportSlug && knownSlugs && !knownSlugs.has(reportSlug)) {
+    if (fieldTripSlug && knownSlugs && !knownSlugs.has(fieldTripSlug)) {
       addIssue(
         issues,
         FIGURES_FILE,
-        `${prefix}reportSlug points at "${reportSlug}" but no report with that file name exists in content/reports`,
+        `${prefix}fieldTripSlug points at "${fieldTripSlug}" but no field trip with that file name exists in content/field-trips`,
       );
     }
 
@@ -361,7 +361,7 @@ export function loadFigures(projectRoot: string = process.cwd()): PublishedFigur
       return;
     }
 
-    figures.push({ id, label, value, unit, asOf, reportSlug });
+    figures.push({ id, label, value, unit, asOf, fieldTripSlug });
   });
 
   if (issues.length > 0) {

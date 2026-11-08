@@ -109,8 +109,8 @@ export function GivePage({ locale }: { locale: Locale }) {
               <T locale={locale} value={givePage.ledgerLink} /> <Arrow />
             </a>
             {" / "}
-            <a href={pathForLocale(locale, "reports")}>
-              <T locale={locale} value={givePage.reportsLink} /> <Arrow />
+            <a href={pathForLocale(locale, "field-trips")}>
+              <T locale={locale} value={givePage.fieldTripsLink} /> <Arrow />
             </a>
             {" / "}
             <a href={pathForLocale(locale, "contact")}>

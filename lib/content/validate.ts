@@ -3,13 +3,13 @@ import { join, normalize, sep } from "node:path";
 import type { ContentIssue } from "./errors";
 
 /**
- * Small validation helpers shared by the report and facts loaders. Each helper
+ * Small validation helpers shared by the field trip and facts loaders. Each helper
  * adds one plain sentence to the issue list and returns `null` when the value is
  * unusable, so a caller can report several problems in one pass.
  */
 
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
-export const REPORT_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+export const FIELD_TRIP_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const RECORD_ID_PATTERN = /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/;
 export const CURRENCY_PATTERN = /^[A-Z]{3}$/;
 
@@ -83,6 +83,32 @@ export function readText(
   }
 
   return trimmed;
+}
+
+export function readTextList(
+  issues: ContentIssue[],
+  file: string,
+  field: string,
+  value: unknown,
+): string[] | null {
+  if (value === undefined || value === null) return null;
+
+  if (!Array.isArray(value)) {
+    addIssue(
+      issues,
+      file,
+      `field "${field}" must be a list; write each item on its own line starting with "- "`,
+    );
+    return null;
+  }
+
+  const items: string[] = [];
+  value.forEach((item, index) => {
+    const text = readText(issues, file, `${field}[${index}]`, item, true);
+    if (text !== null) items.push(text);
+  });
+
+  return items;
 }
 
 export function readInteger(
@@ -260,7 +286,8 @@ export function isMissingFileError(error: unknown): boolean {
  * Resolve a repository relative path that a record points at, and check that the
  * file exists. Paths are never followed outside the repository.
  *
- * `requirePublic` is used for report data files: those are linked from the site,
+ * `requirePublic` is used for field trip data files and photos: those are linked
+ * from the site,
  * so the file must sit under `public/`.
  */
 export function readRepoFile(
@@ -294,7 +321,7 @@ export function readRepoFile(
     addIssue(
       issues,
       file,
-      `field "${field}" must point inside public/ so the file can be linked, for example "public/data/reports/name.csv", found "${relativePath}"`,
+      `field "${field}" must point inside public/ so the file can be linked, for example "public/data/field-trips/name.csv", found "${relativePath}"`,
     );
     return null;
   }

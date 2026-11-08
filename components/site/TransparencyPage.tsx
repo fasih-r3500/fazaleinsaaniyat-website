@@ -157,8 +157,8 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
           </p>
 
           {entries.length === 0 ? (
-            <div className="report-empty">
-              <p className="report-empty-title">
+            <div className="empty-state">
+              <p className="empty-state-title">
                 <T locale={locale} value={ledgerEmptyState.title} />
               </p>
               <p>
@@ -194,11 +194,19 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
                         <td className="num">{formatDate(entry.date)}</td>
                         <td lang="en" dir="ltr">
                           {entry.description}
-                          {entry.reportSlug ? (
+                          {entry.fieldTripSlug ? (
                             <>
                               {" "}
-                              <a href={pathForLocale(locale, `reports/${entry.reportSlug}`)}>
-                                <T locale={locale} value={transparencyPage.reportLink} />
+                              <a
+                                href={pathForLocale(
+                                  locale,
+                                  `field-trips/${entry.fieldTripSlug}`,
+                                )}
+                              >
+                                <T
+                                  locale={locale}
+                                  value={transparencyPage.fieldTripLink}
+                                />
                               </a>
                             </>
                           ) : null}
@@ -269,8 +277,8 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
           </p>
 
           {figures.length === 0 ? (
-            <div className="report-empty">
-              <p className="report-empty-title">
+            <div className="empty-state">
+              <p className="empty-state-title">
                 <T locale={locale} value={figuresEmptyState.title} />
               </p>
               <p>
@@ -316,8 +324,8 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
             </div>
           </div>
           <p className="table-note">
-            <a href={pathForLocale(locale, "reports")}>
-              <T locale={locale} value={common.readTheReports} /> <Arrow />
+            <a href={pathForLocale(locale, "field-trips")}>
+              <T locale={locale} value={common.readFieldTrips} /> <Arrow />
             </a>
             {" / "}
             <a href={pathForLocale(locale, "policies")}>

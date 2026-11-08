@@ -24,7 +24,7 @@ export const site = {
 export const nav = {
   madrasahs: b("Madrasahs", null),
   work: b("Our work", "ہمارا کام"),
-  reports: b("Reports", "رپورٹس"),
+  fieldTrips: b("Field Trips", "میدانی دورے"),
   transparency: b("Transparency", "شفافیت"),
   about: b("About", "تعارف"),
   contact: b("Contact", "رابطہ"),
@@ -37,7 +37,7 @@ export const common = {
   home: b("Home", "ہوم"),
   give: b("Give", "عطیہ کریں"),
   getHelp: b("Get help", "مدد حاصل کریں"),
-  readTheReports: b("Read the reports", "رپورٹس پڑھیں"),
+  readFieldTrips: b("Read the field trips", "میدانی دورے پڑھیں"),
   seeMadrasahs: b("See every madrasah", null),
   moreWork: b("More about our work", "ہمارے کام کی مزید تفصیل"),
   toBeConfirmed: b("to be confirmed", "تصدیق باقی ہے"),
@@ -53,7 +53,7 @@ export const footer = {
   explore: b("Explore", "مزید"),
   policies: b("Policies", "پالیسیاں"),
   allPolicies: b("All policies", null),
-  fieldReports: b("Field reports", "فیلڈ رپورٹس"),
+  fieldTrips: b("Field trips", "میدانی دورے"),
   transparency: b("Transparency", "شفافیت"),
   madrasahs: b("Madrasahs", null),
   programmes: b("Our work", "ہمارا کام"),
@@ -73,9 +73,12 @@ export const home = {
     "Fazal-e-Insaaniyat Charity Works pays educated women to teach the Holy Quran from their home. We also build mosques, wells and water pumps, support widows, and help people toward a livelihood.",
     null,
   ),
-  verificationLabel: b("Latest field report", "تازہ ترین فیلڈ رپورٹ"),
-  verificationEmpty: b("No verified report yet", null),
-  verificationEmptyBody: b("Reports are published here once the field team has verified them.", null),
+  verificationLabel: b("Latest field trip", "تازہ ترین میدانی دورہ"),
+  verificationEmpty: b("No field trips yet", "ابھی کوئی میدانی دورہ نہیں"),
+  verificationEmptyBody: b(
+    "Field trips are published here once the write-up has been checked.",
+    "تحریر کی جانچ کے بعد میدانی دورے یہاں شائع ہوتے ہیں۔",
+  ),
   pathwaysTitle: b("Where to start", null),
   paths: [
     {
@@ -108,19 +111,22 @@ export const home = {
     {
       title: b("I want to see the work", "میں کام دیکھنا چاہتا ہوں"),
       body: b(
-        "Read our field reports, with the details behind each one.",
-        "ہماری فیلڈ رپورٹس پڑھیں، ہر رپورٹ کی تفصیلات کے ساتھ۔",
+        "Read our field trips, with the details behind each one.",
+        "ہمارے میدانی دورے پڑھیں، ہر دورے کی تفصیلات کے ساتھ۔",
       ),
-      action: b("Read reports", "رپورٹس پڑھیں"),
-      href: "reports",
+      action: b("Read field trips", "میدانی دورے پڑھیں"),
+      href: "field-trips",
     },
   ],
-  latestReportTitle: b("Latest field report", "تازہ ترین فیلڈ رپورٹ"),
-  latestReportEmpty: b("Reports will appear here as they are published.", null),
-  howWeReportTitle: b("How we report", "ہم رپورٹ کیسے کرتے ہیں"),
-  howWeReportBody: b(
-    "Each report gets a number and a date, and lists the place, what was delivered and how many households. The underlying data will be available to download.",
-    "ہر رپورٹ کو نمبر اور تاریخ دی جاتی ہے، اور اس میں مقام، فراہم کی گئی چیزیں اور خاندانوں کی تعداد درج ہوتی ہے۔ بنیادی ڈیٹا ڈاؤن لوڈ کے لیے دستیاب ہوگا۔",
+  latestTripTitle: b("Latest field trip", "تازہ ترین میدانی دورہ"),
+  latestTripEmpty: b(
+    "Field trips will appear here as they are published.",
+    "میدانی دورے شائع ہوتے ہی یہاں آئیں گے۔",
+  ),
+  howWeWriteTripsTitle: b("How we write a field trip", "ہم میدانی دورہ کیسے لکھتے ہیں"),
+  howWeWriteTripsBody: b(
+    "A field trip write-up names the place, the date and who went. It can also carry the people and groups met, partners, photos and any figures the trip actually holds. Where a detail is not known, it is left out rather than guessed.",
+    "میدانی دورے کی تحریر میں مقام، تاریخ اور یہ درج ہوتا ہے کہ کون گیا۔ اس میں ملنے والے لوگ اور گروہ، شراکت دار، تصاویر اور دورے کے وہ اعداد و شمار بھی ہو سکتے ہیں جو واقعی معلوم ہوں۔ جو بات معلوم نہ ہو، اسے اندازے سے نہیں بلکہ خالی چھوڑ دیا جاتا ہے۔",
   ),
   hbmEyebrow: b("Signature programme", null),
   hbmTitle: b("Home-Based Madrasahs", null),
@@ -296,16 +302,16 @@ export const aboutPage = {
   trusteesFactValue: b("In place, names to be confirmed", null),
   howWeWorkTitle: b("How we work", "ہمارا طریقۂ کار"),
   howWeWorkBody: b(
-    "Our work is small, local and done by people who know the families. We publish a report on each distribution so that donors can see what was done.",
-    "ہمارا کام چھوٹا، مقامی اور ایسے لوگوں کے ذریعے ہے جو خاندانوں کو جانتے ہیں۔ ہم ہر تقسیم کی رپورٹ شائع کرتے ہیں تاکہ عطیہ دہندگان دیکھ سکیں کہ کیا کیا گیا۔",
+    "Our work is small, local and done by people who know the families. We write up a field trip after each distribution so that donors can see what was done.",
+    "ہمارا کام چھوٹا، مقامی اور ایسے لوگوں کے ذریعے ہے جو خاندانوں کو جانتے ہیں۔ ہم ہر تقسیم کے بعد میدانی دورہ لکھتے ہیں تاکہ عطیہ دہندگان دیکھ سکیں کہ کیا کیا گیا۔",
   ),
   howWeWorkBody2: b(
     "Our signature programme is the Home-Based Madrasah: FI pays an educated woman to teach the Holy Quran from her home, and children are not charged.",
     null,
   ),
   howWeWorkBody3: b(
-    "The work is reported as it is done, so donors can see the place and the activity.",
-    null,
+    "The work is written up as it is done, so donors can see the place and the activity.",
+    "کام ہوتے ہی اس کی تحریر لکھ دی جاتی ہے، تاکہ عطیہ دہندگان مقام اور سرگرمی دیکھ سکیں۔",
   ),
   governanceTitle: b("Governance", "نظم و نسق"),
   governanceBody: b(
@@ -327,64 +333,85 @@ export const aboutPage = {
   ),
   trusteeName: b("Name to be confirmed", null),
   trusteeRole: b("Role to be confirmed", null),
-  reportTitle: b("How we report", "ہم رپورٹ کیسے کرتے ہیں"),
-  reportBody: b(
-    "Each report gets a number and a date, and lists the place, what was delivered and how many households. The underlying data will be available to download.",
-    "ہر رپورٹ کو نمبر اور تاریخ دی جاتی ہے، اور اس میں مقام، فراہم کی گئی چیزیں اور خاندانوں کی تعداد درج ہوتی ہے۔ بنیادی ڈیٹا ڈاؤن لوڈ کے لیے دستیاب ہوگا۔",
+  fieldTripTitle: b("How we write a field trip", "ہم میدانی دورہ کیسے لکھتے ہیں"),
+  fieldTripBody: b(
+    "A field trip can be a day trip, a visit or an event. The write-up gives the place, the date and who went, and adds only the figures and photos the trip actually holds.",
+    "میدانی دورہ ایک دن کا سفر، ملاقات یا تقریب ہو سکتا ہے۔ تحریر میں مقام، تاریخ اور یہ درج ہوتا ہے کہ کون گیا، اور صرف وہی اعداد و شمار اور تصاویر شامل کی جاتی ہیں جو واقعی موجود ہوں۔",
   ),
 };
 
-export const reportsPage = {
-  title: nav.reports,
+export const fieldTripsPage = {
+  title: nav.fieldTrips,
   lede: b(
-    "What was done, where it was done, and what it cost. Each report is written after the work has been checked.",
-    null,
+    "Day trips, visits and events, written up by the people who went. Each trip opens onto its own page with the place, the date and whatever figures we actually hold.",
+    "دن کے دورے، ملاقاتیں اور تقریبات، انہی لوگوں کی تحریر میں جو وہاں گئے۔ ہر دورہ اپنے صفحے پر کھلتا ہے، جہاں مقام، تاریخ اور وہی اعداد و شمار ہوتے ہیں جو واقعی ہمارے پاس ہیں۔",
   ),
-  listTitle: b("Published reports", null),
+  listTitle: b("Published field trips", "شائع شدہ میدانی دورے"),
   listIntro: b(
-    "Newest first. Each report opens onto its own page, with the place, the date and any figures we hold.",
-    null,
+    "Newest first. Each card shows the date, the place, a short summary and a cover photo when there is one.",
+    "نئے پہلے۔ ہر کارڈ پر تاریخ، مقام، مختصر خلاصہ اور، اگر ہو تو، سرورق کی تصویر ہوتی ہے۔",
   ),
-  howTitle: b("How we report", null),
+  howTitle: b("How we write a field trip", "ہم میدانی دورہ کیسے لکھتے ہیں"),
   howBody: b(
-    "A report names the place, the work and the date. Where we know how many households were reached, or what the work cost, that is shown with the report. Where we do not know, the field stays empty. We do not fill it with a guess.",
-    null,
+    "A field trip write-up names the place, the date and who went. It can also carry the people and groups met, partners, photos and the figures the trip actually holds. Where a detail is not known, the field stays empty. We do not fill it with a guess.",
+    "میدانی دورے کی تحریر میں مقام، تاریخ اور یہ درج ہوتا ہے کہ کون گیا۔ اس میں ملنے والے لوگ اور گروہ، شراکت دار، تصاویر اور دورے کے وہ اعداد و شمار بھی ہو سکتے ہیں جو واقعی معلوم ہوں۔ جو بات معلوم نہ ہو، وہ خالی رہتی ہے۔ ہم اسے اندازے سے نہیں بھرتے۔",
   ),
   howBody2: b(
-    "Every report is checked against the records before it is published. If a detail is not confirmed, we say nothing about it rather than write something that might be wrong.",
-    null,
+    "Every write-up is checked against the records before it is published. If a detail is not confirmed, we say nothing about it rather than write something that might be wrong.",
+    "ہر تحریر شائع ہونے سے پہلے ریکارڈ سے ملائی جاتی ہے۔ اگر کوئی بات تصدیق شدہ نہ ہو تو اس کے بارے میں کچھ نہیں لکھا جاتا، بجائے اس کے کہ کوئی غلط بات لکھ دی جائے۔",
   ),
-  holdsTitle: b("What a report holds", null),
+  holdsTitle: b(
+    "What a field trip page can hold",
+    "میدانی دورے کے صفحے پر کیا ہو سکتا ہے",
+  ),
   holdsItems: [
-    b("The place the work was done", null),
-    b("The date it was published", null),
-    b("What was delivered, in plain words", null),
-    b("Households reached, when we know", null),
-    b("The cost, when we know", null),
-    b("The data file, when one is attached", null),
+    b("The place the trip went to", "وہ مقام جہاں دورہ گیا"),
+    b("The date of the trip", "دورے کی تاریخ"),
+    b("Who went, or who organised it", "کون گیا، یا کس نے اہتمام کیا"),
+    b("The people and groups met", "جن لوگوں اور گروہوں سے ملاقات ہوئی"),
+    b("Partners who helped", "جن شراکت داروں نے مدد کی"),
+    b("What was done, in plain words", "کیا کیا گیا، سادہ الفاظ میں"),
+    b("Households reached, when we know", "گھرانے، جب معلوم ہوں"),
+    b("The cost, when we know", "خرچ، جب معلوم ہو"),
+    b("Photos, when they are attached", "تصاویر، جب منسلک ہوں"),
+    b("The data file, when one is attached", "ڈیٹا فائل، جب منسلک ہو"),
   ],
   holdsNote: b(
     "An empty field means we do not know. It does not mean zero.",
-    null,
+    "خالی جگہ کا مطلب ہے کہ ہمیں معلوم نہیں۔ اس کا مطلب صفر نہیں۔",
   ),
 };
 
-export const reportPage = {
-  crumb: b("Report", null),
-  factsTitle: b("The facts", null),
-  place: b("Place", null),
-  published: b("Published", null),
-  households: b("Households reached", null),
-  cost: b("Cost", null),
-  notRecorded: b("Not recorded", null),
-  dataFile: b("Data file", null),
-  dataFileNote: b("The file this report was written from.", null),
-  download: b("Download the data", null),
-  backToReports: b("All reports", null),
-  emptyBody: b("The written report is not attached yet.", null),
-  languageNoteEnglish: b("This report is written in English.", null),
-  languageNoteUrdu: b("This report is written in Urdu.", null),
-  description: b("A field report from Fazal-e-Insaaniyat Charity Works.", null),
+export const fieldTripPage = {
+  crumb: b("Field trip", "میدانی دورہ"),
+  detailsTitle: b("Trip details", "دورے کی تفصیلات"),
+  organiser: b("Who went", "کون گیا"),
+  peopleMet: b("People and groups met", "جن سے ملاقات ہوئی"),
+  partners: b("Partners", "شراکت دار"),
+  households: b("Households reached", "گھرانے"),
+  cost: b("Cost", "خرچ"),
+  statsLabel: b("Figures from the trip", "دورے کے اعداد و شمار"),
+  photosTitle: b("Photos", "تصاویر"),
+  dataFile: b("Data file", "ڈیٹا فائل"),
+  dataFileNote: b(
+    "The file this write-up was made from.",
+    "وہ فائل جس سے یہ تحریر تیار کی گئی۔",
+  ),
+  download: b("Download the data", "ڈیٹا ڈاؤن لوڈ کریں"),
+  backToFieldTrips: b("All field trips", "تمام میدانی دورے"),
+  emptyBody: b("The write-up is not attached yet.", "تحریر ابھی منسلک نہیں ہے۔"),
+  languageNoteEnglish: b(
+    "This field trip is written in English.",
+    "یہ میدانی دورہ انگریزی میں لکھا گیا ہے۔",
+  ),
+  languageNoteUrdu: b(
+    "This field trip is written in Urdu.",
+    "یہ میدانی دورہ اردو میں لکھا گیا ہے۔",
+  ),
+  description: b(
+    "A field trip write-up from Fazal-e-Insaaniyat Charity Works.",
+    "فضلِ انسانیت چیریٹی ورکس کا ایک میدانی دورہ۔",
+  ),
 };
 
 export const transparencyPage = {
@@ -456,7 +483,7 @@ export const transparencyPage = {
   totalsTitle: b("Totals by currency", null),
   totalReceived: b("Received", null),
   totalSpent: b("Spent", null),
-  reportLink: b("Report", null),
+  fieldTripLink: b("Field trip", "میدانی دورہ"),
   figureAsOf: b("as of", null),
 };
 
@@ -515,7 +542,7 @@ export const givePage = {
     null,
   ),
   ledgerLink: b("See the ledger", null),
-  reportsLink: b("Read the field reports", "فیلڈ رپورٹس پڑھیں"),
+  fieldTripsLink: b("Read the field trips", "میدانی دورے پڑھیں"),
 };
 
 export const getHelpPage = {
