@@ -177,7 +177,7 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - Published figures
 - A figure appears here only after it has been checked, with the date it is true as of.
 - If something does not add up
-- Ask us. We would rather answer a question than leave a gap on the page. The complaints procedure is being written, and our contact channels are being confirmed.
+- Ask us. We would rather answer a question than leave a gap on the page. The complaints procedure is being written, and our contact details are on the contact page.
 - Date
 - Description
 - Category
@@ -222,7 +222,7 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - Tell them what your family needs, in your own words.
 - Leave a name and a way to reach you, if you have one.
 - We will come back to you. If we cannot help, we will say so plainly.
-- Our phone, WhatsApp and email are not published yet. This page will show them when they are working. Please do not use a number or address from anywhere else.
+- You can call or write to us at the phone number and email address on the contact page. Please use only the details shown there, not a number or an address from anywhere else.
 - What we ask you
 - We ask only what helps us decide. You can leave out anything you do not want to share.
 - Your name.
@@ -249,15 +249,8 @@ These strings arrived with the transparency, give, get help, contact and policy 
 
 ### contactPage
 
-- How to reach us, and how to offer your time. Our channels are being confirmed. Each one will be shown here when it is working.
-- How to reach us
-- There is no phone number or email on this page yet. We will not publish a channel that we cannot answer.
-- Post
-- Office hours
-- When a channel is confirmed, it will be shown here and nowhere else. If someone gives you a number for us, check it on this page before you use it.
 - Volunteers help at distribution days, carry supplies, keep the records tidy, and share skills such as stitching, teaching or building. Tell us what you can offer and how much time you have.
 - We will ask for your name and a way to reach you. We will not publish them.
-- Volunteer contact to be confirmed
 - If something has gone wrong
 - We want to hear it. The complaints procedure is being written. Until it is published, tell us through any channel on this page.
 - The complaints policy
@@ -280,7 +273,7 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - This website does not use analytics, advertising or third party trackers.
 - We ask for as little as we can when someone asks for help.
 - We do not publish anyone's details on this site.
-- If you want to know what we hold about you, or you want it removed, tell us. Our contact channels are being confirmed and are listed on the contact page.
+- If you want to know what we hold about you, or you want it removed, tell us. Our contact details are listed on the contact page.
 - Being written, not published
 - This page is a placeholder. Our safeguarding policy is being written and is not published yet.
 - Who the policy protects, including children at the Home-Based Madrasahs and people who ask us for help.
@@ -309,7 +302,7 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - The way a gift is marked and kept is still being agreed.
 - We do not publish a share or a percentage.
 - The ledger on the transparency page records what was received and spent.
-- Please ask us before you give zakat. Our contact channels are being confirmed and are listed on the contact page.
+- Please ask us before you give zakat. Our contact details are listed on the contact page.
 
 ### policyPage
 

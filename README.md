@@ -82,5 +82,5 @@ This is a small project maintained by one volunteer in his own time, so response
 - Every page is built in English and Urdu: home, Madrasahs, Our work, About, field trips, transparency, give, get help, contact and the four policy pages.
 - The policy pages are structural placeholders. Each one states plainly that the policy is being written and is not published yet.
 - Where the content layer is empty, the page shows an honest empty state instead of a table or a total: no field trip is invented, and the ledger and figure stores render their empty state.
-- Unconfirmed facts (bank details, contact channels, trustee names, registration numbers, policy text) are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented.
+- Unconfirmed facts (bank details, the postal address and office hours, trustee names, registration numbers, policy text) are shown as amber placeholder chips. No impact numbers, years or beneficiary counts are invented. The phone number and email address are published on the contact page as confirmed channels.
 - Urdu copy that did not already exist in the v2 build is shown as a visible placeholder and listed in `content/ur-pending.md` for a native reviewer.

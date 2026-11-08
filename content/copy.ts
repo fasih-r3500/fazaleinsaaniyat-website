@@ -470,7 +470,7 @@ export const transparencyPage = {
   ),
   askTitle: b("If something does not add up", null),
   askBody: b(
-    "Ask us. We would rather answer a question than leave a gap on the page. The complaints procedure is being written, and our contact channels are being confirmed.",
+    "Ask us. We would rather answer a question than leave a gap on the page. The complaints procedure is being written, and our contact details are on the contact page.",
     null,
   ),
   askContact: b("Contact us", "ہم سے رابطہ کریں"),
@@ -560,8 +560,8 @@ export const getHelpPage = {
     b("We will come back to you. If we cannot help, we will say so plainly.", null),
   ],
   channelsNote: b(
-    "Our phone, WhatsApp and email are not published yet. This page will show them when they are working. Please do not use a number or address from anywhere else.",
-    null,
+    "You can call or write to us at the phone number and email address on the contact page. Please use only the details shown there, not a number or an address from anywhere else.",
+    "آپ ہمیں رابطہ صفحے پر دیے گئے فون نمبر اور ای میل پر کال یا لکھ سکتے ہیں۔ براہ کرم صرف وہی تفصیلات استعمال کریں، کسی اور جگہ سے نہیں۔",
   ),
   askAboutTitle: b("What we ask you", null),
   askAboutIntro: b(
@@ -613,22 +613,22 @@ export const getHelpPage = {
 export const contactPage = {
   title: nav.contact,
   lede: b(
-    "How to reach us, and how to offer your time. Our channels are being confirmed. Each one will be shown here when it is working.",
-    null,
+    "How to reach us, and how to offer your time. Our phone, WhatsApp and email are published here. We will not publish a channel that we cannot answer.",
+    "ہم تک کیسے پہنچیں، اور اپنا وقت کیسے دیں۔ ہمارا فون، واٹس ایپ اور ای میل یہیں درج ہیں۔ ہم کوئی ایسا ذریعہ شائع نہیں کریں گے جس کا ہم جواب نہ دے سکیں۔",
   ),
-  channelsTitle: b("How to reach us", null),
+  channelsTitle: b("How to reach us", "ہم تک کیسے پہنچیں"),
   channelsIntro: b(
-    "There is no phone number or email on this page yet. We will not publish a channel that we cannot answer.",
-    null,
+    "You can call the phone number or write to the email address below. These are the only contact details we publish.",
+    "آپ نیچے دیے گئے فون نمبر پر کال کر سکتے ہیں یا ای میل پر لکھ سکتے ہیں۔ ہم صرف یہی رابطے کی تفصیلات شائع کرتے ہیں۔",
   ),
   phoneLabel: b("Phone", "فون"),
-  whatsappLabel: b("WhatsApp", "واٹس ایپ"),
+  whatsappLabel: b("WhatsApp, same mobile number", "واٹس ایپ، وہی موبائل نمبر"),
   emailLabel: b("Email", "ای میل"),
-  postLabel: b("Post", null),
-  hoursLabel: b("Office hours", null),
+  postLabel: b("Post", "ڈاک"),
+  hoursLabel: b("Office hours", "دفتری اوقات"),
   channelsNote: b(
-    "When a channel is confirmed, it will be shown here and nowhere else. If someone gives you a number for us, check it on this page before you use it.",
-    null,
+    "Only the details on this page are ours. If someone gives you a number or an address for our charity, check it here before you use it.",
+    "صرف اِس صفحے پر دی گئی تفصیلات ہماری ہیں۔ اگر کوئی آپ کو ہماری چیریٹی کا نمبر یا پتہ دے، تو استعمال کرنے سے پہلے یہاں دیکھ لیں۔",
   ),
   volunteerTitle: b("Volunteer", "رضاکار بنیں"),
   volunteerBody: b(
@@ -639,7 +639,10 @@ export const contactPage = {
     "We will ask for your name and a way to reach you. We will not publish them.",
     null,
   ),
-  volunteerChip: b("Volunteer contact to be confirmed", null),
+  volunteerContact: b(
+    "Tell us on the phone number or the email address above.",
+    "اوپر دیے گئے فون نمبر یا ای میل پر ہمیں بتائیں۔",
+  ),
   complaintsTitle: b("If something has gone wrong", null),
   complaintsBody: b(
     "We want to hear it. The complaints procedure is being written. Until it is published, tell us through any channel on this page.",
@@ -648,8 +651,8 @@ export const contactPage = {
   complaintsLink: b("The complaints policy", null),
   collabTitle: b("Working with us", null),
   collabBody: b(
-    "Other charities and people who want to work with us are welcome to write. The route for this is being confirmed.",
-    null,
+    "Other charities and people who want to work with us are welcome to write to the email address above.",
+    "دوسری چیریٹیز اور وہ لوگ جو ہمارے ساتھ کام کرنا چاہتے ہیں، اوپر دیے گئے ای میل پتے پر لکھ سکتے ہیں۔",
   ),
 };
 
@@ -698,7 +701,7 @@ export const policyPages: Record<
       b("We do not publish anyone's details on this site.", null),
     ],
     help: b(
-      "If you want to know what we hold about you, or you want it removed, tell us. Our contact channels are being confirmed and are listed on the contact page.",
+      "If you want to know what we hold about you, or you want it removed, tell us. Our contact details are listed on the contact page.",
       null,
     ),
     status: b("Being written, not published", null),
@@ -768,7 +771,7 @@ export const policyPages: Record<
       b("The ledger on the transparency page records what was received and spent.", null),
     ],
     help: b(
-      "Please ask us before you give zakat. Our contact channels are being confirmed and are listed on the contact page.",
+      "Please ask us before you give zakat. Our contact details are listed on the contact page.",
       null,
     ),
     status: b("Being written, not published", null),
