@@ -503,6 +503,11 @@ Rules that the loader enforces:
   its original post.
 - Delete an entry rather than point it at a placeholder image.
 
+An initiative tile always keeps its image slot. It shows a confirmed still, or an
+honest committed poster from the social snapshot when one depicts that line,
+and the redacted block otherwise. A still is never borrowed from another
+initiative just to fill the space.
+
 Downloaded renditions are only as good as the page offers. The page exposes no
 camera originals and no EXIF, so no still here can be treated as documentary
 evidence of a date or a place beyond what the charity itself published.
