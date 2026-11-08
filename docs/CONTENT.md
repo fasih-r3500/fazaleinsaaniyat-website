@@ -154,8 +154,7 @@ or set `draft: false`, to publish it.
 ### Language
 
 Initiative files are written in English for now, and both language trees show the
-text as written. The Urdu tree shows a note that the write-up is awaiting a
-native Urdu review. When an Urdu version exists, it is a content change: add the
+text as written. When an Urdu version exists, it is a content change: add the
 Urdu file and translate the entry.
 
 ## Adding a field trip
