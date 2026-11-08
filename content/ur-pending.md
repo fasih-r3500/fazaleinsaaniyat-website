@@ -255,7 +255,6 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - We want to hear it. The complaints procedure is being written. Until it is published, tell us through any channel on this page.
 - The complaints policy
 - Working with us
-- Other charities and people who want to work with us are welcome to write. The route for this is being confirmed.
 
 ### policiesIndex
 
