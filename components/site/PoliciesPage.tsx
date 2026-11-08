@@ -3,7 +3,13 @@ import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
 
-const slugs: PolicySlug[] = ["privacy", "safeguarding", "complaints", "zakat-sadaqah"];
+const slugs: PolicySlug[] = [
+  "privacy",
+  "terms",
+  "safeguarding",
+  "complaints",
+  "zakat-sadaqah",
+];
 
 export function PoliciesPage({ locale }: { locale: Locale }) {
   return (
@@ -29,7 +35,7 @@ export function PoliciesPage({ locale }: { locale: Locale }) {
                   <T locale={locale} value={policyPages[slug].title} />
                 </a>
                 <span className="policy-status">
-                  <T locale={locale} value={policiesIndex.status} />
+                  <T locale={locale} value={policyPages[slug].status} />
                 </span>
               </li>
             ))}

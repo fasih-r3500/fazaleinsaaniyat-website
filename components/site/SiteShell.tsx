@@ -201,6 +201,11 @@ function Footer({ locale }: { locale: Locale }) {
                 </a>
               </li>
               <li>
+                <a href={pathForLocale(locale, "policies/terms")}>
+                  <T locale={locale} value={footer.terms} />
+                </a>
+              </li>
+              <li>
                 <a href={pathForLocale(locale, "policies/safeguarding")}>
                   <T locale={locale} value={footer.safeguarding} />
                 </a>

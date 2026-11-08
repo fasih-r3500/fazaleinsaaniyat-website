@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import LightRays from "@/components/LightRays"
+import { contact } from "@/lib/contact"
 
 const Privacy = () => {
   return (
@@ -39,7 +40,7 @@ const Privacy = () => {
             <p className="font-semibold mb-2">Contact Information:</p>
             <ul className="list-none space-y-1">
               <li><strong>Business Name:</strong> Fazal-e-Insaaniyat Charity Works</li>
-              <li><strong>Address:</strong> F-13/14 Alpine Homes, Block 2, Clifton, Karachi, Sindh, Pakistan</li>
+              <li><strong>Address:</strong> {contact.address}</li>
               <li><strong>Email:</strong> gkk@fazaleinsaaniyat.org</li>
             </ul>
           </div>
@@ -158,7 +159,7 @@ const Privacy = () => {
           <h2 className="text-2xl font-semibold mb-3">11. Contact Us</h2>
           <p className="mb-4">If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
           <p><strong>Email:</strong> gkk@fazaleinsaaniyat.org</p>
-          <p><strong>Address:</strong> F-13/14 Alpine Homes, Block 2, Clifton, Karachi, Sindh, Pakistan</p>
+          <p><strong>Address:</strong> {contact.address}</p>
         </section>
 
         <hr className="my-8" />

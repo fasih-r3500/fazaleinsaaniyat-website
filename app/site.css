@@ -2863,3 +2863,27 @@ summary {
     font-size: 11px;
   }
 }
+
+/* Published policies */
+/* A policy written in full reads as one column of prose, with the contact
+   rows set inside the section that tells a reader how to reach us. */
+.policy-document section + section {
+  margin-top: 32px;
+}
+
+.policy-document h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.policy-document section > p + p {
+  margin-top: 12px;
+}
+
+.policy-document section > p + .facts {
+  margin-top: 18px;
+}
+
+.policy-contacts {
+  max-width: 44rem;
+}
