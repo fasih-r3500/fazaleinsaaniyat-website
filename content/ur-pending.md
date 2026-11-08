@@ -222,7 +222,6 @@ These strings arrived with the transparency, give, get help, contact and policy 
 - Tell them what your family needs, in your own words.
 - Leave a name and a way to reach you, if you have one.
 - We will come back to you. If we cannot help, we will say so plainly.
-- You can call or write to us at the phone number and email address on the contact page. Please use only the details shown there, not a number or an address from anywhere else.
 - What we ask you
 - We ask only what helps us decide. You can leave out anything you do not want to share.
 - Your name.
@@ -317,6 +316,21 @@ Each one still needs a native reviewer to confirm the wording.
 
 - انسانیت زندہ ہے (home page hero headline; English source: Insaaniyat Zinda Hai!)
 - شہر (madrasahs page summary-table column header; English source: City)
+
+### Contact and get-help channels
+
+These strings were written in Urdu when the charity's phone and email channels were published and still need a native reviewer.
+
+- آپ ہمیں رابطہ صفحے پر دیے گئے فون نمبر اور ای میل پر کال یا لکھ سکتے ہیں۔ براہ کرم صرف وہی تفصیلات استعمال کریں، کسی اور جگہ سے نہیں۔ (get-help channels note; English source: You can call or write to us at the phone number and email address on the contact page. Please use only the details shown there, not a number or an address from anywhere else.)
+- ہم تک کیسے پہنچیں، اور اپنا وقت کیسے دیں۔ ہمارا فون، واٹس ایپ اور ای میل یہیں درج ہیں۔ ہم کوئی ایسا ذریعہ شائع نہیں کریں گے جس کا ہم جواب نہ دے سکیں۔ (contact page lede; English source: How to reach us, and how to offer your time. Our phone, WhatsApp and email are published here. We will not publish a channel that we cannot answer.)
+- ہم تک کیسے پہنچیں (channels section title; English source: How to reach us)
+- آپ نیچے دیے گئے فون نمبر پر کال کر سکتے ہیں یا ای میل پر لکھ سکتے ہیں۔ ہم صرف یہی رابطے کی تفصیلات شائع کرتے ہیں۔ (channels intro; English source: You can call the phone number or write to the email address below. These are the only contact details we publish.)
+- واٹس ایپ، وہی موبائل نمبر (WhatsApp label; English source: WhatsApp, same mobile number)
+- ڈاک (Post label; English source: Post)
+- دفتری اوقات (Office hours label; English source: Office hours)
+- صرف اِس صفحے پر دی گئی تفصیلات ہماری ہیں۔ اگر کوئی آپ کو ہماری چیریٹی کا نمبر یا پتہ دے، تو استعمال کرنے سے پہلے یہاں دیکھ لیں۔ (channels note; English source: Only the details on this page are ours. If someone gives you a number or an address for our charity, check it here before you use it.)
+- اوپر دیے گئے فون نمبر یا ای میل پر ہمیں بتائیں۔ (volunteer contact; English source: Tell us on the phone number or the email address above.)
+- دوسری چیریٹیز اور وہ لوگ جو ہمارے ساتھ کام کرنا چاہتے ہیں، اوپر دیے گئے ای میل پتے پر لکھ سکتے ہیں۔ (Working with us; English source: Other charities and people who want to work with us are welcome to write to the email address above.)
 
 ### Field trips
 
