@@ -118,6 +118,8 @@ export type Initiative = {
   status: InitiativeStatus;
   /** Short grouping label, for example "Water" or "Livelihood". */
   category: string;
+  /** Optional editorial position, lower first. `null` when not recorded. */
+  order: number | null;
   /** Places the initiative works in. Empty when not recorded. */
   locations: string[];
   /** Start date as YYYY-MM-DD or YYYY-MM, or null when not recorded. */

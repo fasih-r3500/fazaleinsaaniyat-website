@@ -1,7 +1,7 @@
 import { common, initiativesPage, type Bilingual } from "@/content/copy";
 import { INITIATIVE_CONTENT_LANGUAGE, type Initiative } from "@/lib/content";
 import { pathForLocale, type Locale } from "@/lib/locale";
-import { formatMoney } from "@/lib/money";
+import { formatMoney } from "@/lib/format";
 import { Markdown } from "./Markdown";
 import { StatusChip } from "./InitiativeStatus";
 import { T } from "./BilingualText";
@@ -74,7 +74,7 @@ export function InitiativePage({
   if (initiative.cost !== null) {
     facts.push({
       label: initiativesPage.cost,
-      value: formatMoney(initiative.cost),
+      value: formatMoney(initiative.cost.amountMinor, initiative.cost.currency),
       numeric: true,
     });
   }

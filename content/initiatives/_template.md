@@ -16,6 +16,7 @@ title: Title of the initiative
 summary: One plain sentence saying what the initiative does.
 status: active
 category: Water
+# order: <whole number, lower first>
 # Optional fields. Remove the leading # to use one.
 # locations:
 #   - Town or city, district

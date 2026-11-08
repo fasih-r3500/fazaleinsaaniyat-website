@@ -152,39 +152,9 @@ export const home = {
   hbmLink: b("See every madrasah", null),
   initiativesTitle: b("What else we do", null),
   initiativesIntro: b(
-    "Alongside the Home-Based Madrasahs, FI supports families in other ways. These lines are deliberately plain and carry no counts or dates.",
+    "Alongside the Home-Based Madrasahs, FI supports families in other ways.",
     null,
   ),
-  initiatives: [
-    {
-      title: b("Mosques", null),
-      body: b("Mosques built.", null),
-    },
-    {
-      title: b("Water", null),
-      body: b("Wells and water pumps built.", null),
-    },
-    {
-      title: b("Widows", null),
-      body: b("Support for widows.", null),
-    },
-    {
-      title: b("Rozgaar", null),
-      body: b("Help toward rozgaar, a livelihood.", null),
-    },
-    {
-      title: b("Hunar Ghar", null),
-      body: b("A talent house where women stitch clothes and earn a living.", null),
-    },
-    {
-      title: b("Rickshaws", null),
-      body: b("Help buying a rickshaw.", null),
-    },
-    {
-      title: b("Collaboration", null),
-      body: b("Work with other charities, including Quran Mehal from Lodhra.", null),
-    },
-  ],
   socialTitle: b("Latest from our social media", "ہمارے سوشل میڈیا سے تازہ ترین"),
   socialIntro: b(
     "Posts from our Instagram profile. Each tile opens the original post in a new tab.",
@@ -802,7 +772,7 @@ export const policyPage = {
 export const notFound = {
   title: b("Page not published yet", null),
   body: b(
-    "This page is not part of the current build. The Madrasahs, Initiatives and About pages are ready.",
+    "This address is not a page on our site. The menu lists every page that is published.",
     null,
   ),
   backHome: b("Back to the home page", "ہوم پیج پر واپس جائیں"),

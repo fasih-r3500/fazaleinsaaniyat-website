@@ -3,6 +3,7 @@ title: Collaboration
 summary: Work with other charities, including Quran Mehal from Lodhra.
 status: active
 category: Partnership
+order: 7
 locations:
   - Lodhra
 partners:

@@ -53,6 +53,7 @@ export const INITIATIVE_FIELDS = [
   "summary",
   "status",
   "category",
+  "order",
   "locations",
   "startDate",
   "endDate",
@@ -172,6 +173,10 @@ function loadInitiative(
     true,
   );
   const category = readText(issues, sourcePath, "category", data.category, true);
+  const order = readInteger(issues, sourcePath, "order", data.order, {
+    required: false,
+    minimum: 1,
+  });
 
   const locations = readTextList(issues, sourcePath, "locations", data.locations);
   const peopleServed = readTextList(
@@ -256,6 +261,7 @@ function loadInitiative(
     summary,
     status,
     category,
+    order,
     locations,
     startDate,
     endDate,
@@ -400,14 +406,21 @@ const STATUS_ORDER: Record<InitiativeStatus, number> = {
 
 /**
  * Sort the listing: work that is still running first, then paused, then
- * completed. Within a status, entries with a start date come first and newest
- * first, so recent work leads. The title breaks any remaining tie, which keeps
- * the order stable between builds.
+ * completed. Within a status, entries with an `order` come first and lower
+ * first, then entries with a start date come first and newest first, so recent
+ * work leads. The title breaks any remaining tie, which keeps the order stable
+ * between builds.
  */
 export function sortInitiatives(initiatives: readonly Initiative[]): Initiative[] {
   return [...initiatives].sort((a, b) => {
     if (a.status !== b.status) {
       return STATUS_ORDER[a.status] - STATUS_ORDER[b.status];
+    }
+
+    if (a.order !== b.order) {
+      if (a.order === null) return 1;
+      if (b.order === null) return -1;
+      return a.order - b.order;
     }
 
     if (a.startDate !== b.startDate) {

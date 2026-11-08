@@ -93,6 +93,7 @@ published fact.
 | `summary` | yes | One plain sentence saying what the initiative does. It appears on the card and under the page title. |
 | `status` | yes | `active`, `paused` or `completed`. |
 | `category` | yes | A short label, for example `Water` or `Livelihood`. It appears on the card as a tag. |
+| `order` | no | A whole number, lower first, that sets the listing position. Leave it out to sort without one. |
 | `locations` | no | A list of places. One line per place. |
 | `startDate` | no | When the work started, as `YYYY-MM-DD` or `YYYY-MM`. |
 | `endDate` | no | When it ended, in the same form. Needs a `startDate`. |
@@ -124,8 +125,9 @@ Text with a colon or a hash in it must be quoted, as in the reports section.
 
 The index lists each initiative as a card with its summary, status, category and
 locations. Initiatives are sorted with active work first, then paused, then
-completed. Within a status, an entry with a start date comes first and newest
-first, and the title breaks any remaining tie.
+completed. Within a status, an entry with an `order` comes first and lower first,
+then an entry with a start date comes first and newest first, and the title breaks
+any remaining tie.
 
 ### The body
 
@@ -603,11 +605,12 @@ Record shapes are documented in `lib/content/types.ts`. A field trip carries
 `slug`, `title`, `date`, `place`, `language`, `organiser`, `peopleMet`,
 `partners`, `householdsServed`, `cost`, `dataFile`, `photos`, `stats`, `draft`,
 `body` and `sourcePath`. An initiative carries `slug`, `title`, `summary`,
-`status`, `category`, `locations`, `startDate`, `endDate`, `peopleServed`,
-`householdsServed`, `cost`, `costCovers`, `partners`, `photos`, `stats`, `draft`,
-`body` and `sourcePath`. A stat is `{ label, value, numeric }`, where `numeric`
-is true when the value reads as a plain number. Amounts are in minor units, so
-format them with `formatMoney` from `lib/money.ts` rather than in each page.
+`status`, `category`, `order`, `locations`, `startDate`, `endDate`,
+`peopleServed`, `householdsServed`, `cost`, `costCovers`, `partners`, `photos`,
+`stats`, `draft`, `body` and `sourcePath`. A stat is `{ label, value, numeric }`,
+where `numeric` is true when the value reads as a plain number. Amounts are in
+minor units, so format them with `formatMoney` from `lib/format.ts` rather than
+in each page.
 
 `next.config.ts` lists the content files in `outputFileTracingIncludes`, so the
 host receives them along with the built server output. Keep that entry if a
