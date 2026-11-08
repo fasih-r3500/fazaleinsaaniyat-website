@@ -518,7 +518,13 @@ summary {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 620px;
+  /* One screen including the ticker: the header sits above the hero in flow,
+     so subtract its height. svh keeps the strip visible before phone browser
+     chrome collapses; dvh keeps it flush once the chrome is gone. */
+  --hero-header-height: 77px;
+  min-height: calc(100vh - var(--hero-header-height));
+  min-height: calc(100svh - var(--hero-header-height));
+  min-height: calc(100dvh - var(--hero-header-height));
   display: flex;
   flex-direction: column;
   background: var(--deep);
@@ -553,8 +559,9 @@ summary {
   z-index: 2;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(246, 245, 240, 0.16);
-  background: rgba(9, 24, 16, 0.28);
+  border-block: 1px solid rgba(16, 41, 27, 0.2);
+  background: var(--sage);
+  color: var(--deep);
 }
 
 .ticker-viewport {
@@ -564,6 +571,7 @@ summary {
 .ticker-track {
   display: flex;
   width: max-content;
+  padding-block: 16px;
   animation: hero-ticker-scroll 80s linear infinite;
   will-change: transform;
 }
@@ -577,19 +585,24 @@ summary {
 .ticker-item {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  padding-block: 14px;
-  padding-inline: 0 20px;
-  color: #c7d8cc;
-  font: 400 14px/1 var(--sans);
-  letter-spacing: 0.04em;
+  gap: clamp(18px, 3.9vw, 56px);
+  padding-inline: clamp(12px, 1.95vw, 28px);
+  color: var(--deep);
+  font: 400 26px/1 var(--serif);
   white-space: nowrap;
 }
 
+.ticker-item-ur {
+  font: 400 21px/1.5 var(--nastaliq);
+}
+
 .ticker-mark {
-  color: var(--sage);
-  font-size: 10px;
-  line-height: 1;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
 }
 
 @keyframes hero-ticker-scroll {
@@ -598,19 +611,6 @@ summary {
   }
   to {
     transform: translateX(-50%);
-  }
-}
-
-[dir="rtl"] .ticker-track {
-  animation-name: hero-ticker-scroll-rtl;
-}
-
-@keyframes hero-ticker-scroll-rtl {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(50%);
   }
 }
 
@@ -2479,17 +2479,29 @@ summary {
   }
 
   .hero {
-    min-height: 0;
+    --hero-header-height: 69px;
+    min-height: calc(100vh - var(--hero-header-height));
+    min-height: calc(100svh - var(--hero-header-height));
+    min-height: calc(100dvh - var(--hero-header-height));
     padding-block: 46px 0;
   }
 
   .hero .wrap {
-    padding-block-end: 26px;
+    padding-block-end: 20px;
+  }
+
+  .ticker-track {
+    padding-block: 10px;
   }
 
   .ticker-item {
-    padding-block: 12px;
-    font-size: 13px;
+    font-size: 17px;
+    gap: 12px;
+    padding-inline: 10px;
+  }
+
+  .ticker-item-ur {
+    font-size: 15px;
   }
 
   .hero h1 {
@@ -2889,10 +2901,33 @@ summary {
 
   .ticker-item {
     white-space: normal;
-    padding-block: 8px;
+    padding-block: 4px;
   }
 
   .photo-redacted-fill {
     animation: none;
+  }
+}
+
+/* On the smallest phones the static band needs less room than the moving one
+   so the hero still fits one screen with reduced motion. */
+@media (prefers-reduced-motion: reduce) and (max-width: 420px) {
+  .hero {
+    padding-block-start: 32px;
+  }
+
+  .hero .wrap {
+    padding-block-end: 10px;
+  }
+
+  .ticker-item {
+    gap: 5px;
+    padding-block: 2px;
+    padding-inline: 5px;
+    font-size: 12px;
+  }
+
+  .ticker-item-ur {
+    font-size: 11px;
   }
 }
