@@ -1,4 +1,6 @@
+import type { Bilingual } from "@/content/copy";
 import { common, contactPage, getHelpPage } from "@/content/copy";
+import { contact, contactLinks } from "@/lib/contact";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { PlaceholderChip, T } from "./BilingualText";
@@ -11,15 +13,39 @@ function Arrow() {
   );
 }
 
-export function ContactPage({ locale }: { locale: Locale }) {
-  const channels = [
-    contactPage.phoneLabel,
-    contactPage.whatsappLabel,
-    contactPage.emailLabel,
-    contactPage.postLabel,
-    contactPage.hoursLabel,
-  ];
+type Channel = {
+  key: string;
+  label: Bilingual;
+  href?: string;
+  value?: string;
+  external?: boolean;
+};
 
+const channels: Channel[] = [
+  {
+    key: "phone",
+    label: contactPage.phoneLabel,
+    href: contactLinks.phone,
+    value: contact.phone,
+  },
+  {
+    key: "whatsapp",
+    label: contactPage.whatsappLabel,
+    href: contactLinks.whatsapp,
+    value: contact.phone,
+    external: true,
+  },
+  {
+    key: "email",
+    label: contactPage.emailLabel,
+    href: contactLinks.email,
+    value: contact.email,
+  },
+  { key: "post", label: contactPage.postLabel },
+  { key: "hours", label: contactPage.hoursLabel },
+];
+
+export function ContactPage({ locale }: { locale: Locale }) {
   return (
     <>
       <PageHead locale={locale} title={contactPage.title} lede={contactPage.lede} />
@@ -38,16 +64,28 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 <T locale={locale} value={contactPage.channelsNote} />
               </p>
             </div>
-            <ul className="facts">
-              {channels.map((label) => (
-                <li key={label.en}>
+            <ul className="facts channel-list">
+              {channels.map((channel) => (
+                <li key={channel.key}>
                   <span>
-                    <T locale={locale} value={label} />
+                    <T locale={locale} value={channel.label} />
                   </span>
-                  <span>
-                    <PlaceholderChip>
-                      <T locale={locale} value={common.toBeConfirmed} />
-                    </PlaceholderChip>
+                  <span className="channel-value">
+                    {channel.href && channel.value ? (
+                      <a
+                        href={channel.href}
+                        dir="ltr"
+                        {...(channel.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {channel.value}
+                      </a>
+                    ) : (
+                      <PlaceholderChip>
+                        <T locale={locale} value={common.toBeConfirmed} />
+                      </PlaceholderChip>
+                    )}
                   </span>
                 </li>
               ))}
@@ -75,9 +113,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 <T locale={locale} value={contactPage.volunteerTitle} />
               </p>
               <p>
-                <PlaceholderChip>
-                  <T locale={locale} value={contactPage.volunteerChip} />
-                </PlaceholderChip>
+                <T locale={locale} value={contactPage.volunteerContact} />
               </p>
               <p className="table-note">
                 <a href={pathForLocale(locale, "get-help")}>

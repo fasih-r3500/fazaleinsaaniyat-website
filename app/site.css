@@ -1237,6 +1237,24 @@ summary {
   text-align: end;
 }
 
+.facts .channel-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* The contact rows stack on a small phone so a number never breaks mid-dial. */
+@media (max-width: 420px) {
+  .channel-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .channel-list span:last-child {
+    text-align: start;
+  }
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
