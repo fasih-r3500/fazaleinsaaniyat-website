@@ -1,15 +1,21 @@
-import { aboutPage, policiesIndex, policyPages, type PolicySlug } from "@/content/copy";
+import {
+  plainText,
+  policiesIndex,
+  policyPages,
+  policySlugs,
+} from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
+import { firstSentence } from "@/lib/text";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
 
-const slugs: PolicySlug[] = [
-  "privacy",
-  "terms",
-  "safeguarding",
-  "complaints",
-  "zakat-sadaqah",
-];
+function Arrow() {
+  return (
+    <span className="arrow" aria-hidden="true">
+      →
+    </span>
+  );
+}
 
 export function PoliciesPage({ locale }: { locale: Locale }) {
   return (
@@ -20,26 +26,33 @@ export function PoliciesPage({ locale }: { locale: Locale }) {
         lede={policiesIndex.lede}
       />
 
-      <section className="block" aria-labelledby="policies-heading">
+      <section className="block">
         <div className="wrap">
-          <h2 id="policies-heading" className="section-title">
-            <T locale={locale} value={aboutPage.policyTitle} />
-          </h2>
-          <p className="section-intro">
-            <T locale={locale} value={policiesIndex.intro} />
-          </p>
-          <ul className="policy-list">
-            {slugs.map((slug) => (
-              <li key={slug}>
-                <a href={pathForLocale(locale, `policies/${slug}`)}>
-                  <T locale={locale} value={policyPages[slug].title} />
-                </a>
-                <span className="policy-status">
-                  <T locale={locale} value={policyPages[slug].status} />
-                </span>
-              </li>
-            ))}
-          </ul>
+          <nav aria-label={plainText(locale, policiesIndex.listLabel)}>
+            <ul className="policy-index">
+              {policySlugs.map((slug) => {
+                const policy = policyPages[slug];
+                return (
+                  <li key={slug}>
+                    <a
+                      className="policy-index-row"
+                      href={pathForLocale(locale, `policies/${slug}`)}
+                    >
+                      <div>
+                        <h2>
+                          <T locale={locale} value={policy.title} />
+                        </h2>
+                        <p className="policy-index-summary">
+                          {firstSentence(plainText(locale, policy.lede))}
+                        </p>
+                      </div>
+                      <Arrow />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         </div>
       </section>
     </>

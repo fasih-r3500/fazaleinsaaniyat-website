@@ -91,7 +91,7 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
           <p className="section-intro">
             <T locale={locale} value={transparencyPage.moneyIntro} />
           </p>
-          <ul className="check-list">
+          <ul className="fact-list">
             {transparencyPage.moneyLines.map((line) => (
               <li key={line.en}>
                 <T locale={locale} value={line} />

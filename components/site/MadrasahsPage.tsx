@@ -25,7 +25,7 @@ export function MadrasahsPage({ locale }: { locale: Locale }) {
               <p className="body-copy">
                 <T locale={locale} value={madrasahsPage.conceptBody} />
               </p>
-              <ul className="check-list">
+              <ul className="fact-list">
                 {madrasahsPage.conceptPoints.map((point) => (
                   <li key={point.en}>
                     <T locale={locale} value={point} />

@@ -1,12 +1,13 @@
 import {
   contactPage,
   footer,
+  plainText,
   policyPage,
   policyPages,
   transparencyPage,
   type PolicySlug,
 } from "@/content/copy";
-import { policyDocuments } from "@/content/policy-documents";
+import { policyDocuments, policySectionId } from "@/content/policy-documents";
 import { contact, contactLinks } from "@/lib/contact";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
@@ -67,70 +68,59 @@ export function PolicyPage({
   slug: PolicySlug;
 }) {
   const policy = policyPages[slug];
-  const document =
-    slug === "privacy" || slug === "terms" ? policyDocuments[slug] : null;
+  const document = policyDocuments[slug];
 
   return (
     <>
       <PageHead locale={locale} title={policy.title} lede={policy.lede} />
 
-      {document ? (
-        <section className="block" aria-label={policy.title.en}>
-          <div className="wrap">
-            <div className="prose policy-document">
-              {document.sections.map((section) => (
-                <section key={section.heading.en}>
-                  <h2>
-                    <T locale={locale} value={section.heading} />
-                  </h2>
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph.en}>
-                      <T locale={locale} value={paragraph} />
-                    </p>
-                  ))}
-                  {section.contact ? <ContactFacts locale={locale} /> : null}
-                </section>
+      <section className="block" aria-label={plainText(locale, policy.title)}>
+        <div className="wrap">
+          <nav
+            className="policy-contents"
+            aria-labelledby="policy-contents-title"
+          >
+            <h2 id="policy-contents-title" className="contents-title">
+              <T locale={locale} value={policyPage.contentsTitle} />
+            </h2>
+            <ol className="contents-list">
+              {document.sections.map((section, index) => (
+                <li key={section.heading.en}>
+                  <a href={`#${policySectionId(section.heading)}`}>
+                    <span className="contents-num">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="contents-label">
+                      <T locale={locale} value={section.heading} />
+                    </span>
+                    <Arrow />
+                  </a>
+                </li>
               ))}
-            </div>
-            <p className="section-note">
-              <T locale={locale} value={footer.lastUpdated} />{" "}
-              <T locale={locale} value={footer.lastUpdatedDate} />
-            </p>
-          </div>
-        </section>
-      ) : (
-        <>
-          <section className="block" aria-labelledby="covers-heading">
-            <div className="wrap">
-              <h2 id="covers-heading" className="section-title">
-                <T locale={locale} value={policyPage.coversTitle} />
-              </h2>
-              <ul className="check-list">
-                {policy.covers.map((item) => (
-                  <li key={item.en}>
-                    <T locale={locale} value={item} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+            </ol>
+          </nav>
 
-          <section className="block rule" aria-labelledby="now-heading">
-            <div className="wrap">
-              <h2 id="now-heading" className="section-title">
-                <T locale={locale} value={policyPage.nowTitle} />
-              </h2>
-              <ul className="check-list">
-                {policy.now.map((item) => (
-                  <li key={item.en}>
-                    <T locale={locale} value={item} />
-                  </li>
+          <div className="prose policy-document">
+            {document.sections.map((section) => (
+              <section key={section.heading.en}>
+                <h2 id={policySectionId(section.heading)}>
+                  <T locale={locale} value={section.heading} />
+                </h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph.en}>
+                    <T locale={locale} value={paragraph} />
+                  </p>
                 ))}
-              </ul>
-            </div>
-          </section>
-        </>
-      )}
+                {section.contact ? <ContactFacts locale={locale} /> : null}
+              </section>
+            ))}
+          </div>
+          <p className="section-note">
+            <T locale={locale} value={footer.lastUpdated} />{" "}
+            <T locale={locale} value={footer.lastUpdatedDate} />
+          </p>
+        </div>
+      </section>
 
       <section className="block rule" aria-labelledby="meanwhile-heading">
         <div className="wrap">

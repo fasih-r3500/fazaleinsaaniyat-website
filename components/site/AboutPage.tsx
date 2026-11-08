@@ -1,4 +1,4 @@
-import { aboutPage } from "@/content/copy";
+import { aboutPage, policyPages, policySlugs } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
@@ -95,9 +95,12 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 <T locale={locale} value={aboutPage.policyTitle} />
               </h3>
               <ul className="policy-list">
-                {aboutPage.policies.map((policy) => (
-                  <li key={policy.en}>
-                    <T locale={locale} value={policy} />
+                {policySlugs.map((slug) => (
+                  <li key={slug}>
+                    <a href={pathForLocale(locale, `policies/${slug}`)}>
+                      <T locale={locale} value={policyPages[slug].title} />{" "}
+                      <Arrow />
+                    </a>
                   </li>
                 ))}
               </ul>

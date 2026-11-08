@@ -1929,21 +1929,21 @@ summary {
   font-size: 14px;
 }
 
-.check-list {
+/* A flat list of facts: hairline rules and two quiet columns. Lists that
+   carry a number or a check keep their own treatment elsewhere. */
+.fact-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 20px;
+  column-gap: 24px;
   margin-top: 20px;
 }
 
-.check-list li {
+.fact-list li {
   border-top: 1px solid var(--rule);
-  border-inline-start: 3px solid var(--sage);
-  padding-block: 8px;
-  padding-inline-start: 10px;
-  padding-inline-end: 0;
+  padding-block: 10px;
   color: var(--ink);
   font-size: 14.5px;
+  line-height: 1.55;
 }
 
 /* Every site, grouped by place */
@@ -1992,26 +1992,152 @@ summary {
 }
 
 /* Policies */
-.policy-list {
-  margin-top: 6px;
+.policy-index {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.policy-status {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.policy-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+.policy-index li {
   border-top: 1px solid var(--rule);
-  padding-block: 11px;
+}
+
+.policy-index li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The whole row is the link: title, one line of what is inside, and the arrow. */
+.policy-index-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  min-height: 44px;
+  padding-block: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.policy-index-row h2 {
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.policy-index-summary {
+  max-width: 60ch;
+  margin-top: 4px;
+  color: var(--muted);
   font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.policy-index-row .arrow {
+  color: var(--green);
+  font-size: 20px;
+}
+
+.policy-index-row:hover,
+.policy-index-row:focus-visible {
+  background: var(--mist);
+}
+
+.policy-index-row:hover h2,
+.policy-index-row:focus-visible h2 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* The policy names listed in the about page. */
+.policy-list li {
+  border-top: 1px solid var(--rule);
 }
 
 .policy-list li:last-child {
   border-bottom: 1px solid var(--rule);
+}
+
+.policy-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+.policy-list a:hover,
+.policy-list a:focus-visible {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* A policy opens with its own contents: numbered links to its sections. */
+.policy-contents {
+  margin-bottom: 48px;
+}
+
+.contents-title {
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contents-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.contents-list li {
+  border-top: 1px solid var(--rule);
+}
+
+.contents-list a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 44px;
+  padding-block: 11px;
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.contents-num {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+
+.contents-list .arrow {
+  color: var(--green);
+}
+
+.contents-list a:hover,
+.contents-list a:focus-visible {
+  background: var(--mist);
+}
+
+.contents-list a:hover .contents-label,
+.contents-list a:focus-visible .contents-label {
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Field trips */
@@ -2312,10 +2438,6 @@ summary {
   margin-top: 26px;
 }
 
-.policy-list a {
-  color: inherit;
-}
-
 /* RTL */
 [dir="rtl"] body {
   font-family: var(--naskh);
@@ -2395,6 +2517,12 @@ summary {
 
 [dir="rtl"] .facts span:last-child {
   text-align: start;
+}
+
+[dir="rtl"] .policy-index-summary,
+[dir="rtl"] .contents-list a {
+  font-size: 16px;
+  line-height: 2;
 }
 
 [dir="rtl"] .trip-card-summary,
@@ -2485,7 +2613,6 @@ summary {
 [dir="rtl"] .footer-handle,
 [dir="rtl"] .footer-address,
 [dir="rtl"] .fact-latin,
-[dir="rtl"] .policy-status,
 [dir="rtl"] .channel-value {
   font-family: var(--sans);
   letter-spacing: 0;
@@ -2897,9 +3024,13 @@ summary {
     font-size: 64px;
   }
 
-  .check-list {
+  .fact-list {
     grid-template-columns: minmax(0, 1fr);
-    gap: 6px;
+    column-gap: 0;
+  }
+
+  .contents-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .place-list {
@@ -3080,8 +3211,12 @@ summary {
 }
 
 /* Published policies */
-/* A policy written in full reads as one column of prose, with the contact
-   rows set inside the section that tells a reader how to reach us. */
+/* A policy reads as one column of prose, with the contact rows set inside the
+   section that tells a reader how to reach us. */
+.policy-document h2 {
+  scroll-margin-top: 24px;
+}
+
 .policy-document section + section {
   margin-top: 32px;
 }

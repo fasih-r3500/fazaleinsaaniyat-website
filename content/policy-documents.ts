@@ -1,9 +1,9 @@
-import type { Bilingual } from "./copy";
+import type { Bilingual, PolicySlug } from "./copy";
 
 /**
- * The two policies the site publishes in full. They are kept apart from the
- * page furniture in `copy.ts` because they are long-form prose, and because
- * every sentence here has to describe what the site actually does: no cookies,
+ * Every policy the site publishes, in full. They are kept apart from the page
+ * furniture in `copy.ts` because they are long-form prose, and because every
+ * sentence here has to describe what the charity actually does: no cookies,
  * no analytics, no third party requests, and no stored visitor data.
  */
 export type PolicySection = {
@@ -17,9 +17,19 @@ export type PolicyDocument = {
   sections: PolicySection[];
 };
 
-export type DocumentedPolicySlug = "privacy" | "terms";
+/**
+ * The anchor id for a section, built from its English heading so that the same
+ * link works in both languages. The contents list and the section headings read
+ * their id from here, so a link can never point at a heading that is not there.
+ */
+export function policySectionId(heading: Bilingual): string {
+  return heading.en
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
-export const policyDocuments: Record<DocumentedPolicySlug, PolicyDocument> = {
+export const policyDocuments: Record<PolicySlug, PolicyDocument> = {
   privacy: {
     sections: [
       {
@@ -239,6 +249,142 @@ export const policyDocuments: Record<DocumentedPolicySlug, PolicyDocument> = {
           b(
             "For a complaint about our work rather than about this website, the complaints page explains what happens.",
             "اگر شکایت اِس ویب سائٹ کے بجائے ہمارے کام کے بارے میں ہو تو شکایات کا صفحہ بتاتا ہے کہ آگے کیا ہوتا ہے۔",
+          ),
+        ],
+      },
+    ],
+  },
+  safeguarding: {
+    sections: [
+      {
+        heading: b("Who this policy protects", "یہ پالیسی کس کی حفاظت کرتی ہے"),
+        paragraphs: [
+          b(
+            "Every child at our Home-Based Madrasahs, and every adult who asks us for help. Children are not charged, and the teacher is an educated woman paid by the charity to teach from her own home.",
+            "ہمارے گھریلو مدرسوں کا ہر بچہ، اور ہر وہ بڑا جو ہم سے مدد مانگے۔ بچوں سے کوئی فیس نہیں لی جاتی، اور استاد ایک پڑھی لکھی خاتون ہیں جنہیں تنظیم تنخواہ دیتی ہے تاکہ وہ اپنے گھر سے پڑھائیں۔",
+          ),
+        ],
+      },
+      {
+        heading: b("How to raise a concern", "تشویش کیسے بتائیں"),
+        paragraphs: [
+          b(
+            "Tell us through any channel on the contact page. A concern is taken to the trustees, and we do not publish the name of the person who raised it.",
+            "رابطہ صفحے کے کسی بھی ذریعے سے ہمیں بتائیں۔ تشویش ٹرسٹیز تک پہنچائی جاتی ہے، اور ہم تشویش بتانے والے کا نام شائع نہیں کرتے۔",
+          ),
+          b(
+            "If a child or an adult is in immediate danger, contact the emergency services where you live first. Then tell us, if you can.",
+            "اگر کوئی بچہ یا کوئی بڑا فوری خطرے میں ہو تو پہلے اپنے علاقے کے ایمرجنسی نمبر پر رابطہ کریں۔ پھر، اگر ممکن ہو، ہمیں بتائیں۔",
+          ),
+        ],
+      },
+      {
+        heading: b("How a concern is looked into", "تشویش کی جانچ کیسے ہوتی ہے"),
+        paragraphs: [
+          b(
+            "The trustees look into the concern and decide what happens next. We will tell you what we can do, even when the answer is no.",
+            "ٹرسٹیز تشویش کی جانچ کرتے ہیں اور طے کرتے ہیں کہ آگے کیا ہوگا۔ ہم بتا دیں گے کہ ہم کیا کر سکتے ہیں، چاہے جواب نہ ہی ہو۔",
+          ),
+        ],
+      },
+      {
+        heading: b("The people who work with children", "بچوں کے ساتھ کام کرنے والے"),
+        paragraphs: [
+          b(
+            "Our teachers are women from the neighbourhood, and the family team knows each one before she is paid. A concern about a teacher is taken to the trustees in the same way as any other concern.",
+            "ہماری استانیں محلے کی خواتین ہیں، اور خاندانی ٹیم ہر ایک کو تنخواہ دینے سے پہلے جانتی ہے۔ کسی استانی کے بارے میں تشویش بھی اِسی طرح ٹرسٹیز تک پہنچائی جاتی ہے۔",
+          ),
+        ],
+      },
+    ],
+  },
+  complaints: {
+    sections: [
+      {
+        heading: b("How to make a complaint", "شکایت کیسے کریں"),
+        paragraphs: [
+          b(
+            "Tell us through any channel on the contact page. Say what happened, when it happened, and what you would like us to do.",
+            "رابطہ صفحے کے کسی بھی ذریعے سے ہمیں بتائیں۔ بتائیں کہ کیا ہوا، کب ہوا، اور آپ کیا چاہتے ہیں کہ ہم کریں۔",
+          ),
+          b(
+            "A complaint goes to the trustees. Nothing you tell us is published on this site.",
+            "شکایت ٹرسٹیز تک جاتی ہے۔ آپ جو کچھ بتاتے ہیں، اُس میں سے کچھ بھی اِس ویب سائٹ پر شائع نہیں ہوتا۔",
+          ),
+        ],
+      },
+      {
+        heading: b("Who replies, and how quickly", "جواب کون دیتا ہے، اور کتنی جلدی"),
+        paragraphs: [
+          b(
+            "The trustees read every complaint and reply to it. We are a small team, so we cannot promise a fixed number of days; we reply as soon as we can.",
+            "ہر شکایت ٹرسٹیز پڑھتے ہیں اور اُس کا جواب دیتے ہیں۔ ہم ایک چھوٹی ٹیم ہیں، اِس لیے دنوں کی مقررہ تعداد کا وعدہ نہیں کر سکتے؛ ہم جتنی جلدی ممکن ہو جواب دیتے ہیں۔",
+          ),
+        ],
+      },
+      {
+        heading: b("If you are not satisfied with the answer", "اگر جواب سے مطمئن نہ ہوں"),
+        paragraphs: [
+          b(
+            "Tell us again, and say what is still wrong. We will tell you what we can do, even when the answer is no.",
+            "ہمیں دوبارہ بتائیں، اور بتائیں کہ اب بھی کیا بات غلط ہے۔ ہم بتا دیں گے کہ ہم کیا کر سکتے ہیں، چاہے جواب نہ ہی ہو۔",
+          ),
+        ],
+      },
+      {
+        heading: b("How complaints are recorded", "شکایات کیسے درج ہوتی ہیں"),
+        paragraphs: [
+          b(
+            "The trustees keep a record of each complaint and of what was done about it. No complaint is published on this site.",
+            "ٹرسٹیز ہر شکایت اور اُس پر کیے گئے کام کا ریکارڈ رکھتے ہیں۔ اِس ویب سائٹ پر کوئی شکایت شائع نہیں ہوتی۔",
+          ),
+        ],
+      },
+    ],
+  },
+  "zakat-sadaqah": {
+    sections: [
+      {
+        heading: b("How zakat is received and recorded", "زکوٰۃ کیسے وصول اور درج ہوتی ہے"),
+        paragraphs: [
+          b(
+            "A gift can be marked for zakat, for sadaqah, or for wherever the need is greatest. A gift marked for zakat is recorded as zakat in the ledger, with its date and amount.",
+            "عطیہ زکوٰۃ کے لیے، صدقے کے لیے، یا وہاں کے لیے مختص کیا جا سکتا ہے جہاں سب سے زیادہ ضرورت ہو۔ زکوٰۃ کے لیے مختص عطیہ کھاتے میں زکوٰۃ کے طور پر تاریخ اور رقم کے ساتھ درج ہوتا ہے۔",
+          ),
+          b(
+            "The ledger on the transparency page shows what was received and spent.",
+            "شفافیت کے صفحے کا کھاتہ دکھاتا ہے کہ کیا وصول ہوا اور کیا خرچ ہوا۔",
+          ),
+        ],
+      },
+      {
+        heading: b("Who receives zakat", "زکوٰۃ کون لے سکتا ہے"),
+        paragraphs: [
+          b(
+            "Zakat goes to people who qualify under the rules of zakat. Please ask us before you give zakat, so that the gift reaches someone who qualifies.",
+            "زکوٰۃ اُن لوگوں کو جاتی ہے جو زکوٰۃ کے شرعی احکام کے مطابق حقدار ہیں۔ زکوٰۃ دینے سے پہلے ہم سے پوچھیں، تاکہ عطیہ کسی حقدار تک پہنچے۔",
+          ),
+        ],
+      },
+      {
+        heading: b("How sadaqah is used", "صدقہ کہاں استعمال ہوتا ہے"),
+        paragraphs: [
+          b(
+            "Sadaqah is a voluntary gift, given without a condition. It is spent on the work listed on this site: teacher salaries, mosques, wells and water pumps, widows, Hunar Ghar, rickshaws and help toward a livelihood.",
+            "صدقہ ایک رضاکارانہ عطیہ ہے، جو بغیر کسی شرط کے دیا جاتا ہے۔ یہ اِس ویب سائٹ پر درج کام پر خرچ ہوتا ہے: استاد کی تنخواہ، مساجد، کنویں اور واٹر پمپ، بیوائیں، ہنر گھر، رکشے اور روزگار کی طرف مدد۔",
+          ),
+        ],
+      },
+      {
+        heading: b("The receipt a giver receives", "دینے والے کو کیا رسید ملتی ہے"),
+        paragraphs: [
+          b(
+            "A receipt is issued for every gift, and today it comes through WhatsApp. Ask us and we will send it on the same number.",
+            "ہر عطیے کی رسید جاری کی جاتی ہے، اور آج کل وہ واٹس ایپ پر آتی ہے۔ ہم سے کہیں، ہم اُسی نمبر پر بھیج دیں گے۔",
+          ),
+          b(
+            "Keep your bank confirmation as well. It shows the date and the amount.",
+            "بینک کی تصدیق بھی سنبھال کر رکھیں۔ اُس پر تاریخ اور رقم درج ہے۔",
           ),
         ],
       },

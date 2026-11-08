@@ -50,7 +50,7 @@ export function GetHelpPage({ locale }: { locale: Locale }) {
           <p className="section-intro">
             <T locale={locale} value={getHelpPage.askAboutIntro} />
           </p>
-          <ul className="check-list">
+          <ul className="fact-list">
             {getHelpPage.askAboutItems.map((item) => (
               <li key={item.en}>
                 <T locale={locale} value={item} />
@@ -90,7 +90,7 @@ export function GetHelpPage({ locale }: { locale: Locale }) {
           <h2 id="not-asked-heading" className="section-title">
             <T locale={locale} value={getHelpPage.notAskedTitle} />
           </h2>
-          <ul className="check-list">
+          <ul className="fact-list">
             {getHelpPage.notAskedItems.map((item) => (
               <li key={item.en}>
                 <T locale={locale} value={item} />
