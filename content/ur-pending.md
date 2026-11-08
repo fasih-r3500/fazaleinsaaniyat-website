@@ -364,7 +364,7 @@ These strings were written in Urdu for the stills and the redacted block, and st
 - گھریلو مدرسے ہمارے کام کا مرکز ہیں۔ فاؤنڈیشن مدرسہ قائم کرتی ہے اور استاد کی تنخواہ ادا کرتی ہے۔ (initiatives page panel body; English source: The Home-Based Madrasahs are the centre of the work. FI sets up the madrasah and pays the teacher's salary.)
 - مدرسے دیکھیں (initiatives page link to the madrasahs page; English source: See the madrasahs)
 - سندھ اور پنجاب میں مدرسے (initiatives page madrasah count label; English source: madrasahs across Sindh and Punjab)
-- ابھی کوئی اقدام شائع نہیں ہوا / ہر اقدام کی تفصیل یہاں آئے گی جب اس کا تحریری خاکہ مکمل ہو جائے گا۔ خالی جگہ بھرنے کے لیے کچھ نہیں بنایا جاتا۔ (initiatives empty state; English source: No initiatives published yet / Each initiative will be described here once its write-up is filled in. Nothing is invented to fill the space.)
+- ابھی کوئی اقدام شائع نہیں ہوا / ہر اقدام کی تفصیل یہاں آئے گی جب اس کا تحریری خاکہ مکمل ہو جائے۔ خالی جگہ بھرنے کے لیے کچھ نہیں بنایا جاتا۔ (initiatives empty state; English source: No initiatives published yet / Each initiative will be described here once its write-up is filled in. Nothing is invented to fill the space.)
 
 ## Initiative content
 
