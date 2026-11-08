@@ -624,3 +624,29 @@ intact: no inline scripts and no client side data fetching.
 
 The old `/reports` addresses permanently redirect to `/field-trips`, including
 the Urdu tree under `/ur/reports`, so an old link does not 404.
+
+## Hero film
+
+The home hero plays one film behind the copy, in both language trees. It is not
+content: it lives with the code, in `public/media/hero/`.
+
+| File | Used for | Budget |
+| --- | --- | --- |
+| `hero-1440.mp4` | screens wider than 760px | 2 MB with the poster |
+| `hero-720.mp4` | phones, and any browser that sends Save-Data | 700 KB with the poster |
+| `hero-poster.webp` | first paint, reduced motion, and a blocked or failed film | 60 KB |
+
+The master clip is 848 pixels wide, so the 1440 file is an upscale: the hero
+treats the film as texture and light under a dark green wash rather than as
+detail, which is why the bitrate can stay low. The wash is what carries the
+contrast of the heading and the lede on the brightest frame, so check that
+again whenever the film or the washes in `app/site.css` change.
+
+Rebuild all three files from a master clip with:
+
+```bash
+scripts/hero-media.sh path/to/master.mp4
+```
+
+The script strips metadata and the audio track, writes H.264 MP4 that every
+browser plays, and fails when a budget above is blown. It needs `ffmpeg`.
