@@ -47,7 +47,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
           </div>
         </div>
-        <HeroTicker locale={locale} />
+        <HeroTicker />
       </section>
 
       <section className="verify" aria-labelledby="verify-heading">

@@ -1,74 +1,46 @@
-import {
-  aboutPage,
-  common,
-  home,
-  nav,
-  site,
-  type Bilingual,
-} from "@/content/copy";
-import { getPublishedInitiatives } from "@/lib/content";
-import { dirForLocale, type Locale } from "@/lib/locale";
+import { Fragment } from "react";
 
-// Only phrases that already exist in content/copy.ts, so the strip claims
-// nothing new. Urdu pages show the phrases that have approved Urdu copy and
-// skip the ones still waiting on native review.
-const copyPhrases: Bilingual[] = [
-  site.name,
-  site.description,
-  home.hbmTitle,
-  common.give,
-  common.getHelp,
-  nav.initiatives,
-  nav.fieldTrips,
-  nav.about,
-  home.heroTitle,
-  home.paths[0].title,
-  home.paths[1].title,
-  aboutPage.title,
+// The design board's ticker: each English phrase followed by its Urdu pair,
+// in the board's recorded order. The strip is decorative and shows the same
+// pairs in both language trees, as the board does.
+const pairs = [
+  { en: "Food rations", ur: "راشن" },
+  { en: "Education", ur: "تعلیم" },
+  { en: "Community", ur: "کمیونٹی" },
+  { en: "Dignity", ur: "وقار" },
 ];
 
-export function HeroTicker({ locale }: { locale: Locale }) {
-  // Initiative titles come from content/initiatives files and are written in
-  // English for now, so they are shown as written in both language trees.
-  const initiativePhrases: Bilingual[] = getPublishedInitiatives().map(
-    (initiative) => ({ en: initiative.title, ur: null }),
-  );
+function TickerGroup({ clone }: { clone: boolean }) {
+  const prefix = clone ? "clone" : "live";
 
-  const phrases = [...copyPhrases, ...initiativePhrases]
-    .map((phrase) => (locale === "ur" ? phrase.ur : phrase.en))
-    .filter((phrase): phrase is string => Boolean(phrase));
-
-  if (phrases.length === 0) {
-    return null;
-  }
-
-  const group = (clone: boolean) => (
+  return (
     <div
       className={clone ? "ticker-group ticker-group-clone" : "ticker-group"}
       aria-hidden={clone || undefined}
     >
-      {phrases.map((phrase, index) => (
-        <span
-          className="ticker-item"
-          key={`${clone ? "clone" : "live"}-${index}`}
-          dir={dirForLocale(locale)}
-          lang={locale}
-        >
-          {phrase}
-          <span className="ticker-mark" aria-hidden="true">
-            ✦
+      {pairs.map((pair, index) => (
+        <Fragment key={`${prefix}-${index}`}>
+          <span className="ticker-item" lang="en">
+            {pair.en}
+            <span className="ticker-mark" aria-hidden="true" />
           </span>
-        </span>
+          <span className="ticker-item ticker-item-ur" lang="ur">
+            <span dir="rtl">{pair.ur}</span>
+            <span className="ticker-mark" aria-hidden="true" />
+          </span>
+        </Fragment>
       ))}
     </div>
   );
+}
 
+export function HeroTicker() {
   return (
-    <div className="hero-ticker">
+    <div className="hero-ticker" dir="ltr" aria-hidden="true">
       <div className="ticker-viewport">
         <div className="ticker-track" aria-live="off">
-          {group(false)}
-          {group(true)}
+          <TickerGroup clone={false} />
+          <TickerGroup clone />
         </div>
       </div>
     </div>
