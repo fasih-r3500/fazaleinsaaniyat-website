@@ -46,6 +46,10 @@ export const common = {
     "Opens the original photo on Facebook in a new tab",
     "اصل تصویر فیس بک پر نئی ٹیب میں کھلتی ہے",
   ),
+  postSourceLabel: b(
+    "Opens the original Instagram post in a new tab",
+    "اصل انسٹاگرام پوسٹ نئی ٹیب میں کھلتی ہے",
+  ),
 };
 
 export const footer = {
@@ -161,7 +165,7 @@ export const home = {
     "ہمارے انسٹاگرام پروفائل کی پوسٹس۔",
   ),
   socialLink: b("See more on Instagram", "انسٹاگرام پر مزید دیکھیں"),
-  socialPostLabel: b("Instagram post from", "انسٹاگرام پوسٹ از"),
+  socialLatest: b("Latest post", "تازہ ترین پوسٹ"),
   quoteEnglish: b(
     "“Deen ki taleem, har bachey ka haq.”",
     "“Deen ki taleem, har bachey ka haq.”",

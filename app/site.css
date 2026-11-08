@@ -985,67 +985,163 @@ summary {
   line-height: 1.55;
 }
 
-/* Social strip */
+/* Social wall */
+.social-strip__head {
+  align-items: flex-end;
+}
+
+.social-strip__eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.social-strip__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
 .social-mosaic {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   align-items: stretch;
 }
 
 .social-tile {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: var(--mist);
+  min-width: 0;
+  background: var(--white);
   border: 1px solid var(--rule);
 }
 
-.social-tile--wide {
+.social-tile--focal {
   grid-column: span 2;
-  aspect-ratio: auto;
+  grid-row: span 2;
 }
 
-.social-tile a {
-  position: absolute;
-  inset: 0;
-  display: block;
+/* The focal tile takes its height from the two rows beside it. Size
+   containment stops its tall poster from setting those rows itself. */
+@media (min-width: 901px) {
+  .social-tile--focal:not(:only-child) {
+    contain: size;
+  }
+}
+
+.social-tile__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   color: inherit;
   text-decoration: none;
 }
 
-.social-tile img {
+.social-tile__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.social-tile--focal .social-tile__media {
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.social-tile--focal:only-child .social-tile__media {
+  flex: none;
+  aspect-ratio: 4 / 5;
+}
+
+.social-tile__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 420ms ease;
+  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.social-tile a:hover img,
-.social-tile a:focus-visible img {
-  transform: scale(1.025);
-}
-
-.social-tile a:focus-visible {
-  outline-offset: -3px;
-}
-
-.social-tile__badge {
+.social-tile__link::after {
+  content: "";
   position: absolute;
-  inset-block-end: 10px;
+  inset: 0;
+  z-index: 2;
+  border: 2px solid transparent;
+  transition: border-color 180ms ease;
+  pointer-events: none;
+}
+
+.social-tile__link:hover::after,
+.social-tile__link:focus-visible::after {
+  border-color: var(--forest);
+}
+
+.social-tile__link:focus-visible {
+  outline-offset: -4px;
+}
+
+.social-tile__link:hover .social-tile__img,
+.social-tile__link:focus-visible .social-tile__img {
+  transform: scale(1.035);
+}
+
+.social-tile__latest {
+  position: absolute;
+  inset-block-start: 10px;
   inset-inline-start: 10px;
   z-index: 1;
-  background: rgba(11, 27, 19, 0.78);
-  color: #ffffff;
+  padding: 5px 7px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.social-tile__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  border-top: 1px solid var(--rule);
+  background: var(--white);
+  color: var(--muted);
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 6px 7px;
-  pointer-events: none;
+}
+
+.social-tile__platform {
+  color: var(--forest);
+}
+
+.social-tile__date {
+  margin-inline-start: auto;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.social-tile__arrow {
+  color: var(--forest);
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.social-tile__link:hover .social-tile__arrow,
+.social-tile__link:focus-visible .social-tile__arrow {
+  transform: translate(2px, -2px);
 }
 
 /* Committed stills, and the redacted stand-in for a photo that is not shown */
@@ -2350,8 +2446,22 @@ summary {
     gap: 12px;
   }
 
-  .social-tile--wide {
-    aspect-ratio: 8 / 5;
+  .social-tile--focal {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .social-tile--focal .social-tile__media {
+    flex: none;
+    aspect-ratio: 16 / 10;
+  }
+
+  .social-tile:not(.social-tile--focal):nth-child(even):last-child {
+    grid-column: span 2;
+  }
+
+  .social-tile:not(.social-tile--focal):nth-child(even):last-child .social-tile__media {
+    aspect-ratio: 16 / 9;
   }
 
   .field-gallery,
@@ -2601,11 +2711,21 @@ summary {
     gap: 10px;
   }
 
-  .social-tile__badge {
-    inset-block-end: 8px;
+  .social-tile__meta {
+    gap: 6px;
+    padding: 8px 9px;
+    font-size: 9.5px;
+  }
+
+  .social-tile__latest {
+    inset-block-start: 8px;
     inset-inline-start: 8px;
     font-size: 9px;
-    padding: 5px 6px;
+    padding: 4px 6px;
+  }
+
+  .social-tile__arrow {
+    font-size: 12px;
   }
 
   .field-gallery {
@@ -2761,6 +2881,29 @@ summary {
   [dir="rtl"] .quote blockquote {
     font-size: 24px;
     line-height: 1.9;
+  }
+}
+
+/* 640px: the mosaic becomes one column so each poster keeps its detail */
+@media (max-width: 640px) {
+  .social-mosaic {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .social-tile--focal {
+    grid-column: auto;
+  }
+
+  .social-tile--focal .social-tile__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .social-tile:not(.social-tile--focal):nth-child(even):last-child {
+    grid-column: auto;
+  }
+
+  .social-tile:not(.social-tile--focal):nth-child(even):last-child .social-tile__media {
+    aspect-ratio: 4 / 5;
   }
 }
 

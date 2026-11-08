@@ -22,6 +22,7 @@ function Arrow() {
 
 export function HomePage({ locale }: { locale: Locale }) {
   const initiatives = getPublishedInitiatives();
+  const socialPosts = loadSocialPosts();
   const contentLang = INITIATIVE_CONTENT_LANGUAGE;
   const contentDir = contentLang === "ur" ? "rtl" : "ltr";
 
@@ -190,14 +191,18 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <p lang={contentLang} dir={contentDir}>
                   {initiative.summary}
                 </p>
-                <InitiativePhoto title={initiative.title} locale={locale} />
+                <InitiativePhoto
+                  slug={initiative.slug}
+                  locale={locale}
+                  posts={socialPosts}
+                />
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <SocialStrip locale={locale} posts={loadSocialPosts()} />
+      <SocialStrip locale={locale} posts={socialPosts} />
 
       <section className="quote" aria-labelledby="quote-heading">
         <div className="wrap">

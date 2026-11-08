@@ -5,29 +5,23 @@ import { T } from "./BilingualText";
 
 const INSTAGRAM_PROFILE = "https://www.instagram.com/fazaleinsaaniyat/";
 
-function formatTakenAt(locale: Locale, takenAt: string): string {
+function formatPostDate(locale: Locale, takenAt: string): string {
   return new Intl.DateTimeFormat(locale === "ur" ? "ur-PK" : "en-GB", {
     day: "numeric",
-    month: "long",
+    month: "short",
     year: "numeric",
     timeZone: "UTC",
   }).format(new Date(takenAt));
 }
 
-function postLabel(locale: Locale, post: SocialPost): string {
-  const collaborator = post.collaborator
-    ? ` with @${post.collaborator}`
-    : "";
-  const newTab = plainText(locale, common.opensInNewTab);
-
-  return `${plainText(locale, home.socialPostLabel)} @${post.owner}${collaborator}, ${formatTakenAt(locale, post.takenAt)}. ${post.alt} (${newTab})`;
-}
-
 /**
- * The home social strip. It renders nothing when the manifest is missing or
- * empty, so the page never shows an empty shell. Every tile is a link to the
- * original post and shows a committed WebP poster. No video is committed or
- * played, so the strip adds no autoplay and no third-party request.
+ * The home social wall.
+ *
+ * It renders nothing when the manifest is missing or empty, so the page never
+ * shows an empty shell. Posts keep manifest order, newest first, and the first
+ * one becomes the focal tile. Every tile links to its original post and shows
+ * the committed WebP poster. Video is never downloaded or played here, so the
+ * wall adds no autoplay, no player and no third-party request.
  */
 export function SocialStrip({
   locale,
@@ -41,11 +35,17 @@ export function SocialStrip({
   return (
     <section className="block rule social-strip" aria-labelledby="social-heading">
       <div className="wrap">
-        <div className="section-head">
-          <h2 id="social-heading">
-            <T locale={locale} value={home.socialTitle} />
-          </h2>
+        <div className="section-head social-strip__head">
+          <div className="social-strip__title">
+            <span className="mono social-strip__eyebrow">
+              {plainText(locale, footer.instagram)}
+            </span>
+            <h2 id="social-heading">
+              <T locale={locale} value={home.socialTitle} />
+            </h2>
+          </div>
           <a
+            className="social-strip__link"
             href={INSTAGRAM_PROFILE}
             target="_blank"
             rel="noopener noreferrer"
@@ -61,34 +61,60 @@ export function SocialStrip({
           <T locale={locale} value={home.socialIntro} />
         </p>
         <ul className="social-mosaic">
-          {posts.map((post, index) => (
-            <li
-              key={post.url}
-              className={
-                index === 0 ? "social-tile social-tile--wide" : "social-tile"
-              }
-            >
-              <a
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={postLabel(locale, post)}
+          {posts.map((post, index) => {
+            const isFocal = index === 0;
+
+            return (
+              <li
+                key={post.url}
+                className={
+                  isFocal ? "social-tile social-tile--focal" : "social-tile"
+                }
               >
-                {/* A plain image keeps the site static and avoids an image
-                    optimiser request at runtime. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={post.posterUrl}
-                  alt={post.alt}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="social-tile__badge" aria-hidden="true">
-                  {plainText(locale, footer.instagram)}
-                </span>
-              </a>
-            </li>
-          ))}
+                <a
+                  className="social-tile__link"
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="social-tile__media">
+                    {/* A plain image keeps the site static and avoids an image
+                        optimiser request at runtime. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      className="social-tile__img"
+                      src={post.posterUrl}
+                      alt={post.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {isFocal ? (
+                      <span className="social-tile__latest">
+                        <T locale={locale} value={home.socialLatest} />
+                      </span>
+                    ) : null}
+                  </span>
+                  <span className="social-tile__meta">
+                    <span className="social-tile__platform">
+                      {plainText(locale, footer.instagram)}
+                    </span>
+                    <time
+                      className="social-tile__date"
+                      dateTime={post.takenAt}
+                    >
+                      {formatPostDate(locale, post.takenAt)}
+                    </time>
+                    <span className="social-tile__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                    <span className="visually-hidden">
+                      {plainText(locale, common.opensInNewTab)}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

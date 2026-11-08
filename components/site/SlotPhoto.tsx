@@ -1,5 +1,5 @@
 import { common, plainText } from "@/content/copy";
-import { mediaForSlot, type PhotoMedia } from "@/lib/content";
+import { mediaForSlot, type PhotoMedia, type SocialPost } from "@/lib/content";
 import type { SocialSlot } from "@/lib/content/types";
 import type { Locale } from "@/lib/locale";
 import { RedactedPhoto } from "./RedactedPhoto";
@@ -31,6 +31,31 @@ function Shot({ media, locale }: { media: PhotoMedia; locale: Locale }) {
   );
 }
 
+function PostShot({ post, locale }: { post: SocialPost; locale: Locale }) {
+  return (
+    // A committed WebP poster from the social manifest. The post is the source,
+    // so the link credits the original rather than a re-hosted copy.
+    <a
+      className="slot-photo-link"
+      href={post.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="slot-photo"
+        src={post.posterUrl}
+        alt={post.alt}
+        loading="lazy"
+        decoding="async"
+      />
+      <span className="visually-hidden">
+        {plainText(locale, common.postSourceLabel)}
+      </span>
+    </a>
+  );
+}
+
 /**
  * The honest image slot for one part of the page.
  *
@@ -51,19 +76,42 @@ export function SlotPhoto({ slot, locale }: { slot: SocialSlot; locale: Locale }
 }
 
 /**
- * Which still belongs to which initiative line, by the English title in
- * `content/copy.ts`. The other lines carry no confirmed still, so they render
- * without one rather than borrowing a picture that does not show them.
+ * Which still belongs to which initiative line, by the stable slug from
+ * `content/initiatives/`.
+ *
+ * Mosques and Water have a confirmed still from the charity's public page.
+ * Hunar Ghar has no confirmed photograph, so its own designed poster for the
+ * teacher salary reel stands in, described as a poster. The remaining lines
+ * have no still that honestly shows them, so each one holds its tile with the
+ * redacted block instead of borrowing a picture of something else.
  */
 const INITIATIVE_SLOTS: Record<string, SocialSlot> = {
-  Mosques: "mosques",
-  Water: "water",
-  "Hunar Ghar": "hunar-ghar",
+  mosques: "mosques",
+  water: "water",
 };
 
-export function InitiativePhoto({ title, locale }: { title: string; locale: Locale }) {
-  const slot = INITIATIVE_SLOTS[title];
-  if (slot === undefined) return null;
+const HUNAR_GHAR_POST = "https://www.instagram.com/fazaleinsaaniyat/reel/DfR-G3xssDQ/";
+
+export function InitiativePhoto({
+  slug,
+  locale,
+  posts,
+}: {
+  slug: string;
+  locale: Locale;
+  posts: SocialPost[];
+}) {
+  if (slug === "hunar-ghar") {
+    const post = posts.find((entry) => entry.url === HUNAR_GHAR_POST);
+    if (post !== undefined) {
+      return <PostShot post={post} locale={locale} />;
+    }
+  }
+
+  const slot = INITIATIVE_SLOTS[slug];
+  if (slot === undefined) {
+    return <RedactedPhoto locale={locale} />;
+  }
 
   return <SlotPhoto slot={slot} locale={locale} />;
 }
