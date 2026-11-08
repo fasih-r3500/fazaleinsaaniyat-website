@@ -20,7 +20,7 @@ const phraseCandidates: Bilingual[] = [
   common.give,
   common.getHelp,
   nav.work,
-  nav.reports,
+  nav.fieldTrips,
   nav.about,
   home.heroTitle,
   home.paths[0].title,
