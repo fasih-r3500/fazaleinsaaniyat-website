@@ -36,7 +36,7 @@ function TickerGroup({ clone }: { clone: boolean }) {
 
 export function HeroTicker() {
   return (
-    <div className="hero-ticker" dir="ltr">
+    <div className="hero-ticker" dir="ltr" aria-hidden="true">
       <div className="ticker-viewport">
         <div className="ticker-track" aria-live="off">
           <TickerGroup clone={false} />
