@@ -488,6 +488,78 @@ summary {
   padding-block: 96px 0;
 }
 
+/* Hero media. The poster paints from the server HTML, the film fades in over it
+   once it is really playing, and both are cover fitted to the hero box, which
+   already has an explicit height, so the film can never change the hero height
+   or move the ticker. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: var(--deep);
+  background-image: url("/media/hero/hero-poster.webp");
+  background-position: 50% 38%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.hero-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  opacity: 0;
+  transition: opacity 1200ms ease-out;
+}
+
+.hero-media.is-playing video {
+  opacity: 1;
+}
+
+/* The wash. The film is a bright daylight scene at 848 source pixels, so the
+   treatment darkens it into texture and light: the hero heading and the lede
+   keep their contrast on the brightest frame, not only on an average one. */
+.hero-media::after {
+  --hero-wash-angle: 96deg;
+  --hero-wash-field: linear-gradient(
+    180deg,
+    rgba(10, 27, 18, 0.88) 0%,
+    rgba(10, 27, 18, 0.7) 14%,
+    rgba(10, 27, 18, 0.74) 34%,
+    rgba(10, 27, 18, 0.76) 70%,
+    rgba(10, 27, 18, 0.88) 100%
+  );
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-wash-field);
+}
+
+/* Wide screens only: the copy stops well short of the end edge, so the film can
+   come back up there and read as a lit window rather than a flat field. The
+   angle follows the writing direction, so the copy side stays the dark side in
+   both language trees. */
+@media (min-width: 901px) {
+  [dir="rtl"] .hero-media::after {
+    --hero-wash-angle: 264deg;
+  }
+
+  .hero-media::after {
+    background-image:
+      var(--hero-wash-field),
+      linear-gradient(
+        var(--hero-wash-angle),
+        rgba(10, 27, 18, 0.4) 0%,
+        rgba(10, 27, 18, 0.32) 46%,
+        rgba(10, 27, 18, 0.04) 78%,
+        rgba(10, 27, 18, 0) 100%
+      );
+  }
+}
+
 .hero .wrap {
   position: relative;
   z-index: 1;
@@ -505,7 +577,7 @@ summary {
   height: auto;
   margin-top: -310px;
   color: var(--sage);
-  opacity: 0.1;
+  opacity: 0.05;
   pointer-events: none;
 }
 
@@ -2571,7 +2643,7 @@ summary {
     inset-inline-end: -120px;
     width: 300px;
     margin-top: -150px;
-    opacity: 0.08;
+    opacity: 0.04;
   }
 
   .actions {

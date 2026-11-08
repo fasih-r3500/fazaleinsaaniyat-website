@@ -7,6 +7,7 @@ import { pathForLocale, type Locale } from "@/lib/locale";
 import { Mark } from "./Mark";
 import { T } from "./BilingualText";
 import { HeroTicker } from "./HeroTicker";
+import { HeroVideo } from "./HeroVideo";
 import { SiteMap } from "./SiteMap";
 import { MadrasahSummaryTable } from "./MadrasahTables";
 import { SocialStrip } from "./SocialStrip";
@@ -29,6 +30,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
       <section className="hero">
+        <HeroVideo />
         <Mark className="hero-watermark" />
         <div className="wrap">
           <div className="hero-copy">
