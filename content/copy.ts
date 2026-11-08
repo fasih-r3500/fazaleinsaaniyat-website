@@ -43,6 +43,7 @@ export const common = {
   toBeConfirmed: b("to be confirmed", "تصدیق باقی ہے"),
   toBePublished: b("to be published", "شائع ہونا باقی"),
   pending: b("pending", "زیرِ التوا"),
+  opensInNewTab: b("opens in a new tab", "نئی ونڈو میں کھلتا ہے"),
 };
 
 export const footer = {
@@ -62,6 +63,9 @@ export const footer = {
   safeguarding: b("Safeguarding", "تحفظ"),
   complaints: b("Complaints", "شکایات"),
   zakat: b("Zakat and Sadaqah", null),
+  followHeading: b("Follow", "ہمیں فالو کریں"),
+  instagram: b("Instagram", "Instagram"),
+  facebook: b("Facebook", "Facebook"),
   lastUpdated: b("Last updated", "آخری تازہ کاری"),
   lastUpdatedDate: b("7 November 2026", "7 نومبر 2026"),
   copyright: b("© 2026 Fazal-e-Insaaniyat Charity Works", "© 2026 فضلِ انسانیت چیریٹی ورکس"),
@@ -176,6 +180,13 @@ export const home = {
       body: b("Work with other charities, including Quran Mehal from Lodhra.", null),
     },
   ],
+  socialTitle: b("Latest from our social media", "ہمارے سوشل میڈیا سے تازہ ترین"),
+  socialIntro: b(
+    "Posts from our Instagram profile. Each tile opens the original post in a new tab.",
+    "ہمارے انسٹاگرام پروفائل کی پوسٹس۔ ہر ٹائل اصل پوسٹ کو نئی ونڈو میں کھولتی ہے۔",
+  ),
+  socialLink: b("See more on Instagram", "انسٹاگرام پر مزید دیکھیں"),
+  socialPostLabel: b("Instagram post from", "انسٹاگرام پوسٹ"),
   quoteEnglish: b("“Deen ki taleem, har bachey ka haq.”", null),
   quoteUrdu: "دین کی تعلیم، ہر بچے کا حق",
   quoteCite: b("Our education principle", null),

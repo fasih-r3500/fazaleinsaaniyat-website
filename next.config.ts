@@ -42,7 +42,11 @@ const nextConfig: NextConfig = {
   // own. Ship the source files with the server output so a server render can
   // read them on the host as well as at build time.
   outputFileTracingIncludes: {
-    "/*": ["./content/field-trips/**/*.md", "./content/facts/**/*.json"],
+    "/*": [
+      "./content/field-trips/**/*.md",
+      "./content/facts/**/*.json",
+      "./content/social/**/*.json",
+    ],
   },
 };
 

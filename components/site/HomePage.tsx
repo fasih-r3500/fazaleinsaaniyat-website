@@ -1,5 +1,6 @@
 import { home, common, madrasahsPage } from "@/content/copy";
 import { plainText } from "@/content/copy";
+import { loadSocialPosts } from "@/lib/content";
 import { madrasahs } from "@/lib/madrasahs";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { Mark } from "./Mark";
@@ -7,6 +8,7 @@ import { T } from "./BilingualText";
 import { HeroTicker } from "./HeroTicker";
 import { SiteMap } from "./SiteMap";
 import { MadrasahSummaryTable } from "./MadrasahTables";
+import { SocialStrip } from "./SocialStrip";
 
 function Arrow() {
   return (
@@ -190,6 +192,8 @@ export function HomePage({ locale }: { locale: Locale }) {
           </ul>
         </div>
       </section>
+
+      <SocialStrip locale={locale} posts={loadSocialPosts()} />
 
       <section className="quote" aria-labelledby="quote-heading">
         <div className="wrap">
