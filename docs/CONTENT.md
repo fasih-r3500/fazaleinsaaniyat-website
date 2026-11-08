@@ -110,7 +110,7 @@ Optional fields are optional on purpose. Leave one out when the detail is not
 known: the page then shows nothing for it, which is honest. Do not write `0`,
 `TBC` or a guess to fill the space.
 
-Text with a colon or a hash in it must be quoted, as in the reports section.
+Text with a colon or a hash in it must be quoted, as in the field trip section.
 
 ### What the page shows
 
@@ -122,6 +122,11 @@ Text with a colon or a hash in it must be quoted, as in the reports section.
 | `locations`, `startDate`, `endDate`, `householdsServed`, `costPkr`, `costCovers` | A details list. `costPkr` is shown as money, for example `PKR 45,000`. |
 | `peopleServed`, `partners` | Two panels beside the details list. |
 | `photos` | A photo section, one photo per entry, with the alt text as the description. |
+
+`startDate` and `endDate` are shown in the page's own language. `2024-03` reads as
+`March 2024` on the English page and `مارچ 2024` on the Urdu page; `2024-03-14` reads
+as `14 March 2024` and `14 مارچ 2024`. The stored value is never changed, only the
+display.
 
 The index lists each initiative as a card with its summary, status, category and
 locations. Initiatives are sorted with active work first, then paused, then

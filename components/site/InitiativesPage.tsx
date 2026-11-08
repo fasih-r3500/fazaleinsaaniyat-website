@@ -43,8 +43,8 @@ export function InitiativesPage({ locale }: { locale: Locale }) {
           </p>
 
           {initiatives.length === 0 ? (
-            <div className="report-empty">
-              <p className="report-empty-title">
+            <div className="empty-state">
+              <p className="empty-state-title">
                 <T locale={locale} value={initiativesEmptyState.title} />
               </p>
               <p>

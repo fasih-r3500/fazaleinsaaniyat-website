@@ -352,6 +352,7 @@ These strings were written in Urdu for the stills and the redacted block, and st
 - تفصیلات (initiative details heading; English source: Details)
 - مقام / مقامات (initiative location labels; English source: Location / Locations)
 - آغاز / اختتام (initiative date labels; English source: Started / Ended)
+- جنوری، فروری، مارچ، اپریل، مئی، جون، جولائی، اگست، ستمبر، اکتوبر، نومبر، دسمبر (initiative date month names; English source: January, February, March, April, May, June, July, August, September, October, November, December)
 - خاندان مستفید (initiative household count label; English source: Households served)
 - لاگت (initiative cost label; English source: Cost)
 - لاگت کس چیز پر آئی (initiative label for what the cost covered; English source: What the cost covers)

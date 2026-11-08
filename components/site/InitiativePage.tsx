@@ -1,7 +1,7 @@
 import { common, initiativesPage, type Bilingual } from "@/content/copy";
 import { INITIATIVE_CONTENT_LANGUAGE, type Initiative } from "@/lib/content";
-import { pathForLocale, type Locale } from "@/lib/locale";
-import { formatMoney } from "@/lib/format";
+import { pathForLocale, dirForLocale, type Locale } from "@/lib/locale";
+import { formatMoney, formatMonthOrDate } from "@/lib/format";
 import { Markdown } from "./Markdown";
 import { StatusChip } from "./InitiativeStatus";
 import { T } from "./BilingualText";
@@ -25,6 +25,7 @@ type Fact = {
   label: Bilingual;
   value: string;
   numeric: boolean;
+  pageLang?: boolean;
 };
 
 export function InitiativePage({
@@ -47,19 +48,23 @@ export function InitiativePage({
     });
   }
 
-  if (initiative.startDate !== null) {
+  const startDate = initiative.startDate === null ? null : formatMonthOrDate(initiative.startDate, locale);
+  if (startDate !== null) {
     facts.push({
       label: initiativesPage.started,
-      value: initiative.startDate,
+      value: startDate,
       numeric: true,
+      pageLang: true,
     });
   }
 
-  if (initiative.endDate !== null) {
+  const endDate = initiative.endDate === null ? null : formatMonthOrDate(initiative.endDate, locale);
+  if (endDate !== null) {
     facts.push({
       label: initiativesPage.ended,
-      value: initiative.endDate,
+      value: endDate,
       numeric: true,
+      pageLang: true,
     });
   }
 
@@ -175,8 +180,8 @@ export function InitiativePage({
                       </span>
                       <span
                         className={fact.numeric ? "num" : undefined}
-                        lang={contentLang}
-                        dir={contentDir}
+                        lang={fact.pageLang ? locale : contentLang}
+                        dir={fact.pageLang ? dirForLocale(locale) : contentDir}
                       >
                         {fact.value}
                       </span>

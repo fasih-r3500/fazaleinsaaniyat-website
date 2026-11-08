@@ -50,9 +50,9 @@ Check the code with ESLint:
 npm run lint
 ```
 
-## Adding a report, an initiative or a figure
+## Adding a field trip, an initiative or a figure
 
-Field reports, initiatives, ledger entries and published figures are plain files in `content/`. Adding one means adding a file, not editing page code. See [docs/CONTENT.md](docs/CONTENT.md) for the fields, the validation rules and the empty state behaviour. An initiative is a Markdown form: copy `content/initiatives/_template.md`, fill in what is known and leave the rest out.
+Field trips, initiatives, ledger entries and published figures are plain files in `content/`. Adding one means adding a file, not editing page code. See [docs/CONTENT.md](docs/CONTENT.md) for the fields, the validation rules and the empty state behaviour. An initiative is a Markdown form: copy `content/initiatives/_template.md`, fill in what is known and leave the rest out.
 
 ## Project structure
 
