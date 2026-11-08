@@ -344,7 +344,7 @@ and gets back either a photograph or a redacted block, never a guess.
 | `id` | yes | Lowercase name for the still, for example `mosque-wall`. |
 | `slot` | yes | Where the still may appear: `mosques`, `water`, `hunar-ghar` or `field`. |
 | `photoId` | yes | The numeric Facebook photo id it was downloaded from. |
-| `sourceUrl` | yes | The full `https://www.facebook.com/` permalink of that photo. |
+| `sourceUrl` | yes | The full `https://www.facebook.com/` permalink of that photo. Every confirmed still links to it, so a tile credits its original post. |
 | `sourceWidth`, `sourceHeight` | yes | The pixels of the file as downloaded. |
 | `sourceBytes` | yes | The size of the file as downloaded. |
 | `src` | yes, unless the still is unconfirmed | Public path of the WebP derivative under `/media/social/`. |
@@ -361,6 +361,8 @@ Rules that the loader enforces:
 - `provenance: "unconfirmed"` forces `src` to be null and requires a `note`. An
   unconfirmed still renders as a redacted block, in the way a spoiler is hidden,
   with one neutral line of text and no invented subject.
+- A confirmed still renders as a link to its `sourceUrl`, so the photo credits
+  its original post.
 - Delete an entry rather than point it at a placeholder image.
 
 Downloaded renditions are only as good as the page offers. The page exposes no

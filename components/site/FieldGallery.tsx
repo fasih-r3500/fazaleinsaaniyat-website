@@ -8,6 +8,7 @@ import { T } from "./BilingualText";
  *
  * No captions: each picture carries alt text that describes what is visible and
  * nothing more, and the section says in one line where the files came from.
+ * Each still links to its original post, so a tile credits its source.
  */
 export function FieldGallery({
   locale,

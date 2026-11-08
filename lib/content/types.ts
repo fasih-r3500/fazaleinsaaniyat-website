@@ -177,7 +177,7 @@ export type SocialImage = {
   slot: SocialSlot;
   /** Facebook photo id the still was downloaded from. */
   photoId: string;
-  /** Permalink of the photo on Facebook, for provenance. */
+  /** Permalink of the photo on Facebook. Each still links to it. */
   sourceUrl: string;
   sourceWidth: number;
   sourceHeight: number;
