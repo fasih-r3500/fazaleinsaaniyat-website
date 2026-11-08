@@ -80,7 +80,7 @@ This is a small project maintained by one volunteer in his own time, so response
 ## Status and roadmap
 
 - Every page is built in English and Urdu: home, Madrasahs, Initiatives, About, field trips, transparency, give, get help, contact and the five policy pages.
-- The privacy policy and the terms of use are published in full, in both languages. The safeguarding, complaints and zakat pages state the practice the charity follows today.
+- All five policy pages are published in full, in both languages, and each opens with a contents list that links to its sections.
 - Where the content layer is empty, the page shows an honest empty state instead of a table or a total: no field trip is invented, and the ledger and figure stores render their empty state.
 - A fact the charity does not hold is left off the page or stated in ordinary body text, never marked with a chip or a warning colour. No impact numbers, years or beneficiary counts are invented. The phone number and the email address are published on the contact page; the postal address and the three social handles are published on both the contact page and in the footer.
 - Every page is written in both languages: the Urdu tree carries its own Urdu copy, not a machine translation of the English wording.

@@ -643,13 +643,10 @@ export const contactPage = {
 export const policiesIndex = {
   title: footer.policies,
   lede: b(
-    "The rules we hold ourselves to, in plain words. The privacy policy and the terms of use are set out in full; the other pages say what we do today.",
-    "وہ اصول جن پر ہم خود کو پرکھتے ہیں، سادہ الفاظ میں۔ رازداری کی پالیسی اور استعمال کی شرائط پوری طرح لکھی ہوئی ہیں؛ باقی صفحے بتاتے ہیں کہ آج ہم کیا کرتے ہیں۔",
+    "The rules we hold ourselves to, in plain words.",
+    "وہ اصول جن پر ہم خود کو پرکھتے ہیں، سادہ الفاظ میں۔",
   ),
-  intro: b(
-    "Each page says what it covers and what we do now.",
-    "ہر صفحہ بتاتا ہے کہ وہ کس چیز کا احاطہ کرتا ہے اور اب ہم کیا کرتے ہیں۔",
-  ),
+  listLabel: b("Every policy", "تمام پالیسیاں"),
 };
 
 export type PolicySlug =
@@ -659,15 +656,21 @@ export type PolicySlug =
   | "complaints"
   | "zakat-sadaqah";
 
+/** The order policies are listed in, on the index and in the about page. */
+export const policySlugs: PolicySlug[] = [
+  "privacy",
+  "terms",
+  "safeguarding",
+  "complaints",
+  "zakat-sadaqah",
+];
+
 export const policyPages: Record<
   PolicySlug,
   {
     title: Bilingual;
     lede: Bilingual;
-    covers: Bilingual[];
-    now: Bilingual[];
     help: Bilingual;
-    status: Bilingual;
   }
 > = {
   privacy: {
@@ -676,43 +679,10 @@ export const policyPages: Record<
       "What this website does with your information, in plain words. It is shorter than you might expect: the site asks you for nothing.",
       "یہ ویب سائٹ آپ کی معلومات کے ساتھ کیا کرتی ہے، سادہ الفاظ میں۔ توقع سے کم: یہ ویب سائٹ آپ سے کچھ نہیں مانگتی۔",
     ),
-    covers: [
-      b(
-        "What we hold about people who ask for help, donors and volunteers.",
-        "مدد مانگنے والوں، عطیہ دہندگان اور رضاکاروں کے بارے میں ہمارے پاس کیا محفوظ ہوتا ہے۔",
-      ),
-      b(
-        "How long we keep it, and how it is removed.",
-        "ہم اُسے کتنا عرصہ رکھتے ہیں، اور وہ کیسے مٹایا جاتا ہے۔",
-      ),
-      b(
-        "Who can see it, and when we would share it.",
-        "اُسے کون دیکھ سکتا ہے، اور ہم کب اُسے کہیں بھیجتے ہیں۔",
-      ),
-      b(
-        "How to ask for a copy, or ask us to delete it.",
-        "نقل کیسے مانگیں، یا اُسے مٹانے کو کیسے کہیں۔",
-      ),
-    ],
-    now: [
-      b(
-        "This website does not use analytics, advertising or third party trackers.",
-        "یہ ویب سائٹ کوئی تجزیہ، اشتہار یا کسی تیسرے فریق کا ٹریکر استعمال نہیں کرتی۔",
-      ),
-      b(
-        "We ask for as little as we can when someone asks for help.",
-        "جب کوئی مدد مانگتا ہے تو ہم جتنا کم پوچھ سکیں، اُتنا ہی پوچھتے ہیں۔",
-      ),
-      b(
-        "We do not publish anyone's details on this site.",
-        "ہم کسی کی تفصیلات اِس ویب سائٹ پر شائع نہیں کرتے۔",
-      ),
-    ],
     help: b(
-      "If you want to know what we hold about you, or you want it removed, tell us. Our contact details are listed on the contact page.",
-      "اگر آپ جاننا چاہیں کہ آپ کے بارے میں ہمارے پاس کیا ہے، یا اُسے مٹوانا چاہیں، تو ہمیں بتائیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں۔",
+      "If you want to know what we hold about you, or you want it removed, tell us.",
+      "اگر آپ جاننا چاہیں کہ آپ کے بارے میں ہمارے پاس کیا ہے، یا اُسے مٹوانا چاہیں، تو ہمیں بتائیں۔",
     ),
-    status: b("Set out in full", "پوری طرح لکھی ہوئی"),
   },
   terms: {
     title: aboutPage.policies[1],
@@ -720,39 +690,10 @@ export const policyPages: Record<
       "How this website may be used, and what we do and do not promise about it. A two minute read.",
       "یہ ویب سائٹ کیسے استعمال کی جا سکتی ہے، اور ہم اِس کے بارے میں کیا وعدہ کرتے ہیں اور کیا نہیں۔ دو منٹ کی بات۔",
     ),
-    covers: [
-      b(
-        "What this site is for, and what it does not do.",
-        "یہ ویب سائٹ کس لیے ہے، اور کیا نہیں کرتی۔",
-      ),
-      b(
-        "Giving, and why no payment is taken on the site.",
-        "عطیہ، اور ویب سائٹ پر کوئی ادائیگی کیوں نہیں لی جاتی۔",
-      ),
-      b(
-        "Our words and photographs, and links to other organisations.",
-        "ہمارے الفاظ اور تصاویر، اور دوسری تنظیموں کے لنک۔",
-      ),
-      b(
-        "How to raise a concern about the site.",
-        "ویب سائٹ کے بارے میں تشویش کیسے بتائیں۔",
-      ),
-    ],
-    now: [
-      b(
-        "The site does not process payments, and bank details are not published on it.",
-        "ویب سائٹ ادائیگی کا عمل نہیں چلاتی، اور اُس پر بینک کی تفصیلات شائع نہیں ہیں۔",
-      ),
-      b(
-        "A link to another organisation is not an endorsement.",
-        "کسی دوسری تنظیم کا لنک اُس کی حمایت کا مطلب نہیں۔",
-      ),
-    ],
     help: b(
-      "If a page is wrong or out of date, tell us through a channel on the contact page and we will look at it.",
-      "اگر کوئی صفحہ غلط یا پرانا ہو تو رابطہ صفحے کے کسی ذریعے سے ہمیں بتائیں، ہم اُسے دیکھیں گے۔",
+      "If a page is wrong or out of date, tell us and we will look at it.",
+      "اگر کوئی صفحہ غلط یا پرانا ہو تو ہمیں بتائیں، ہم اُسے دیکھیں گے۔",
     ),
-    status: b("Set out in full", "پوری طرح لکھی ہوئی"),
   },
   safeguarding: {
     title: aboutPage.policies[2],
@@ -760,36 +701,10 @@ export const policyPages: Record<
       "How we protect children at our madrasahs and adults who ask us for help, and what to do if you are worried.",
       "ہم اپنے مدرسوں کے بچوں اور مدد مانگنے والے بڑوں کی حفاظت کیسے کرتے ہیں، اور اگر آپ کو فکر ہو تو کیا کریں۔",
     ),
-    covers: [
-      b(
-        "Who the policy protects, including children at the Home-Based Madrasahs and people who ask us for help.",
-        "پالیسی کس کی حفاظت کرتی ہے، بشمول گھریلو مدرسوں کے بچوں اور مدد مانگنے والوں کے۔",
-      ),
-      b(
-        "How to raise a concern, and who receives it.",
-        "تشویش کیسے بتائی جائے، اور وہ کس تک پہنچتی ہے۔",
-      ),
-      b(
-        "How a concern is looked into, and what happens next.",
-        "تشویش کی جانچ کیسے ہوتی ہے، اور آگے کیا ہوتا ہے۔",
-      ),
-      b(
-        "How the charity checks the people who work with children.",
-        "تنظیم بچوں کے ساتھ کام کرنے والوں کی جانچ کیسے کرتی ہے۔",
-      ),
-    ],
-    now: [
-      b("A concern is taken to the trustees.", "تشویش ٹرسٹیز تک پہنچائی جاتی ہے۔"),
-      b(
-        "We do not publish the name of a person who raises a concern.",
-        "ہم تشویش بتانے والے کا نام شائع نہیں کرتے۔",
-      ),
-    ],
     help: b(
-      "If you are worried about a child or an adult at risk, tell us through a channel on the contact page. If someone is in immediate danger, contact the emergency services where you live first.",
-      "اگر آپ کو کسی بچے یا کسی خطرے میں گھرے شخص کی فکر ہو تو رابطہ صفحے کے کسی ذریعے سے ہمیں بتائیں۔ اگر کوئی فوری خطرے میں ہو تو پہلے اپنے علاقے کے ایمرجنسی نمبر پر رابطہ کریں۔",
+      "If you are worried about a child or an adult at risk, tell us through a channel on the contact page.",
+      "اگر آپ کو کسی بچے یا کسی خطرے میں گھرے شخص کی فکر ہو تو رابطہ صفحے کے کسی ذریعے سے ہمیں بتائیں۔",
     ),
-    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
   complaints: {
     title: aboutPage.policies[3],
@@ -797,37 +712,10 @@ export const policyPages: Record<
       "How to raise a complaint about our work, who reads it, and what we do with it.",
       "ہمارے کام کے بارے میں شکایت کیسے کی جائے، اُسے کون پڑھتا ہے، اور ہم اُس کا کیا کرتے ہیں۔",
     ),
-    covers: [
-      b(
-        "How to make a complaint, and what to include.",
-        "شکایت کیسے کی جائے، اور اُس میں کیا لکھا جائے۔",
-      ),
-      b(
-        "How quickly we will reply, and who replies.",
-        "ہم کتنی جلدی جواب دیں گے، اور کون جواب دے گا۔",
-      ),
-      b(
-        "What happens if you are not satisfied with the answer.",
-        "اگر آپ جواب سے مطمئن نہ ہوں تو کیا ہوگا۔",
-      ),
-      b(
-        "How complaints are recorded and reviewed.",
-        "شکایات کیسے درج اور جانچی جاتی ہیں۔",
-      ),
-    ],
-    now: [
-      b("A complaint goes to the trustees.", "شکایت ٹرسٹیز تک جاتی ہے۔"),
-      b(
-        "We will tell you what we can do, even when the answer is no.",
-        "ہم بتا دیں گے کہ ہم کیا کر سکتے ہیں، چاہے جواب نہ ہی ہو۔",
-      ),
-      b("No complaint is published on this site.", "اِس ویب سائٹ پر کوئی شکایت شائع نہیں ہوتی۔"),
-    ],
     help: b(
-      "If something has gone wrong, tell us now through a channel on the contact page.",
-      "اگر کوئی بات غلط ہو گئی ہو تو رابطہ صفحے کے کسی ذریعے سے ابھی ہمیں بتائیں۔",
+      "If something has gone wrong, tell us now.",
+      "اگر کوئی بات غلط ہو گئی ہو تو ابھی ہمیں بتائیں۔",
     ),
-    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
   "zakat-sadaqah": {
     title: aboutPage.policies[4],
@@ -835,42 +723,15 @@ export const policyPages: Record<
       "How zakat and sadaqah are received and recorded, and what we ask you to do before you give.",
       "زکوٰۃ اور صدقہ کیسے وصول اور درج ہوتے ہیں، اور عطیہ دینے سے پہلے ہم آپ سے کیا کہتے ہیں۔",
     ),
-    covers: [
-      b(
-        "How zakat is received, recorded and kept apart from other money.",
-        "زکوٰۃ کیسے وصول، درج اور دوسری رقم سے الگ رکھی جاتی ہے۔",
-      ),
-      b(
-        "Who can receive zakat, and how that is decided.",
-        "زکوٰۃ کون لے سکتا ہے، اور یہ فیصلہ کیسے ہوتا ہے۔",
-      ),
-      b("How sadaqah is used.", "صدقہ کہاں استعمال ہوتا ہے۔"),
-      b(
-        "What receipt or record a giver receives.",
-        "دینے والے کو کون سی رسید یا ریکارڈ ملتا ہے۔",
-      ),
-    ],
-    now: [
-      b(
-        "A gift can be marked for zakat, for sadaqah, or for wherever the need is greatest.",
-        "عطیہ زکوٰۃ کے لیے، صدقے کے لیے، یا وہاں کے لیے مختص کیا جا سکتا ہے جہاں سب سے زیادہ ضرورت ہو۔",
-      ),
-      b(
-        "The ledger on the transparency page records what was received and spent.",
-        "شفافیت کے صفحے کا کھاتہ درج کرتا ہے کہ کیا وصول ہوا اور کیا خرچ ہوا۔",
-      ),
-    ],
     help: b(
-      "Please ask us before you give zakat. Our contact details are listed on the contact page.",
-      "زکوٰۃ دینے سے پہلے ہم سے پوچھیں۔ ہماری رابطے کی تفصیلات رابطہ صفحے پر ہیں۔",
+      "If you are not sure whether to give zakat or sadaqah, ask us first.",
+      "اگر آپ کو تردد ہو کہ زکوٰۃ دیں یا صدقہ، تو پہلے ہم سے پوچھیں۔",
     ),
-    status: b("Our practice today", "آج ہمارا طریقۂ کار"),
   },
 };
 
 export const policyPage = {
-  coversTitle: b("What this page covers", "یہ صفحہ کس چیز کا احاطہ کرتا ہے"),
-  nowTitle: b("What we do now", "اب ہم کیا کرتے ہیں"),
+  contentsTitle: b("On this page", "اِس صفحے پر"),
   meanwhileTitle: b("Where to go next", "آگے کہاں جائیں"),
 };
 

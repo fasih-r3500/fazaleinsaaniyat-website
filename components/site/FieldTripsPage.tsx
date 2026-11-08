@@ -125,7 +125,7 @@ export function FieldTripsPage({ locale }: { locale: Locale }) {
               <h3>
                 <T locale={locale} value={fieldTripsPage.holdsTitle} />
               </h3>
-              <ul className="check-list">
+              <ul className="fact-list">
                 {fieldTripsPage.holdsItems.map((item) => (
                   <li key={item.en}>
                     <T locale={locale} value={item} />
