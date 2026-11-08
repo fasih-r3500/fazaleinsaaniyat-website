@@ -155,3 +155,40 @@ export type SocialPost = {
   /** Co-author named on the post, without the @ symbol, or null. */
   collaborator: string | null;
 };
+
+/**
+ * Where a still came from. `public-page` means the charity published it on its
+ * own public Facebook page and the file is committed. `unconfirmed` means a
+ * still exists on the page but its origin is not established, so the site shows
+ * a redacted placeholder instead of presenting it as a photograph.
+ */
+export type SocialProvenance = "public-page" | "unconfirmed";
+
+/** The place a still is allowed to appear. */
+export type SocialSlot = "mosques" | "water" | "hunar-ghar" | "field";
+
+/**
+ * One still from the charity's Facebook page. Entries live in
+ * `content/social/facebook.json`, and every committed file sits under
+ * `public/media/social/` as a WebP derivative.
+ */
+export type SocialImage = {
+  id: string;
+  slot: SocialSlot;
+  /** Facebook photo id the still was downloaded from. */
+  photoId: string;
+  /** Permalink of the photo on Facebook. Each still links to it. */
+  sourceUrl: string;
+  sourceWidth: number;
+  sourceHeight: number;
+  sourceBytes: number;
+  /** Public URL of the committed derivative, or null when unconfirmed. */
+  src: string | null;
+  width: number | null;
+  height: number | null;
+  bytes: number | null;
+  provenance: SocialProvenance;
+  /** Why a still is not shown, when it is not shown. */
+  note: string | null;
+  alt: LocalizedText;
+};

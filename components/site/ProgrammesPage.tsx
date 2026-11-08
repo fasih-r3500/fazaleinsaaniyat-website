@@ -2,6 +2,7 @@ import { programmesPage, common } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
+import { InitiativePhoto } from "./SlotPhoto";
 
 function Arrow() {
   return (
@@ -38,6 +39,7 @@ export function ProgrammesPage({ locale }: { locale: Locale }) {
                 <p>
                   <T locale={locale} value={item.body} />
                 </p>
+                <InitiativePhoto title={item.title.en} locale={locale} />
               </li>
             ))}
           </ul>

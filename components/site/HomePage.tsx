@@ -9,6 +9,7 @@ import { HeroTicker } from "./HeroTicker";
 import { SiteMap } from "./SiteMap";
 import { MadrasahSummaryTable } from "./MadrasahTables";
 import { SocialStrip } from "./SocialStrip";
+import { InitiativePhoto } from "./SlotPhoto";
 
 function Arrow() {
   return (
@@ -187,6 +188,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <p>
                   <T locale={locale} value={item.body} />
                 </p>
+                <InitiativePhoto title={item.title.en} locale={locale} />
               </li>
             ))}
           </ul>

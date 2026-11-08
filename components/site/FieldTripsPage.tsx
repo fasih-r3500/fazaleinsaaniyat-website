@@ -7,6 +7,7 @@ import {
 import { formatDate } from "@/lib/format";
 import { firstParagraph } from "@/lib/markdown";
 import { pathForLocale, type Locale } from "@/lib/locale";
+import { FieldGallery } from "./FieldGallery";
 import { PageHead } from "./PageHead";
 import { T } from "./BilingualText";
 
@@ -101,6 +102,13 @@ export function FieldTripsPage({ locale }: { locale: Locale }) {
           )}
         </div>
       </section>
+
+      <FieldGallery
+        locale={locale}
+        title={fieldTripsPage.fieldTitle}
+        intro={fieldTripsPage.fieldIntro}
+        sourceLabel={fieldTripsPage.fieldSource}
+      />
 
       <section className="block rule" aria-labelledby="how-we-trip-heading">
         <div className="wrap">
