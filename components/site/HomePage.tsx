@@ -193,7 +193,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <p lang={contentLang} dir={contentDir}>
                   {initiative.summary}
                 </p>
-                <InitiativePhoto title={item.title.en} locale={locale} />
+                <InitiativePhoto title={initiative.title} locale={locale} />
               </li>
             ))}
           </ul>
