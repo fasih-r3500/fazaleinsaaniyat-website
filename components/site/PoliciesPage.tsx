@@ -1,7 +1,7 @@
 import { aboutPage, policiesIndex, policyPages, type PolicySlug } from "@/content/copy";
 import { pathForLocale, type Locale } from "@/lib/locale";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 const slugs: PolicySlug[] = ["privacy", "safeguarding", "complaints", "zakat-sadaqah"];
 
@@ -28,9 +28,9 @@ export function PoliciesPage({ locale }: { locale: Locale }) {
                 <a href={pathForLocale(locale, `policies/${slug}`)}>
                   <T locale={locale} value={policyPages[slug].title} />
                 </a>
-                <PlaceholderChip>
+                <span className="policy-status">
                   <T locale={locale} value={policiesIndex.status} />
-                </PlaceholderChip>
+                </span>
               </li>
             ))}
           </ul>

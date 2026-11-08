@@ -20,7 +20,7 @@ export function PageHead({
           </a>
           <span aria-hidden="true"> / </span>
           <span>
-            <T locale={locale} value={title} compact />
+            <T locale={locale} value={title} />
           </span>
         </nav>
         <h1>

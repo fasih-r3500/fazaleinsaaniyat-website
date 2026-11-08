@@ -98,9 +98,6 @@
   --white: #ffffff;
   --rule: #cfd6cf;
   --muted: #5a675e;
-  --amber-1: #fff3d1;
-  --amber-2: #fbe9b7;
-  --amber-ink: #7a5410;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: "Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -247,47 +244,6 @@ summary {
 .num {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
-}
-
-.ph {
-  display: inline-block;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--amber-1),
-    var(--amber-1) 6px,
-    var(--amber-2) 6px,
-    var(--amber-2) 12px
-  );
-  color: var(--amber-ink);
-  border-radius: 2px;
-  padding: 0 7px;
-  font: 500 13px/1.5 var(--sans);
-  white-space: normal;
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-.ph.ph {
-  color: var(--amber-ink);
-}
-
-.ph-small {
-  font-size: 11px;
-  line-height: 1.4;
-  padding: 0 5px;
-  white-space: nowrap;
-}
-
-.ur-pending {
-  display: inline;
-}
-
-.ur-pending-source {
-  font-family: var(--sans);
-}
-
-.ur-pending-compact {
-  white-space: normal;
 }
 
 .arrow {
@@ -1272,8 +1228,8 @@ summary {
 }
 
 .status-paused {
-  background: var(--amber-1);
-  color: var(--amber-ink);
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--rule);
 }
 
 .status-completed {
@@ -1613,10 +1569,45 @@ summary {
 }
 
 .footer-social a {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
   font-family: var(--mono);
   font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.footer-handle {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #9fb2a6;
+}
+
+.site-footer li.footer-registration {
+  color: #ffffff;
+}
+
+.footer-address-row {
+  display: grid;
+  gap: 2px;
+}
+
+.footer-address-label {
+  color: #ffffff;
+}
+
+.footer-address {
+  display: block;
+  color: #ffffff;
+}
+
+[dir="rtl"] .footer-address,
+[dir="rtl"] .footer-address-label {
+  text-align: start;
 }
 
 .footer-note {
@@ -1832,9 +1823,14 @@ summary {
   line-height: 1.5;
 }
 
-/* Policies and trustees */
+/* Policies */
 .policy-list {
   margin-top: 6px;
+}
+
+.policy-status {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .policy-list li {
@@ -1848,45 +1844,6 @@ summary {
 
 .policy-list li:last-child {
   border-bottom: 1px solid var(--rule);
-}
-
-.trustees {
-  padding: 22px 24px;
-  background: var(--white);
-  border: 1px solid var(--rule);
-}
-
-.trustees h2 {
-  color: var(--forest);
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.trustees .mono {
-  margin-top: 6px;
-}
-
-.trustees ul {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.trustees li {
-  border: 1px dashed #b9c9bc;
-  padding: 14px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.trustees li .mono {
-  display: block;
-  margin-top: 6px;
-  font-size: 10.5px;
-  line-height: 1.5;
 }
 
 /* Field trips */
@@ -2133,20 +2090,9 @@ summary {
 .notice {
   max-width: 62ch;
   margin-top: 16px;
-  border-inline-start: 3px solid var(--amber-2);
-  padding: 12px 14px;
-  background: var(--cream);
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.status-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  margin-top: 10px;
+  font-size: 14.5px;
+  line-height: 1.65;
 }
 
 .fund-grid {
@@ -2258,8 +2204,7 @@ summary {
 [dir="rtl"] .paths h3,
 [dir="rtl"] .initiative-grid h3,
 [dir="rtl"] .place-group h3,
-[dir="rtl"] .sub-heading,
-[dir="rtl"] .trustees h2 {
+[dir="rtl"] .sub-heading {
   line-height: 1.7;
 }
 
@@ -2369,18 +2314,14 @@ summary {
   font-size: 16px;
 }
 
-[dir="rtl"] .ph {
-  font-family: var(--naskh);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-[dir="rtl"] .ur-pending,
-[dir="rtl"] .ur-pending * {
+[dir="rtl"] .footer-handle,
+[dir="rtl"] .footer-address,
+[dir="rtl"] .fact-latin,
+[dir="rtl"] .policy-status,
+[dir="rtl"] .channel-value {
   font-family: var(--sans);
   letter-spacing: 0;
   line-height: 1.5;
-  text-transform: none;
 }
 
 /* 1080px: the header needs the mobile menu once the header actions are added */
@@ -2772,15 +2713,6 @@ summary {
   .place-list {
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
-  }
-
-  .trustees {
-    padding: 16px;
-  }
-
-  .trustees ul {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
   }
 
   .ledger th,

@@ -154,8 +154,7 @@ or set `draft: false`, to publish it.
 ### Language
 
 Initiative files are written in English for now, and both language trees show the
-text as written. The Urdu tree shows a note that the write-up is awaiting a
-native Urdu review. When an Urdu version exists, it is a content change: add the
+text as written. When an Urdu version exists, it is a content change: add the
 Urdu file and translate the entry.
 
 ## Adding a field trip
@@ -435,8 +434,8 @@ Shape example only, every value below is a placeholder and is not published:
 | `asOf` | yes | The date the figure is true as of, written as `YYYY-MM-DD`. |
 | `fieldTripSlug` | no | A field trip that documents the figure. It must exist. |
 
-Write `"ur": null` when the Urdu wording has not had a native review. The site
-treats a null Urdu value as pending, following the existing site convention.
+Write `"ur": null` only when no Urdu wording exists yet. The Urdu tree then
+shows the English text in its place, with no marker on the page.
 
 ## Social snapshot
 

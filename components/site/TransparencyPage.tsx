@@ -1,4 +1,4 @@
-import { aboutPage, common, policiesIndex, transparencyPage } from "@/content/copy";
+import { common, policiesIndex, transparencyPage } from "@/content/copy";
 import {
   figuresEmptyState,
   getFigures,
@@ -8,8 +8,9 @@ import {
 } from "@/lib/content";
 import { formatDate, formatMoney } from "@/lib/format";
 import { pathForLocale, type Locale } from "@/lib/locale";
+import { contact } from "@/lib/contact";
 import { PageHead } from "./PageHead";
-import { PlaceholderChip, T } from "./BilingualText";
+import { T } from "./BilingualText";
 
 function Arrow() {
   return (
@@ -38,9 +39,6 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
               <p className="body-copy">
                 <T locale={locale} value={transparencyPage.registrationBody} />
               </p>
-              <p className="notice">
-                <T locale={locale} value={transparencyPage.registrationNote} />
-              </p>
             </div>
             <div>
               <ul className="facts">
@@ -49,9 +47,7 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
                     <T locale={locale} value={transparencyPage.ukCioLabel} />
                   </span>
                   <span>
-                    <PlaceholderChip>
-                      <T locale={locale} value={transparencyPage.inProgress} />
-                    </PlaceholderChip>
+                    <T locale={locale} value={transparencyPage.inProgress} />
                   </span>
                 </li>
                 <li>
@@ -59,58 +55,19 @@ export function TransparencyPage({ locale }: { locale: Locale }) {
                     <T locale={locale} value={transparencyPage.pakistanNgoLabel} />
                   </span>
                   <span>
-                    <PlaceholderChip>
-                      <T locale={locale} value={transparencyPage.inProgress} />
-                    </PlaceholderChip>
+                    <T locale={locale} value={transparencyPage.inProgress} />
                   </span>
                 </li>
                 <li>
                   <span>
                     <T locale={locale} value={transparencyPage.addressLabel} />
                   </span>
-                  <span>
-                    <PlaceholderChip>
-                      <T locale={locale} value={common.toBeConfirmed} />
-                    </PlaceholderChip>
+                  <span className="fact-latin" dir="ltr">
+                    {contact.address}
                   </span>
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="block rule" aria-labelledby="trustees-heading">
-        <div className="wrap">
-          <div className="split">
-            <div>
-              <h2 id="trustees-heading" className="section-title">
-                <T locale={locale} value={transparencyPage.trusteesTitle} />
-              </h2>
-              <p className="body-copy">
-                <T locale={locale} value={transparencyPage.trusteesBody} />
-              </p>
-            </div>
-            <ul className="facts">
-              {[1, 2, 3].map((slot) => (
-                <li key={slot}>
-                  <span>
-                    <PlaceholderChip>
-                      <span lang="en" dir="ltr">
-                        {aboutPage.trusteeName.en}
-                      </span>
-                    </PlaceholderChip>
-                  </span>
-                  <span>
-                    <PlaceholderChip>
-                      <span lang="en" dir="ltr">
-                        {aboutPage.trusteeRole.en}
-                      </span>
-                    </PlaceholderChip>
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>

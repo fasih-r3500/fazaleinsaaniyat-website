@@ -144,9 +144,6 @@ export function HomePage({ locale }: { locale: Locale }) {
                   <T locale={locale} value={home.hbmStatLabel} />
                 </span>
               </div>
-              <p className="hbm-note">
-                <T locale={locale} value={home.hbmNote} />
-              </p>
               <a className="text-link" href={pathForLocale(locale, "madrasahs")}>
                 <T locale={locale} value={home.hbmLink} /> <Arrow />
               </a>

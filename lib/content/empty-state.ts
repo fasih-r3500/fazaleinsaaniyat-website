@@ -16,8 +16,8 @@ export const initiativesEmptyState: EmptyState = {
     ur: "ابھی کوئی اقدام شائع نہیں ہوا",
   },
   body: {
-    en: "Each initiative will be described here once its write-up is filled in. Nothing is invented to fill the space.",
-    ur: "ہر اقدام کی تفصیل یہاں آئے گی جب اس کا تحریری خاکہ مکمل ہو جائے۔ خالی جگہ بھرنے کے لیے کچھ نہیں بنایا جاتا۔",
+    en: "Each initiative carries a write-up, and they are listed here as they are finished.",
+    ur: "ہر اقدام کی ایک تحریر ہے، اور وہ مکمل ہونے پر یہاں درج ہوتے ہیں۔",
   },
 };
 
@@ -31,8 +31,8 @@ export const fieldTripsEmptyState: EmptyState = {
     ur: "ابھی کوئی میدانی دورہ شائع نہیں ہوا",
   },
   body: {
-    en: "Field trips will appear here once the write-up has been checked. Nothing is published in their place.",
-    ur: "تحریر کی جانچ کے بعد میدانی دورے یہاں آئیں گے۔ ان کی جگہ کوئی اور چیز شائع نہیں کی جاتی۔",
+    en: "Field trips are listed here as they are published.",
+    ur: "میدانی دورے شائع ہوتے ہی یہاں درج ہو جاتے ہیں۔",
   },
 };
 
@@ -40,11 +40,11 @@ export const fieldTripsEmptyState: EmptyState = {
 export const ledgerEmptyState: EmptyState = {
   title: {
     en: "No ledger entries published yet",
-    ur: null,
+    ur: "ابھی کھاتے میں کوئی سطر شائع نہیں ہوئی",
   },
   body: {
-    en: "Money in, money out and project costs will be listed here once the records are verified.",
-    ur: null,
+    en: "Money in, money out and project costs are listed here as the records are checked.",
+    ur: "وصول شدہ رقم، خرچ اور منصوبے کی لاگت ریکارڈ کی جانچ کے بعد یہاں درج ہوتی ہے۔",
   },
 };
 
@@ -52,10 +52,10 @@ export const ledgerEmptyState: EmptyState = {
 export const figuresEmptyState: EmptyState = {
   title: {
     en: "No figures published yet",
-    ur: null,
+    ur: "ابھی کوئی عدد شائع نہیں ہوا",
   },
   body: {
-    en: "The figures we publish will appear here, each with the date it is true as of.",
-    ur: null,
+    en: "The figures we publish are listed here, each with the date it is true as of.",
+    ur: "ہمارے شائع کردہ اعداد یہاں درج ہیں، ہر ایک کے ساتھ وہ تاریخ جس تک وہ درست ہے۔",
   },
 };

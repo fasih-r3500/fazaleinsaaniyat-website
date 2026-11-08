@@ -105,7 +105,7 @@ export function InitiativePage({
             </a>
             <span aria-hidden="true"> / </span>
             <a href={pathForLocale(locale, "initiatives")}>
-              <T locale={locale} value={initiativesPage.title} compact />
+              <T locale={locale} value={initiativesPage.title} />
             </a>
             <span aria-hidden="true"> / </span>
             <span lang={contentLang} dir={contentDir}>

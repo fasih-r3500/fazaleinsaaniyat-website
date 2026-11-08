@@ -120,12 +120,6 @@ export function FieldTripsPage({ locale }: { locale: Locale }) {
               <p className="body-copy">
                 <T locale={locale} value={fieldTripsPage.howBody} />
               </p>
-              <p className="body-copy">
-                <T locale={locale} value={fieldTripsPage.howBody2} />
-              </p>
-              <p className="section-note">
-                <T locale={locale} value={fieldTripsPage.holdsNote} />
-              </p>
             </div>
             <div className="panel">
               <h3>
