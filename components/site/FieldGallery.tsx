@@ -1,4 +1,4 @@
-import { plainText, type Bilingual } from "@/content/copy";
+import { common, plainText, type Bilingual } from "@/content/copy";
 import { fieldPhotos, loadFacebookMedia } from "@/lib/content";
 import type { Locale } from "@/lib/locale";
 import { T } from "./BilingualText";
@@ -47,16 +47,26 @@ export function FieldGallery({
         <ul className="field-gallery">
           {photos.map((photo) => (
             <li key={photo.src}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="slot-photo"
-                src={photo.src}
-                width={photo.width}
-                height={photo.height}
-                alt={plainText(locale, photo.alt)}
-                loading="lazy"
-                decoding="async"
-              />
+              <a
+                className="slot-photo-link"
+                href={photo.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="slot-photo"
+                  src={photo.src}
+                  width={photo.width}
+                  height={photo.height}
+                  alt={plainText(locale, photo.alt)}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="visually-hidden">
+                  {plainText(locale, common.photoSourceLabel)}
+                </span>
+              </a>
             </li>
           ))}
         </ul>

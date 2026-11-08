@@ -1,4 +1,4 @@
-import { plainText } from "@/content/copy";
+import { common, plainText } from "@/content/copy";
 import { mediaForSlot, type PhotoMedia } from "@/lib/content";
 import type { SocialSlot } from "@/lib/content/types";
 import type { Locale } from "@/lib/locale";
@@ -8,16 +8,26 @@ function Shot({ media, locale }: { media: PhotoMedia; locale: Locale }) {
   return (
     // A committed WebP under public/media/social/. The manifest records the
     // source pixels, so the browser is told the real size and never upscales.
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className="slot-photo"
-      src={media.src}
-      width={media.width}
-      height={media.height}
-      alt={plainText(locale, media.alt)}
-      loading="lazy"
-      decoding="async"
-    />
+    <a
+      className="slot-photo-link"
+      href={media.sourceUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="slot-photo"
+        src={media.src}
+        width={media.width}
+        height={media.height}
+        alt={plainText(locale, media.alt)}
+        loading="lazy"
+        decoding="async"
+      />
+      <span className="visually-hidden">
+        {plainText(locale, common.photoSourceLabel)}
+      </span>
+    </a>
   );
 }
 

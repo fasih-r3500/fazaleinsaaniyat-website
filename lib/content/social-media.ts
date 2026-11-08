@@ -75,6 +75,7 @@ export type PhotoMedia = {
   width: number;
   height: number;
   alt: LocalizedText;
+  sourceUrl: string;
 };
 
 /** What a slot should render: a committed photo or a redacted block. */
@@ -410,6 +411,7 @@ export function mediaForSlot(
     width: image.width ?? 0,
     height: image.height ?? 0,
     alt: image.alt,
+    sourceUrl: image.sourceUrl,
   };
 }
 
@@ -423,5 +425,6 @@ export function fieldPhotos(projectRoot: string = process.cwd()): PhotoMedia[] {
       width: image.width ?? 0,
       height: image.height ?? 0,
       alt: image.alt,
+      sourceUrl: image.sourceUrl,
     }));
 }

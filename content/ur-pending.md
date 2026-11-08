@@ -376,4 +376,5 @@ These strings were written in Urdu for the stills and the redacted block, and st
 - میدان سے (field trips page photo-section heading; English source: From the field)
 - وہ تصاویر جو خیراتی ادارے نے اپنے فیس بک پیج پر شائع کیں۔ ہر تصویر کے ساتھ صرف وہی لکھا ہے جو اس میں نظر آتا ہے۔ (field trips page photo-section intro; English source: Photographs that the charity published on its own Facebook page. Each one is described as it looks and carries no claim beyond that.)
 - فیس بک پیج (link to the Facebook page; English source: Facebook page)
+- اصل تصویر فیس بک پر نئی ٹیب میں کھلتی ہے (visually-hidden label on each still's link to its original post; English source: Opens the original photo on Facebook in a new tab)
 - Alt text for the committed stills, held in content/social/facebook.json under "alt.ur".

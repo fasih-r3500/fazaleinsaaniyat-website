@@ -45,6 +45,10 @@ export const common = {
   pending: b("pending", "زیرِ التوا"),
   opensInNewTab: b("opens in a new tab", "نئی ونڈو میں کھلتا ہے"),
   photoNotPublished: b("Photo not published yet", "تصویر ابھی شائع نہیں ہوئی"),
+  photoSourceLabel: b(
+    "Opens the original photo on Facebook in a new tab",
+    "اصل تصویر فیس بک پر نئی ٹیب میں کھلتی ہے",
+  ),
 };
 
 export const footer = {
