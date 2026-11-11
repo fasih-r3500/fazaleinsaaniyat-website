@@ -253,8 +253,9 @@ export function SiteShell({
   return (
     <html lang={locale} dir={dir}>
       <body className={`site-body lang-${locale}`}>
-        {/* Poppins is self-hosted. Only the weights the first screen paints
-            are preloaded; the rest arrive through font-display: swap. */}
+        {/* Poppins is self-hosted. The 800 and 400 cuts are preloaded because
+            the first screen paints the display name, the headings and the body
+            copy; the 500 and 600 cuts arrive from the stylesheet and swap in. */}
         <link
           rel="preload"
           href="/fonts/site/Poppins-800.woff2"
