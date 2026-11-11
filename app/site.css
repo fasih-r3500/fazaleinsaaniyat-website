@@ -157,7 +157,8 @@ h4 {
 /* The site ships 400, 500, 600 and 800. Inline emphasis takes the subhead
    weight rather than the display one. */
 strong,
-b {
+b,
+th {
   font-weight: 600;
 }
 

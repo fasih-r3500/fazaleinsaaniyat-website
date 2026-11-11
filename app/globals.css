@@ -144,3 +144,8 @@
 body {
   font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
 }
+
+strong,
+b {
+  font-weight: 600;
+}
