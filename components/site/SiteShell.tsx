@@ -253,6 +253,23 @@ export function SiteShell({
   return (
     <html lang={locale} dir={dir}>
       <body className={`site-body lang-${locale}`}>
+        {/* Poppins is self-hosted. The 800 and 400 cuts are preloaded because
+            the first screen paints the display name, the headings and the body
+            copy; the 500 and 600 cuts arrive from the stylesheet and swap in. */}
+        <link
+          rel="preload"
+          href="/fonts/site/Poppins-800.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/site/Poppins-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <a className="skip-link" href="#main">
           <T locale={locale} value={common.skip} />
         </a>
