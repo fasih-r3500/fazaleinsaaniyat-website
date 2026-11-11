@@ -6,7 +6,7 @@ import {
   getPublishedFieldTrips,
 } from "@/lib/content";
 import { formatDate } from "@/lib/format";
-import { pageMetadata } from "@/lib/page-metadata";
+import { notFoundMetadata, pageMetadata } from "@/lib/page-metadata";
 
 export const dynamicParams = false;
 
@@ -24,7 +24,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const fieldTrip = getFieldTripBySlug(slug);
 
-  if (!fieldTrip) return {};
+  // An unpublished slug is a 404, so it needs the 404 title as well.
+  if (!fieldTrip) return notFoundMetadata("ur");
 
   return pageMetadata({
     locale: "ur",

@@ -1,6 +1,9 @@
 export type Locale = "en" | "ur";
 
-export const SITE_URL = "https://fazaleinsaaniyat.org";
+// The address the site is served at. The apex host redirects here, so every
+// absolute URL the site publishes (canonical links, robots.txt, sitemap.xml)
+// names the host that answers with a page instead of a redirect.
+export const SITE_URL = "https://www.fazaleinsaaniyat.org";
 
 export function isLocale(value: string): value is Locale {
   return value === "en" || value === "ur";

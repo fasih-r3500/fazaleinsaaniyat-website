@@ -149,7 +149,8 @@ the fields above rather than only in the prose.
 Add `draft: true` to keep an initiative out of the index and off its page while
 it is still being checked. The file is still validated, so it cannot go stale,
 and `getDraftInitiatives()` returns it for an internal preview. Remove the line,
-or set `draft: false`, to publish it.
+or set `draft: false`, to publish it. A draft is also left out of
+`/sitemap.xml`, which is built from the same published list.
 
 ### Language
 
@@ -326,7 +327,8 @@ both the fields and `stats` out. The page then shows no tiles.
 Add `draft: true` to keep a trip out of every published listing while it is
 still being checked. The file is still validated, so it cannot go stale, and
 `getDraftFieldTrips()` returns it for an internal preview. Remove the line, or
-set `draft: false`, to publish it.
+set `draft: false`, to publish it. A draft is also left out of `/sitemap.xml`,
+which is built from the same published list.
 
 ### Attaching the underlying data
 
