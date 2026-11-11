@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, publishedPagePaths } from "@/lib/routes";
-import { type Locale } from "@/lib/locale";
+import { absoluteUrl, publishedPages } from "@/lib/routes";
 
 // The sitemap is built with the site: it reads the same route list and the same
 // content stores as the pages, so it cannot list an address the site does not
@@ -10,22 +9,25 @@ export const dynamic = "force-static";
 
 const lastModified = new Date();
 
-const locales: Locale[] = ["en", "ur"];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = publishedPagePaths();
+  return publishedPages().flatMap(({ path, locales }) =>
+    locales.map((locale) => {
+      const entry: MetadataRoute.Sitemap[number] = {
+        url: absoluteUrl(locale, path),
+        lastModified,
+      };
 
-  return paths.flatMap((path) =>
-    locales.map((locale) => ({
-      url: absoluteUrl(locale, path),
-      lastModified,
-      alternates: {
-        languages: {
-          en: absoluteUrl("en", path),
-          ur: absoluteUrl("ur", path),
-          "x-default": absoluteUrl("en", path),
-        },
-      },
-    })),
+      if (locales.length > 1) {
+        entry.alternates = {
+          languages: {
+            en: absoluteUrl("en", path),
+            ur: absoluteUrl("ur", path),
+            "x-default": absoluteUrl("en", path),
+          },
+        };
+      }
+
+      return entry;
+    }),
   );
 }

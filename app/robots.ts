@@ -10,10 +10,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        // Nothing on this site is private, so nothing is disallowed. `/gkk` is
-        // a separate app on the same domain and its pages are public too, so
-        // they stay crawlable; they are left out of the sitemap because that
-        // sitemap describes this site's own routes.
+        // Nothing on this site is private, so nothing is disallowed, and the
+        // preserved `/gkk` pages stay crawlable and listed in the sitemap.
         allow: "/",
       },
     ],

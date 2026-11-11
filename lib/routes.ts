@@ -28,16 +28,31 @@ export const staticPagePaths = [
 ] as const;
 
 /**
+ * Paths the site serves in English only: the preserved Ghar Ka Khana pages,
+ * which have no `/ur` tree. A path listed here is published once, with no
+ * alternate it cannot answer for.
+ */
+export const englishOnlyPagePaths = ["gkk", "gkk/privacy"] as const;
+
+type PublishedPage = {
+  /** The path inside a language tree, without a leading slash. */
+  path: string;
+  /** Every language tree that serves this path. */
+  locales: readonly Locale[];
+};
+
+const bilingual: readonly Locale[] = ["en", "ur"];
+const englishOnly: readonly Locale[] = ["en"];
+
+/**
  * Every page the site publishes, as a path inside one language tree, without a
- * leading slash.
+ * leading slash, together with the language trees that serve it.
  *
  * Only published records contribute a path: `getPublishedInitiatives` and
  * `getPublishedFieldTrips` leave out every record marked `draft`, and a store
- * that holds no records contributes no paths instead of a broken one. The
- * preserved `/gkk` pages are a separate app on the same domain, not part of
- * this route list.
+ * that holds no records contributes no paths instead of a broken one.
  */
-export function publishedPagePaths(): string[] {
+export function publishedPages(): PublishedPage[] {
   const paths: string[] = [...staticPagePaths];
 
   for (const slug of policySlugs) {
@@ -52,7 +67,10 @@ export function publishedPagePaths(): string[] {
     paths.push(`field-trips/${fieldTrip.slug}`);
   }
 
-  return paths;
+  return [
+    ...paths.map((path) => ({ path, locales: bilingual })),
+    ...englishOnlyPagePaths.map((path) => ({ path, locales: englishOnly })),
+  ];
 }
 
 /** The absolute URL of a page in one language tree. */
