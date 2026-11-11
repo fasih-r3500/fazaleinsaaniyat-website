@@ -145,8 +145,11 @@ body {
   font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Default-bold text takes the semi-bold cut. The Poppins 600 file is declared
+   for both 600 and 700 on the GKK layout, so nothing here can reach the 800
+   display cut by accident. */
 strong,
-b {
-  /* 600, not 700: see the weight note in app/site.css. */
+b,
+th {
   font-weight: 600;
 }
