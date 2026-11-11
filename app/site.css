@@ -1,9 +1,11 @@
-/* Poppins is the face of the charity's logo, so it is the face of the site.
+/* Poppins carries the display headings, interface labels and body copy. The
+   logo is set in Garet, which the charity does not hold rights to serve on
+   the web, so Poppins is the licensed substitute.
    One file per weight: 400 for body copy, 500 for interface labels, 600 for
    subheads and 800 for the charity name and display headings. The files are
    the official OFL release, served from our own origin; no font CDN is
    contacted, and the Latin cuts cover every character the site's Latin text
-   uses. */
+   uses. The licence travels with them at /fonts/site/Poppins-OFL.txt. */
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/site/Poppins-400.woff2") format("woff2");
