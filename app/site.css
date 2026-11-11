@@ -90,6 +90,9 @@
   --white: #ffffff;
   --rule: #cfd6cf;
   --muted: #5a675e;
+  /* Role names, not synonyms: display and body hold the same stack today and
+     are kept separate on purpose, so a change to one role (a different body
+     weight, a script-specific fallback) never silently changes the other. */
   --display: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --body: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --mono: "Plex Mono", ui-monospace, Menlo, Consolas, monospace;
