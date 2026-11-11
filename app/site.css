@@ -2506,12 +2506,21 @@ summary {
   line-height: 1.65;
 }
 
-/* The Nastaliq lockup makes the desktop header one pixel taller than the
-   English one, so the hero subtracts that measured height to keep the strip on
-   the bottom edge. The phone header is the same height in both trees. */
+/* The RTL lockup uses Naskh, whose taller text block makes the RTL header
+   taller than the height the hero otherwise reserves: 78.25px against the 77px
+   default on desktop, and 70.25px against the 69px phone value while the lockup
+   text is still shown (521px to 760px). At 520px and below the lockup text is
+   hidden and both trees keep the shared phone height. The hero subtracts the
+   measured header height so the ticker stays on the bottom edge. */
 @media (min-width: 761px) {
   [dir="rtl"] .hero {
     --hero-header-height: 78.25px;
+  }
+}
+
+@media (min-width: 521px) and (max-width: 760px) {
+  [dir="rtl"] .hero {
+    --hero-header-height: 70.25px;
   }
 }
 
