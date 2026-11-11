@@ -24,8 +24,8 @@ const languageTrees: readonly { root: readonly string[]; locale: Locale }[] = [
 ];
 
 /**
- * The one kind of route left out on purpose: a dynamic route (`[slug]`) has no
- * address of its own, so its addresses come from the content model below.
+ * A dynamic route (`[slug]`) has no address of its own, so its addresses come
+ * from the content model below.
  */
 function isDynamic(segment: string): boolean {
   return segment.startsWith("[") && segment.endsWith("]");
