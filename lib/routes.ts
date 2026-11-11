@@ -31,7 +31,7 @@ function isDynamic(segment: string): boolean {
   return segment.startsWith("[") && segment.endsWith("]");
 }
 
-/** Every page file under one language tree, as its directory segments. */
+/** Every page file under one language tree, as its URL segments. */
 function pageSegmentsUnder(directory: string, segments: string[] = []): string[][] {
   const pages: string[][] = [];
   const entries = readdirSync(directory, { withFileTypes: true }).sort((a, b) =>
@@ -40,7 +40,19 @@ function pageSegmentsUnder(directory: string, segments: string[] = []): string[]
 
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      pages.push(...pageSegmentsUnder(join(directory, entry.name), [...segments, entry.name]));
+      // Private folders and parallel slots are not addresses of their own.
+      if (entry.name.startsWith("_") || entry.name.startsWith("@")) {
+        continue;
+      }
+
+      // A route group shapes the layout tree, not the URL.
+      const isGroup = entry.name.startsWith("(") && entry.name.endsWith(")");
+      pages.push(
+        ...pageSegmentsUnder(
+          join(directory, entry.name),
+          isGroup ? segments : [...segments, entry.name],
+        ),
+      );
     } else if (entry.name === "page.tsx") {
       pages.push(segments);
     }
