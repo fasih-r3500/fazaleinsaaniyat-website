@@ -147,5 +147,6 @@ body {
 
 strong,
 b {
+  /* 600, not 700: see the weight note in app/site.css. */
   font-weight: 600;
 }
