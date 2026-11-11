@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { preload } from "react-dom";
 import {
   footer,
   common,
@@ -251,22 +250,25 @@ export function SiteShell({
 }) {
   const dir = dirForLocale(locale);
 
-  // Poppins is self-hosted. Only the weights the first screen paints are
-  // preloaded; the rest arrive through font-display: swap.
-  preload("/fonts/site/Poppins-800.woff2", {
-    as: "font",
-    type: "font/woff2",
-    crossOrigin: "anonymous",
-  });
-  preload("/fonts/site/Poppins-400.woff2", {
-    as: "font",
-    type: "font/woff2",
-    crossOrigin: "anonymous",
-  });
-
   return (
     <html lang={locale} dir={dir}>
       <body className={`site-body lang-${locale}`}>
+        {/* Poppins is self-hosted. Only the weights the first screen paints
+            are preloaded; the rest arrive through font-display: swap. */}
+        <link
+          rel="preload"
+          href="/fonts/site/Poppins-800.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/site/Poppins-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <a className="skip-link" href="#main">
           <T locale={locale} value={common.skip} />
         </a>
