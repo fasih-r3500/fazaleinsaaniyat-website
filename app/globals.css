@@ -47,18 +47,18 @@
 }
 
 .title {
-  font-family: var(--font-garet);
-  font-weight: 700; /* Heavy */
+  font-family: var(--font-poppins);
+  font-weight: 800;
 }
 
 .text {
-  font-family: var(--font-garet);
-  font-weight: 500; /* Regular */
+  font-family: var(--font-poppins);
+  font-weight: 500;
 }
 
 .subtext {
-  font-family: var(--font-garet);
-  font-weight: 400; /* Book */
+  font-family: var(--font-poppins);
+  font-weight: 400;
 }
 
 :root {
@@ -137,4 +137,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* The GKK holding page and privacy policy use the same typeface as the main
+   site, loaded through next/font on the GKK layout. */
+body {
+  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
 }

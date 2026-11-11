@@ -1,47 +1,37 @@
+/* Poppins is the face of the charity's logo, so it is the face of the site.
+   One file per weight: 400 for body copy, 500 for interface labels, 600 for
+   subheads and 800 for the charity name and display headings. The files are
+   the official OFL release, served from our own origin; no font CDN is
+   contacted, and the Latin cuts cover every character the site's Latin text
+   uses. */
 @font-face {
-  font-family: "Newsreader";
-  src: url("/fonts/site/Newsreader-300.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Newsreader";
-  src: url("/fonts/site/Newsreader-400.woff2") format("woff2");
+  font-family: "Poppins";
+  src: url("/fonts/site/Poppins-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Newsreader";
-  src: url("/fonts/site/Newsreader-500.woff2") format("woff2");
+  font-family: "Poppins";
+  src: url("/fonts/site/Poppins-500.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Plex Sans";
-  src: url("/fonts/site/PlexSans-400.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Plex Sans";
-  src: url("/fonts/site/PlexSans-500.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Plex Sans";
-  src: url("/fonts/site/PlexSans-600.woff2") format("woff2");
+  font-family: "Poppins";
+  src: url("/fonts/site/Poppins-600.woff2") format("woff2");
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/site/Poppins-800.woff2") format("woff2");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -98,8 +88,8 @@
   --white: #ffffff;
   --rule: #cfd6cf;
   --muted: #5a675e;
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
-  --sans: "Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --body: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --mono: "Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --naskh: "Naskh", "Noto Naskh Arabic", serif;
   --nastaliq: "Nastaliq", "Noto Nastaliq Urdu", serif;
@@ -128,7 +118,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 17px/1.65 var(--sans);
+  font: 400 16.5px/1.65 var(--body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -154,6 +144,23 @@ h3,
 h4 {
   margin: 0;
   font-weight: 400;
+  text-wrap: balance;
+}
+
+/* The site ships 400, 500, 600 and 800. Inline emphasis takes the subhead
+   weight rather than the display one. */
+strong,
+b {
+  font-weight: 600;
+}
+
+p,
+li,
+dd,
+figcaption,
+td,
+th {
+  text-wrap: pretty;
 }
 
 p {
@@ -303,7 +310,7 @@ summary {
 .header-give {
   min-height: 44px;
   padding: 10px 16px;
-  font-size: 14.5px;
+  font-size: 14px;
 }
 
 .lockup {
@@ -324,16 +331,17 @@ summary {
 
 .lockup b {
   display: block;
-  font: 600 13.5px/1.1 var(--sans);
-  letter-spacing: 0.1em;
+  font: 800 13.5px/1.15 var(--display);
+  letter-spacing: 0;
 }
 
 .lockup i {
   display: block;
-  margin-top: 3px;
-  font: 400 10px/1.3 var(--sans);
+  margin-top: 4px;
+  font: 400 8.5px/1.35 var(--body);
   letter-spacing: 0.32em;
   font-style: normal;
+  text-transform: uppercase;
   opacity: 0.72;
 }
 
@@ -374,7 +382,7 @@ summary {
   color: inherit;
   border: 1px solid currentColor;
   border-radius: 2px;
-  font: 500 14px/1 var(--sans);
+  font: 500 14px/1 var(--body);
   cursor: pointer;
   list-style: none;
 }
@@ -444,7 +452,7 @@ summary {
   border: 1px solid var(--forest);
   border-radius: 2px;
   text-decoration: none;
-  font: 500 15.5px/1.1 var(--sans);
+  font: 500 15px/1.1 var(--body);
 }
 
 .btn-solid {
@@ -616,7 +624,8 @@ summary {
   gap: clamp(18px, 3.9vw, 56px);
   padding-inline: clamp(12px, 1.95vw, 28px);
   color: var(--deep);
-  font: 400 26px/1 var(--serif);
+  font: 600 19px/1.1 var(--display);
+  letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
@@ -648,19 +657,19 @@ summary {
 
 .hero h1 {
   max-width: 14em;
-  font-family: var(--serif);
-  font-size: clamp(58px, 7.4vw, 104px);
-  font-weight: 300;
-  line-height: 0.94;
+  font-family: var(--display);
+  font-size: clamp(38px, 5.4vw, 72px);
+  font-weight: 800;
+  line-height: 1.06;
   letter-spacing: -0.02em;
 }
 
 .hero .lede {
   max-width: 32em;
-  margin-top: 26px;
+  margin-top: 22px;
   color: #c7d8cc;
-  font-size: 20px;
-  line-height: 1.55;
+  font-size: 17.5px;
+  line-height: 1.65;
 }
 
 /* Verification strip */
@@ -686,7 +695,7 @@ summary {
 
 .verify-empty b {
   display: block;
-  font: 400 19px/1.3 var(--serif);
+  font: 500 17px/1.4 var(--body);
   color: var(--ink);
 }
 
@@ -725,11 +734,11 @@ summary {
 .section-head h2,
 .section-title {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.4vw, 44px);
-  font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -0.01em;
+  font-family: var(--display);
+  font-size: clamp(23px, 2.7vw, 34px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
 }
 
 .section-head a {
@@ -762,9 +771,10 @@ summary {
 .sub-heading {
   margin-bottom: 10px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 23px;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 /* Pathways */
@@ -789,10 +799,10 @@ summary {
 .paths h3 {
   margin-bottom: 8px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 1.12;
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .paths p {
@@ -831,9 +841,10 @@ summary {
 
 .empty-state-title {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .empty-state a {
@@ -853,7 +864,7 @@ summary {
 
 .panel h3 {
   color: var(--forest);
-  font: 500 17px/1.3 var(--sans);
+  font: 600 16.5px/1.35 var(--body);
 }
 
 .panel p {
@@ -878,11 +889,11 @@ summary {
 .hbm-heading {
   margin: 6px 0 12px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(30px, 3.6vw, 44px);
-  font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -0.01em;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
 }
 
 .hbm-lead {
@@ -903,10 +914,11 @@ summary {
 
 .hbm-stat b {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 96px;
-  font-weight: 300;
-  line-height: 0.9;
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .hbm-stat span {
@@ -984,9 +996,10 @@ summary {
   border-bottom: 1px solid var(--rule);
   color: var(--ink);
   font-size: 13.5px;
-  line-height: 1.45;
+  line-height: 1.5;
   text-align: start;
   vertical-align: top;
+  font-variant-numeric: tabular-nums;
 }
 
 .ledger thead th {
@@ -1045,10 +1058,10 @@ summary {
 .initiative-grid h3 {
   margin-bottom: 5px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.12;
+  font-family: var(--display);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .initiative-grid p {
@@ -1300,7 +1313,7 @@ summary {
 }
 
 [dir="rtl"] .photo-redacted-label {
-  font-family: var(--sans);
+  font-family: var(--body);
   font-size: 11.5px;
   line-height: 1.7;
   letter-spacing: 0;
@@ -1352,10 +1365,10 @@ summary {
 
 .initiative-list h3 {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 23px;
-  font-weight: 400;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .initiative-list p {
@@ -1380,8 +1393,8 @@ summary {
   display: inline-flex;
   align-items: center;
   padding: 2px 10px;
-  font: 500 11px/1.7 var(--sans);
-  letter-spacing: 0.07em;
+  font: 500 10px/1.7 var(--body);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -1447,11 +1460,12 @@ summary {
 .stat-tiles b {
   display: block;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(26px, 2.6vw, 38px);
-  font-weight: 300;
-  line-height: 1.05;
+  font-family: var(--display);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 800;
+  line-height: 1.1;
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
 
@@ -1478,26 +1492,28 @@ summary {
 .initiative-body h2 {
   margin: 32px 0 12px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(24px, 2.4vw, 32px);
-  font-weight: 400;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: clamp(21px, 2.1vw, 27px);
+  font-weight: 800;
+  line-height: 1.25;
 }
 
 .initiative-body h3 {
   margin: 26px 0 10px;
   color: var(--forest);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.3;
+  font-family: var(--display);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .initiative-body h4 {
   margin: 22px 0 8px;
   color: var(--forest);
+  font-family: var(--display);
   font-size: 15px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .initiative-body > :first-child {
@@ -1507,7 +1523,7 @@ summary {
 .initiative-body p,
 .initiative-body li {
   color: var(--ink);
-  font-size: 16.5px;
+  font-size: 15.5px;
   line-height: 1.7;
 }
 
@@ -1620,9 +1636,10 @@ summary {
   max-width: 22em;
   margin: 0;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.4vw, 42px);
-  line-height: 1.1;
+  font-family: var(--display);
+  font-size: clamp(23px, 2.7vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: -0.01em;
 }
 
@@ -1664,10 +1681,10 @@ summary {
 .cta h2 {
   max-width: 12em;
   color: var(--paper);
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 400;
-  line-height: 1.02;
+  font-family: var(--display);
+  font-size: clamp(25px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
 }
 
 .cta .mono {
@@ -1748,7 +1765,7 @@ summary {
 }
 
 .footer-handle {
-  font-family: var(--sans);
+  font-family: var(--body);
   font-size: 12.5px;
   letter-spacing: 0;
   text-transform: none;
@@ -1817,19 +1834,19 @@ summary {
 .page-head h1 {
   max-width: 16em;
   color: var(--paper);
-  font-family: var(--serif);
-  font-size: clamp(42px, 5vw, 64px);
-  font-weight: 300;
-  line-height: 1.02;
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
   letter-spacing: -0.02em;
 }
 
 .page-head .lede {
   max-width: 34em;
-  margin-top: 18px;
+  margin-top: 16px;
   color: #c7d8cc;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.65;
 }
 
 /* The mark on a 404, above the heading it introduces. */
@@ -1851,9 +1868,10 @@ summary {
 .statement-body p {
   max-width: 20em;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.3;
+  font-family: var(--display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: -0.005em;
 }
 
@@ -1923,10 +1941,11 @@ summary {
 .concept-stat b {
   display: block;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 96px;
-  font-weight: 300;
-  line-height: 0.9;
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .concept-stat span {
@@ -1969,10 +1988,10 @@ summary {
   border-bottom: 1px solid var(--rule);
   padding-bottom: 8px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .place-count {
@@ -2028,10 +2047,10 @@ summary {
 
 .policy-index-row h2 {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(21px, 2.2vw, 26px);
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: clamp(19px, 1.9vw, 22px);
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .policy-index-summary {
@@ -2092,10 +2111,10 @@ summary {
 
 .contents-title {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: 18.5px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .contents-list {
@@ -2203,10 +2222,10 @@ summary {
 
 .trip-card h3 {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.15;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .trip-card:hover h3,
@@ -2242,10 +2261,11 @@ summary {
 .trip-stat b {
   display: block;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: clamp(30px, 3.2vw, 44px);
-  font-weight: 300;
-  line-height: 1;
+  font-family: var(--display);
+  font-size: clamp(23px, 2.5vw, 33px);
+  font-weight: 800;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
 }
 
 .trip-stat span {
@@ -2331,10 +2351,10 @@ summary {
 .prose h2 {
   margin-top: 26px;
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .prose ul {
@@ -2352,10 +2372,10 @@ summary {
 .panel-heading,
 .panel-subheading {
   color: var(--forest);
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--display);
+  font-size: 18.5px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .data-file {
@@ -2476,11 +2496,21 @@ summary {
   font-family: var(--naskh);
   font-size: 11px;
   letter-spacing: 0;
+  text-transform: none;
 }
 
 [dir="rtl"] .hero h1 {
   font-size: clamp(34px, 8.6vw, 52px);
   line-height: 1.65;
+}
+
+/* The Nastaliq lockup makes the desktop header one pixel taller than the
+   English one, so the hero subtracts that measured height to keep the strip on
+   the bottom edge. The phone header is the same height in both trees. */
+@media (min-width: 761px) {
+  [dir="rtl"] .hero {
+    --hero-header-height: 78.25px;
+  }
 }
 
 [dir="rtl"] .hero .lede {
@@ -2550,17 +2580,17 @@ summary {
 [dir="rtl"] .initiative-body h3,
 [dir="rtl"] .initiative-body h4,
 [dir="rtl"] .page-head h1[lang="en"] {
-  font-family: var(--serif);
+  font-family: var(--display);
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
 
 [dir="rtl"] .page-head h1[lang="en"] {
-  font-weight: 300;
+  font-weight: 800;
 }
 
 [dir="rtl"] .initiative-body h3 {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 [dir="rtl"] .initiative-body h4 {
@@ -2577,7 +2607,7 @@ summary {
 }
 
 [dir="rtl"] .tag[lang="en"] {
-  font-family: var(--sans);
+  font-family: var(--body);
   font-size: 11px;
   line-height: 1.7;
   letter-spacing: 0.07em;
@@ -2588,7 +2618,7 @@ summary {
    Latin type and reads left to right inside the Urdu tree rather than
    inheriting the Urdu face. */
 [dir="rtl"] [dir="ltr"] {
-  font-family: var(--sans);
+  font-family: var(--body);
   line-height: 1.6;
   letter-spacing: 0;
   text-transform: none;
@@ -2622,7 +2652,7 @@ summary {
 [dir="rtl"] .footer-address,
 [dir="rtl"] .fact-latin,
 [dir="rtl"] .channel-value {
-  font-family: var(--sans);
+  font-family: var(--body);
   letter-spacing: 0;
   line-height: 1.5;
 }
@@ -2753,7 +2783,7 @@ summary {
   }
 
   .ticker-item {
-    font-size: 17px;
+    font-size: 14.5px;
     gap: 12px;
     padding-inline: 10px;
   }
@@ -2763,15 +2793,15 @@ summary {
   }
 
   .hero h1 {
-    font-size: clamp(37px, 10vw, 50px);
-    line-height: 1;
+    font-size: clamp(27px, 7.6vw, 34px);
+    line-height: 1.1;
     letter-spacing: -0.015em;
   }
 
   .hero .lede {
     margin-top: 16px;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .hero-watermark {
@@ -2809,8 +2839,8 @@ summary {
 
   .section-head h2,
   .section-title {
-    font-size: 27px;
-    line-height: 1.1;
+    font-size: 22px;
+    line-height: 1.16;
   }
 
   .section-head a {
@@ -2838,7 +2868,7 @@ summary {
   }
 
   .paths h3 {
-    font-size: 21px;
+    font-size: 18.5px;
     margin-bottom: 3px;
   }
 
@@ -2860,7 +2890,7 @@ summary {
   }
 
   .hbm-heading {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   .hbm-lead {
@@ -2868,7 +2898,7 @@ summary {
   }
 
   .hbm-stat b {
-    font-size: 64px;
+    font-size: 48px;
   }
 
   .hbm-stat span {
@@ -2890,7 +2920,7 @@ summary {
   }
 
   .initiative-list h3 {
-    font-size: 21px;
+    font-size: 18px;
   }
 
   .stat-tiles {
@@ -2911,7 +2941,7 @@ summary {
   }
 
   .initiative-grid h3 {
-    font-size: 18px;
+    font-size: 16.5px;
   }
 
   .social-mosaic {
@@ -2945,8 +2975,8 @@ summary {
   }
 
   .quote blockquote {
-    font-size: 27px;
-    line-height: 1.16;
+    font-size: 22px;
+    line-height: 1.35;
   }
 
   .quote-urdu {
@@ -2963,8 +2993,8 @@ summary {
   }
 
   .cta h2 {
-    font-size: 30px;
-    line-height: 1.1;
+    font-size: 24px;
+    line-height: 1.18;
   }
 
   .cta .actions {
@@ -2998,14 +3028,14 @@ summary {
   }
 
   .page-head h1 {
-    font-size: clamp(31px, 8.8vw, 42px);
-    line-height: 1.1;
+    font-size: clamp(25px, 7vw, 32px);
+    line-height: 1.12;
   }
 
   .page-head .lede {
     margin-top: 12px;
-    font-size: 15.5px;
-    line-height: 1.6;
+    font-size: 14.5px;
+    line-height: 1.65;
   }
 
   .crumbs {
@@ -3014,8 +3044,8 @@ summary {
   }
 
   .statement-body p {
-    font-size: 23px;
-    line-height: 1.4;
+    font-size: 20px;
+    line-height: 1.45;
   }
 
   .facts li {
@@ -3029,7 +3059,7 @@ summary {
   }
 
   .concept-stat b {
-    font-size: 64px;
+    font-size: 48px;
   }
 
   .fact-list {
@@ -3141,7 +3171,7 @@ summary {
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: 27px;
   }
 
   .actions {
@@ -3231,7 +3261,7 @@ summary {
 
 .policy-document h2 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 21px;
 }
 
 .policy-document section > p + p {

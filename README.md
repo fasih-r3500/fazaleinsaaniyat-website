@@ -60,12 +60,12 @@ Field trips, initiatives, ledger entries and published figures are plain files i
 - `app/(ur)/ur/` is the Urdu route tree. It mirrors the same routes under `/ur`.
 - `app/(en)/not-found.tsx` and `app/(ur)/not-found.tsx` render the 404 for their language tree, with the mark, the missing page sentence and links back into the site. The catch-all route under each locale calls `notFound()`, so an unknown address answers with a real 404 status and a readable title.
 - `app/robots.ts` and `app/sitemap.ts` generate `/robots.txt` and `/sitemap.xml` from `lib/routes.ts`. That route list is read from the route files under `app/`, so adding or deleting a static page changes the sitemap without editing it, and each entry's alternates come from the trees that actually serve it: both for the bilingual pages, English only for `/gkk`. A new dynamic section (`[slug]`) also needs its slug source added to `lib/routes.ts`. Published initiatives and field trips come from the same content stores as the pages, so an unpublished record is never advertised.
-- `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and font.
+- `app/(gkk)/` preserves the Ghar Ka Khana holding page and privacy policy with its original layout and the site typeface.
 - `components/site/` holds the public site shell, page components, map, tables and placeholder primitives.
 - `content/` holds the 20-row madrasah data, the Pakistan outline and the bilingual copy. Field trips live in `content/field-trips/`, initiatives in `content/initiatives/`, the ledger and figures in `content/facts/`, and the home mosaic snapshot in `content/social/` (built by `scripts/social-snapshot.mjs`); `docs/CONTENT.md` explains how to add or regenerate them.
 - `lib/` holds locale, metadata, request path, date and money formatting, and madrasah projection helpers.
 - `middleware.ts` sets the strict Content Security Policy with a per-request nonce, plus the other security headers. The CSP is set on both the request and the response because Next.js reads the request CSP nonce when stamping its own injected scripts. The matcher excludes `/gkk` and `/gkk/privacy`, so those routes keep their current security posture; hardening them is a separate follow-up.
-- `public/fonts/site/` holds the self-hosted Newsreader, IBM Plex Sans, IBM Plex Mono, Noto Naskh Arabic and Noto Nastaliq Urdu woff2 files.
+- `public/fonts/site/` holds the self-hosted webfonts. Poppins is the charity's logo face and carries the display headings, interface labels and body copy; IBM Plex Mono keeps the small reference labels, and the Noto Naskh Arabic and Noto Nastaliq Urdu faces render Urdu.
 
 The public site has no third-party requests, no analytics, no embeds and no font CDN. The Content Security Policy does not use `unsafe-inline`.
 

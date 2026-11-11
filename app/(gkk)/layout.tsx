@@ -4,25 +4,30 @@ import "../globals.css";
 
 export const dynamic = "force-dynamic";
 
-const garet = localFont({
+const poppins = localFont({
   src: [
     {
-      path: "../../public/fonts/Garet-Book.ttf",
+      path: "../../public/fonts/site/Poppins-400.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Garet-Heavy.ttf",
-      weight: "700",
+      path: "../../public/fonts/site/Poppins-500.woff2",
+      weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Garet-Regular.ttf",
-      weight: "500",
+      path: "../../public/fonts/site/Poppins-600.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/site/Poppins-800.woff2",
+      weight: "800",
       style: "normal",
     }
   ],
-  variable: "--font-garet",
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -39,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${garet.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
         {children}
       </body>
