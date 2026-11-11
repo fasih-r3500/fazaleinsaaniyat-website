@@ -4,8 +4,10 @@
    One file per weight: 400 for body copy, 500 for interface labels, 600 for
    subheads and 800 for the charity name and display headings. The files are
    the official OFL release, served from our own origin; no font CDN is
-   contacted, and the Latin cuts cover every character the site's Latin text
-   uses. The licence travels with them at /fonts/site/Poppins-OFL.txt. */
+   contacted, and the Latin cuts carry the Latin letters, digits and
+   punctuation. The arrow marks (→) are outside those cuts and fall back to
+   the system stack. The licence travels with them at
+   /fonts/site/Poppins-OFL.txt. */
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/site/Poppins-400.woff2") format("woff2");
