@@ -6,7 +6,7 @@ import {
   getPublishedFieldTrips,
 } from "@/lib/content";
 import { formatDate } from "@/lib/format";
-import { pageMetadata } from "@/lib/page-metadata";
+import { notFoundMetadata, pageMetadata } from "@/lib/page-metadata";
 
 // Field trips are rendered at build time from the files in content/field-trips.
 // A slug that is not published is not a route, so it falls through to the 404
@@ -27,7 +27,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const fieldTrip = getFieldTripBySlug(slug);
 
-  if (!fieldTrip) return {};
+  // An unpublished slug is a 404, so it needs the 404 title as well.
+  if (!fieldTrip) return notFoundMetadata("en");
 
   return pageMetadata({
     locale: "en",

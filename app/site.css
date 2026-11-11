@@ -1832,6 +1832,14 @@ summary {
   line-height: 1.6;
 }
 
+/* The mark on a 404, above the heading it introduces. */
+.not-found-mark {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 22px;
+  color: var(--sage);
+}
+
 /* Statement, facts, splits */
 .statement {
   display: grid;

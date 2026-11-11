@@ -741,5 +741,5 @@ export const notFound = {
     "This address is not a page on our site. The menu lists every page that is published.",
     "یہ پتہ ہماری ویب سائٹ کا کوئی صفحہ نہیں۔ مینو میں ہر شائع شدہ صفحہ درج ہے۔",
   ),
-  backHome: b("Back to the home page", "ہوم پیج پر واپس جائیں"),
+  linksTitle: b("Where to go instead", "اِس کے بجائے کہاں جائیں"),
 };
