@@ -18,7 +18,8 @@ const poppins = localFont({
     },
     {
       path: "../../public/fonts/site/Poppins-600.woff2",
-      weight: "600",
+      // One file answers for both 600 and 700: bold is emphasis, not a headline.
+      weight: "600 700",
       style: "normal",
     },
     {

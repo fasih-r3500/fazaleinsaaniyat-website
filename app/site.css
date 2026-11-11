@@ -2,7 +2,9 @@
    logo is set in Garet, which the charity does not hold rights to serve on
    the web, so Poppins is the licensed substitute.
    One file per weight: 400 for body copy, 500 for interface labels, 600 for
-   subheads and 800 for the charity name and display headings. The files are
+   subheads and emphasis, and 800 for the charity name and display headings.
+   The 600 file answers for both 600 and 700, so browser defaults that ask for
+   bold land on the semi-bold cut instead of the display one. The files are
    the official OFL release, served from our own origin; no font CDN is
    contacted, and the Latin cuts carry the Latin letters, digits and
    punctuation. The arrow marks (→) are outside those cuts and fall back to
@@ -27,7 +29,8 @@
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/site/Poppins-600.woff2") format("woff2");
-  font-weight: 600;
+  /* One file answers for both 600 and 700: bold is emphasis, not a headline. */
+  font-weight: 600 700;
   font-style: normal;
   font-display: swap;
 }
